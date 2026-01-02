@@ -1,4 +1,4 @@
-// app/search/page.js - Search Results Page for Korean American Voices
+// app/search/page.js - Search Results Page for Vietnamese American Voices
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
@@ -10,7 +10,7 @@ import SearchBar from '../components/SearchBar';
 function SearchResultsContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
-  
+
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,25 +26,25 @@ function SearchResultsContent() {
 
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch(
-        `/api/search?q=${encodeURIComponent(searchQuery)}&site=korean&limit=50`
+        `/api/search?q=${encodeURIComponent(searchQuery)}&site=vietnamese&limit=50`
       );
-      
+
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
           setResults(data.results);
         } else {
-          setError('검색 실패');
+          setError('Tìm kiếm thất bại');
         }
       } else {
-        setError('검색 요청 실패');
+        setError('Yêu cầu tìm kiếm thất bại');
       }
     } catch (error) {
       console.error('Search error:', error);
-      setError('검색 중 오류 발생');
+      setError('Lỗi xảy ra khi tìm kiếm');
     } finally {
       setLoading(false);
     }
@@ -61,34 +61,34 @@ function SearchResultsContent() {
   const formatDate = (dateString) => {
     const [year, month, day] = dateString.split('-');
     const localDate = new Date(year, month - 1, day);
-    
-    return localDate.toLocaleDateString('ko-KR', {
+
+    return localDate.toLocaleDateString('vi-VN', {
       year: 'numeric',
-      month: 'long', 
+      month: 'long',
       day: 'numeric'
     });
   };
 
-  // Category translations for Korean site
+  // Category translations for Vietnamese site
   const translateCategory = (category) => {
-    const koreanCategories = {
-      'General': '종합',
-      'Korea-US Relations': '한미관계',
-      'China-US Relations': '국제뉴스', // Maps to International News for KAV
-      'International News': '국제뉴스',
-      'US Politics': '미국정치',
-      'Healthcare': '의료건강',
-      'Education': '교육',
-      'Immigration': '이민',
-      'Economy': '경제',
-      'Culture': '문화',
-      'Sports': '스포츠'
+    const vietnameseCategories = {
+      'General': 'Tổng hợp',
+      'Vietnam-US Relations': 'Quan hệ Việt-Mỹ',
+      'China-US Relations': 'Tin quốc tế',
+      'International News': 'Tin quốc tế',
+      'US Politics': 'Chính trị Mỹ',
+      'Healthcare': 'Y tế & Sức khỏe',
+      'Education': 'Giáo dục',
+      'Immigration': 'Di trú',
+      'Economy': 'Kinh tế',
+      'Culture': 'Văn hóa',
+      'Sports': 'Thể thao'
     };
-    return koreanCategories[category] || category;
+    return vietnameseCategories[category] || category;
   };
 
-  // Map category for KAV - China-US Relations appears as International News
-  const mapCategoryForKAV = (originalCategory) => {
+  // Map category for VAV - China-US Relations appears as International News
+  const mapCategoryForVAV = (originalCategory) => {
     const mapping = {
       'China-US Relations': 'International News',
     };
@@ -96,14 +96,14 @@ function SearchResultsContent() {
   };
 
   const getCategoryColor = (topic) => {
-    const mappedTopic = mapCategoryForKAV(topic);
+    const mappedTopic = mapCategoryForVAV(topic);
     switch(mappedTopic) {
-      case 'Korea-US Relations': return 'text-green-600 bg-green-50';
+      case 'Vietnam-US Relations': return 'text-yellow-600 bg-yellow-50';
       case 'Healthcare': return 'text-blue-600 bg-blue-50';
       case 'Education': return 'text-purple-600 bg-purple-50';
       case 'Immigration': return 'text-orange-600 bg-orange-50';
       case 'US Politics': return 'text-red-600 bg-red-50';
-      case 'Economy': return 'text-yellow-600 bg-yellow-50';
+      case 'Economy': return 'text-green-600 bg-green-50';
       case 'Culture': return 'text-pink-600 bg-pink-50';
       case 'Sports': return 'text-indigo-600 bg-indigo-50';
       case 'Technology': return 'text-cyan-600 bg-cyan-50';
@@ -119,25 +119,25 @@ function SearchResultsContent() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                <span className="text-white font-bold text-xs leading-none tracking-wide">한미</span>
-                <span className="text-white font-bold text-xs leading-none tracking-wide">목소리</span>
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                <span className="text-white font-bold text-xs leading-none tracking-wide">Tiếng</span>
+                <span className="text-white font-bold text-xs leading-none tracking-wide">Nói</span>
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  한미목소리
+                  Tiếng Nói Việt Mỹ
                 </h1>
-                <p className="text-xs text-gray-500">Korean American Voices</p>
+                <p className="text-xs text-gray-500">Vietnamese American Voices</p>
               </div>
             </Link>
-            
+
             <div className="flex items-center space-x-4">
-              <SearchBar site="korean" />
-              <Link 
+              <SearchBar site="vietnamese" />
+              <Link
                 href="/"
-                className="text-gray-700 hover:text-blue-600 text-sm font-medium"
+                className="text-gray-700 hover:text-yellow-600 text-sm font-medium"
               >
-                홈
+                Trang chủ
               </Link>
             </div>
           </div>
@@ -145,15 +145,15 @@ function SearchResultsContent() {
       </header>
 
       {/* Breaking News Ticker - Match main site */}
-      <div className="bg-blue-600 text-white py-2">
+      <div className="bg-yellow-500 text-white py-2">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center">
-            <span className="bg-white text-blue-600 px-2 py-1 text-xs font-bold rounded mr-4">
-              검색
+            <span className="bg-white text-yellow-600 px-2 py-1 text-xs font-bold rounded mr-4">
+              Tìm kiếm
             </span>
             <div className="overflow-hidden flex-1">
               <div className="text-sm">
-                {query ? `검색 결과: "${query}"` : '키워드를 입력해 뉴스를 검색하세요'}
+                {query ? `Kết quả tìm kiếm: "${query}"` : 'Nhập từ khóa để tìm kiếm tin tức'}
               </div>
             </div>
           </div>
@@ -164,16 +164,16 @@ function SearchResultsContent() {
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center py-4 space-x-8 overflow-x-auto">
-            <Link 
+            <Link
               href="/"
               className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors text-gray-700 hover:bg-gray-200"
             >
-              <span className="font-korean">전체 뉴스</span>
+              <span>Tất cả tin tức</span>
             </Link>
             {query && (
-              <div className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-blue-600 text-white">
+              <div className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-yellow-500 text-white">
                 <Search className="w-4 h-4" />
-                <span className="font-korean">검색 결과</span>
+                <span>Kết quả tìm kiếm</span>
               </div>
             )}
           </div>
@@ -185,19 +185,19 @@ function SearchResultsContent() {
         {/* Navigation Breadcrumb */}
         <div className="mb-8">
           <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <Link href="/" className="hover:text-blue-600 font-korean">홈</Link>
+            <Link href="/" className="hover:text-yellow-600">Trang chủ</Link>
             <span>›</span>
-            <span className="text-gray-900 font-korean">검색 결과</span>
+            <span className="text-gray-900">Kết quả tìm kiếm</span>
           </nav>
-          
+
           {query && !loading && (
             <div className="mb-4">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2 font-korean">
-                검색: "{query}"
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                Tìm kiếm: "{query}"
               </h1>
               {results.length > 0 && (
-                <p className="text-gray-600 font-korean">
-                  {results.length}개의 관련 기사를 찾았습니다
+                <p className="text-gray-600">
+                  Tìm thấy {results.length} bài viết liên quan
                 </p>
               )}
             </div>
@@ -207,8 +207,8 @@ function SearchResultsContent() {
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">검색 중...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500 mx-auto mb-4"></div>
+            <p className="text-gray-600">Đang tìm kiếm...</p>
           </div>
         )}
 
@@ -216,11 +216,11 @@ function SearchResultsContent() {
         {error && (
           <div className="text-center py-12">
             <p className="text-red-600 mb-4">{error}</p>
-            <button 
+            <button
               onClick={() => performSearch(query)}
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-yellow-600 hover:text-yellow-700 font-medium"
             >
-              다시 검색
+              Tìm kiếm lại
             </button>
           </div>
         )}
@@ -229,15 +229,15 @@ function SearchResultsContent() {
         {!loading && !error && query && results.length === 0 && (
           <div className="text-center py-12">
             <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 mb-2">관련 기사를 찾을 수 없습니다</p>
-            <p className="text-gray-500 text-sm">다른 검색어를 시도해 보세요</p>
+            <p className="text-gray-600 mb-2">Không tìm thấy bài viết liên quan</p>
+            <p className="text-gray-500 text-sm">Vui lòng thử từ khóa khác</p>
           </div>
         )}
 
         {/* Search Results - Vertical List */}
         {!loading && results.length > 0 && (
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-6 font-korean">검색 결과</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Kết quả tìm kiếm</h2>
             <div className="space-y-6">
               {results.map((article) => (
                 <article key={article.id} className="group cursor-pointer bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
@@ -245,13 +245,13 @@ function SearchResultsContent() {
                     <div className="flex">
                       {/* Article Image */}
                       <div className="flex-shrink-0">
-                        <img 
-                          src={article.imageUrl || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=200&h=120&fit=crop'} 
+                        <img
+                          src={article.imageUrl || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=200&h=120&fit=crop'}
                           alt={getDisplayTitle(article)}
                           className="w-32 h-24 sm:w-40 sm:h-28 object-cover"
                         />
                       </div>
-                      
+
                       {/* Article Content */}
                       <div className="flex-1 p-4">
                         <div className="flex items-start justify-between">
@@ -260,19 +260,19 @@ function SearchResultsContent() {
                             <span className={`inline-block px-2 py-1 rounded text-xs font-medium mb-2 ${getCategoryColor(article.topic)}`}>
                               {translateCategory(article.topic)}
                             </span>
-                            
+
                             {/* Title */}
-                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight font-korean mb-2">
+                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors leading-tight mb-2">
                               {getDisplayTitle(article)}
                             </h3>
-                            
+
                             {/* Summary */}
                             {getDisplaySummary(article) && (
-                              <p className="text-sm text-gray-700 leading-relaxed line-clamp-2 font-korean mb-3">
+                              <p className="text-sm text-gray-700 leading-relaxed line-clamp-2 mb-3">
                                 {getDisplaySummary(article)}
                               </p>
                             )}
-                            
+
                             {/* Metadata */}
                             <div className="flex items-center text-sm text-gray-600 space-x-4">
                               <span>{article.source}</span>
@@ -297,7 +297,7 @@ function SearchResultsContent() {
         {!query && (
           <div className="text-center py-12">
             <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600">검색어를 입력해 주세요</p>
+            <p className="text-gray-600">Vui lòng nhập từ khóa tìm kiếm</p>
           </div>
         )}
       </main>
@@ -308,35 +308,35 @@ function SearchResultsContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <span className="text-white font-bold text-xs leading-none tracking-wide">한미</span>
-                  <span className="text-white font-bold text-xs leading-none tracking-wide">목소리</span>
+                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <span className="text-white font-bold text-xs leading-none tracking-wide">Tiếng</span>
+                  <span className="text-white font-bold text-xs leading-none tracking-wide">Nói</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold font-korean">
-                    한미목소리
+                  <h3 className="text-lg font-bold">
+                    Tiếng Nói Việt Mỹ
                   </h3>
-                  <p className="text-sm text-gray-400">Korean American Voices</p>
+                  <p className="text-sm text-gray-400">Vietnamese American Voices</p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed font-korean">
-                한미 커뮤니티의 중요한 이야기를 전합니다. 우리 커뮤니티에 영향을 미치는 문제에 집중하는 독립 뉴스 매체입니다.
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Truyền tải những câu chuyện quan trọng của cộng đồng người Mỹ gốc Việt. Trang tin độc lập tập trung vào các vấn đề ảnh hưởng đến cộng đồng.
               </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold mb-4 font-korean">소개</h4>
+              <h4 className="font-semibold mb-4">Giới thiệu</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="text-gray-400 hover:text-white font-korean">우리의 사명</Link></li>
-                <li><a href="mailto:contact@hanmimogsoli.us" className="text-gray-400 hover:text-white font-korean">문의하기</a></li>
-                <li><Link href="/privacy" className="text-gray-400 hover:text-white font-korean">개인정보처리방침</Link></li>
-                <li><Link href="/terms" className="text-gray-400 hover:text-white font-korean">이용약관</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white">Sứ mệnh của chúng tôi</Link></li>
+                <li><a href="mailto:contact@vietnameseamericanvoices.com" className="text-gray-400 hover:text-white">Liên hệ</a></li>
+                <li><Link href="/privacy" className="text-gray-400 hover:text-white">Chính sách bảo mật</Link></li>
+                <li><Link href="/terms" className="text-gray-400 hover:text-white">Điều khoản sử dụng</Link></li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p className="font-korean">&copy; 2025 한미목소리. 모든 권리 보유.</p>
+            <p>&copy; 2025 Tiếng Nói Việt Mỹ. Bảo lưu mọi quyền.</p>
           </div>
         </div>
       </footer>
@@ -348,16 +348,12 @@ function SearchResultsContent() {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
         }
-        
+
         .line-clamp-3 {
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
-        }
-        
-        .font-korean {
-          font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
         }
       `}</style>
     </div>
@@ -368,8 +364,8 @@ export default function SearchResults() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">
       <div className="text-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-        <p className="text-gray-600">로딩 중...</p>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500 mx-auto mb-4"></div>
+        <p className="text-gray-600">Đang tải...</p>
       </div>
     </div>}>
       <SearchResultsContent />

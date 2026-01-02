@@ -19,24 +19,24 @@ export default function ArticleRequestForm() {
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const recaptchaRef = useRef(null);
 
-  // Korean translations
+  // Vietnamese translations
   const translations = {
-    title: "기사 번역 요청",
-    urlLabel: "기사 링크",
-    urlPlaceholder: "번역을 원하는 기사 링크를 붙여넣으세요",
-    nameLabel: "이름",
-    namePlaceholder: "귀하의 이름",
-    emailLabel: "이메일",
-    emailPlaceholder: "귀하의 이메일 주소",
-    zipLabel: "우편번호 (선택사항)",
-    zipPlaceholder: "귀하의 우편번호",
-    commentLabel: "댓글 (선택사항)",
-    commentPlaceholder: "이 기사를 번역했으면 하는 이유는 무엇인가요?",
-    submitButton: "요청 제출",
-    submittingButton: "제출 중...",
-    successMessage: "추천해 주셔서 감사합니다! 편집팀이 귀하의 요청을 검토할 것입니다.",
-    errorMessage: "제출 실패. 나중에 다시 시도해 주세요.",
-    rateLimitMessage: "오늘 너무 많은 요청을 제출하셨습니다. 내일 다시 시도해 주세요.",
+    title: "Yêu cầu dịch bài viết",
+    urlLabel: "Liên kết bài viết",
+    urlPlaceholder: "Dán liên kết bài viết bạn muốn dịch",
+    nameLabel: "Họ tên",
+    namePlaceholder: "Họ tên của bạn",
+    emailLabel: "Email",
+    emailPlaceholder: "Địa chỉ email của bạn",
+    zipLabel: "Mã bưu điện (tùy chọn)",
+    zipPlaceholder: "Mã bưu điện của bạn",
+    commentLabel: "Bình luận (tùy chọn)",
+    commentPlaceholder: "Tại sao bạn muốn bài viết này được dịch?",
+    submitButton: "Gửi yêu cầu",
+    submittingButton: "Đang gửi...",
+    successMessage: "Cảm ơn bạn đã gửi yêu cầu! Đội ngũ biên tập sẽ xem xét yêu cầu của bạn.",
+    errorMessage: "Gửi thất bại. Vui lòng thử lại sau.",
+    rateLimitMessage: "Bạn đã gửi quá nhiều yêu cầu hôm nay. Vui lòng thử lại vào ngày mai.",
     characterCount: (count) => `${count}/500`
   };
 
@@ -94,14 +94,14 @@ export default function ArticleRequestForm() {
   const validateForm = () => {
     // Check required fields
     if (!formData.articleUrl || !formData.name || !formData.email) {
-      setMessage({ type: 'error', text: '필수 항목을 모두 입력해주세요.' });
+      setMessage({ type: 'error', text: 'Vui lòng điền đầy đủ các trường bắt buộc.' });
       return false;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setMessage({ type: 'error', text: '올바른 이메일 주소를 입력해주세요.' });
+      setMessage({ type: 'error', text: 'Vui lòng nhập địa chỉ email hợp lệ.' });
       return false;
     }
 
@@ -109,13 +109,13 @@ export default function ArticleRequestForm() {
     try {
       new URL(formData.articleUrl);
     } catch {
-      setMessage({ type: 'error', text: '올바른 URL을 입력해주세요.' });
+      setMessage({ type: 'error', text: 'Vui lòng nhập URL hợp lệ.' });
       return false;
     }
 
     // Check CAPTCHA
     if (!captchaToken) {
-      setMessage({ type: 'error', text: 'reCAPTCHA를 완료해주세요.' });
+      setMessage({ type: 'error', text: 'Vui lòng hoàn thành reCAPTCHA.' });
       return false;
     }
 
@@ -144,7 +144,7 @@ export default function ArticleRequestForm() {
         },
         body: JSON.stringify({
           ...formData,
-          siteSource: 'korean',
+          siteSource: 'vietnamese',
           captchaToken: captchaToken
         })
       });
@@ -200,15 +200,15 @@ export default function ArticleRequestForm() {
         onLoad={handleRecaptchaLoad}
       />
 
-      <div className="bg-blue-50 rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4 font-korean">
+      <div className="bg-yellow-50 rounded-lg p-6">
+        <h3 className="text-lg font-semibold mb-4">
           {translations.title}
         </h3>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Article URL */}
           <div>
-            <label htmlFor="articleUrl" className="block text-sm font-medium text-gray-700 mb-1 font-korean">
+            <label htmlFor="articleUrl" className="block text-sm font-medium text-gray-700 mb-1">
               {translations.urlLabel}
             </label>
             <input
@@ -219,13 +219,13 @@ export default function ArticleRequestForm() {
               onChange={handleInputChange}
               placeholder={translations.urlPlaceholder}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-korean text-sm"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm"
             />
           </div>
 
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 font-korean">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               {translations.nameLabel}
             </label>
             <input
@@ -236,13 +236,13 @@ export default function ArticleRequestForm() {
               onChange={handleInputChange}
               placeholder={translations.namePlaceholder}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-korean text-sm"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 font-korean">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               {translations.emailLabel}
             </label>
             <input
@@ -253,13 +253,13 @@ export default function ArticleRequestForm() {
               onChange={handleInputChange}
               placeholder={translations.emailPlaceholder}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-korean text-sm"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm"
             />
           </div>
 
           {/* Zip Code (Optional) */}
           <div>
-            <label htmlFor="zip" className="block text-sm font-medium text-gray-700 mb-1 font-korean">
+            <label htmlFor="zip" className="block text-sm font-medium text-gray-700 mb-1">
               {translations.zipLabel}
             </label>
             <input
@@ -269,13 +269,13 @@ export default function ArticleRequestForm() {
               value={formData.zip}
               onChange={handleInputChange}
               placeholder={translations.zipPlaceholder}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-korean text-sm"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm"
             />
           </div>
 
           {/* Comment (Optional) */}
           <div>
-            <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-1 font-korean">
+            <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-1">
               {translations.commentLabel}
             </label>
             <textarea
@@ -285,9 +285,9 @@ export default function ArticleRequestForm() {
               onChange={handleInputChange}
               placeholder={translations.commentPlaceholder}
               rows="3"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-korean text-sm resize-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm resize-none"
             />
-            <div className="text-right text-xs text-gray-500 mt-1 font-korean">
+            <div className="text-right text-xs text-gray-500 mt-1">
               {translations.characterCount(characterCount)}
             </div>
           </div>
@@ -298,14 +298,14 @@ export default function ArticleRequestForm() {
           </div>
 
           {!recaptchaLoaded && (
-            <div className="text-center text-sm text-gray-500 font-korean">
-              reCAPTCHA 로딩 중...
+            <div className="text-center text-sm text-gray-500">
+              Đang tải reCAPTCHA...
             </div>
           )}
 
           {/* Message */}
           {message && (
-            <div className={`p-3 rounded-md text-sm font-korean ${
+            <div className={`p-3 rounded-md text-sm ${
               message.type === 'success'
                 ? 'bg-green-50 text-green-800 border border-green-200'
                 : 'bg-red-50 text-red-800 border border-red-200'
@@ -318,7 +318,7 @@ export default function ArticleRequestForm() {
           <button
             type="submit"
             disabled={isSubmitting || !recaptchaLoaded}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-korean font-medium text-sm"
+            className="w-full bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm"
           >
             {isSubmitting ? translations.submittingButton : translations.submitButton}
           </button>

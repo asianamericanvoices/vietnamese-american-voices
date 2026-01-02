@@ -64,7 +64,10 @@ export async function GET(request) {
           additional_sources,
           vietnamese_audio_url,
           vietnamese_audio_duration,
-          vietnamese_audio_generated_at
+          vietnamese_audio_generated_at,
+          vietnamese_translation,
+          vietnamese_translated_title,
+          vietnamese_social_caption
         `)
         .eq('status', 'published');
 
@@ -105,37 +108,58 @@ export async function GET(request) {
       }
 
       // Transform to frontend format
-      articles = data.map(article => ({
-        id: article.id,
-        originalTitle: article.original_title,
-        aiTitle: article.ai_title,
-        displayTitle: article.display_title,
-        aiSummary: article.ai_summary,
-        translations: parseJsonField(article.translations) || { chinese: null, korean: null, vietnamese: null },
-        translatedTitles: parseJsonField(article.translated_titles) || { chinese: null, korean: null, vietnamese: null },
-        socialCaptions: parseJsonField(article.social_caption) || { chinese: null, korean: null, vietnamese: null },
-        source: article.source,
-        author: article.author,
-        publishedDate: article.scraped_date, // Use scraped_date for authentic news chronology
-        internalPublishedDate: article.published_date, // Keep internal date for reference
-        topic: article.topic,
-        priority: article.priority,
-        relevanceScore: article.relevance_score,
-        imageUrl: article.image_url,
-        imageSource: article.image_source,
-        imageAttribution: article.image_attribution,
-        originalUrl: article.original_url,
-        isHero: article.is_hero || false,
-        isVietnameseHero: article.is_vietnamese_hero || false,
-        additionalSources: parseJsonField(article.additional_sources) || [],
-        isEventHero: article.is_event_hero || false,
-        eventHeroFor: article.event_hero_for,
-        targetedEvent: article.targeted_event,
-        audioUrl: article.vietnamese_audio_url,
-        audioDuration: article.vietnamese_audio_duration,
-        audioGeneratedAt: article.vietnamese_audio_generated_at,
-        slug: generateSlug(article.original_title, article.id)
-      }));
+      articles = data.map(article => {
+        // Get base translations from JSONB fields
+        const baseTranslations = parseJsonField(article.translations) || { chinese: null, korean: null, vietnamese: null };
+        const baseTranslatedTitles = parseJsonField(article.translated_titles) || { chinese: null, korean: null, vietnamese: null };
+        const baseSocialCaptions = parseJsonField(article.social_caption) || { chinese: null, korean: null, vietnamese: null };
+
+        // Vietnamese uses dedicated columns - override JSONB with dedicated column values if they exist
+        const translations = {
+          ...baseTranslations,
+          vietnamese: article.vietnamese_translation || baseTranslations.vietnamese
+        };
+        const translatedTitles = {
+          ...baseTranslatedTitles,
+          vietnamese: article.vietnamese_translated_title || baseTranslatedTitles.vietnamese
+        };
+        const socialCaptions = {
+          ...baseSocialCaptions,
+          vietnamese: article.vietnamese_social_caption || baseSocialCaptions.vietnamese
+        };
+
+        return {
+          id: article.id,
+          originalTitle: article.original_title,
+          aiTitle: article.ai_title,
+          displayTitle: article.display_title,
+          aiSummary: article.ai_summary,
+          translations,
+          translatedTitles,
+          socialCaptions,
+          source: article.source,
+          author: article.author,
+          publishedDate: article.scraped_date, // Use scraped_date for authentic news chronology
+          internalPublishedDate: article.published_date, // Keep internal date for reference
+          topic: article.topic,
+          priority: article.priority,
+          relevanceScore: article.relevance_score,
+          imageUrl: article.image_url,
+          imageSource: article.image_source,
+          imageAttribution: article.image_attribution,
+          originalUrl: article.original_url,
+          isHero: article.is_hero || false,
+          isVietnameseHero: article.is_vietnamese_hero || false,
+          additionalSources: parseJsonField(article.additional_sources) || [],
+          isEventHero: article.is_event_hero || false,
+          eventHeroFor: article.event_hero_for,
+          targetedEvent: article.targeted_event,
+          audioUrl: article.vietnamese_audio_url,
+          audioDuration: article.vietnamese_audio_duration,
+          audioGeneratedAt: article.vietnamese_audio_generated_at,
+          slug: generateSlug(article.original_title, article.id)
+        };
+      });
 
       console.log(`✅ Fetched ${articles.length} published articles from Supabase`);
 

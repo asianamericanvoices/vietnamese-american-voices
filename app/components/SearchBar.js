@@ -4,36 +4,22 @@ import { useState, useRef, useEffect } from 'react';
 import { Search, X, Clock } from 'lucide-react';
 import Link from 'next/link';
 
-// Category translations for Chinese site
-const chineseCategories = {
-  'General': '综合',
-  'China-US Relations': '中美关系',
-  'International News': '国际新闻',
-  'US Politics': '美国政治',
-  'Healthcare': '医疗健康',
-  'Education': '教育',
-  'Immigration': '移民',
-  'Economy': '经济',
-  'Culture': '文化',
-  'Sports': '体育'
+// Category translations for Vietnamese site
+const vietnameseCategories = {
+  'General': 'Tổng hợp',
+  'Vietnam-US Relations': 'Quan hệ Việt-Mỹ',
+  'China-US Relations': 'Tin quốc tế',
+  'International News': 'Tin quốc tế',
+  'US Politics': 'Chính trị Mỹ',
+  'Healthcare': 'Y tế & Sức khỏe',
+  'Education': 'Giáo dục',
+  'Immigration': 'Di trú',
+  'Economy': 'Kinh tế',
+  'Culture': 'Văn hóa',
+  'Sports': 'Thể thao'
 };
 
-// Category translations for Korean site  
-const koreanCategories = {
-  'General': '종합',
-  'Korea-US Relations': '한미관계',
-  'China-US Relations': '국제뉴스', // Maps to International News for KAV
-  'International News': '국제뉴스',
-  'US Politics': '미국정치',
-  'Healthcare': '의료건강',
-  'Education': '교육',
-  'Immigration': '이민',
-  'Economy': '경제',
-  'Culture': '문화',
-  'Sports': '스포츠'
-};
-
-const SearchBar = ({ className = '', site = 'korean' }) => {
+const SearchBar = ({ className = '', site = 'vietnamese' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -103,7 +89,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
       const response = await fetch(
         `/api/search?q=${encodeURIComponent(searchQuery)}&site=${site}&limit=6`
       );
-      
+
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
@@ -141,7 +127,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
       searchQuery,
       ...recentSearches.filter(s => s !== searchQuery)
     ].slice(0, 5);
-    
+
     setRecentSearches(newRecentSearches);
     localStorage.setItem(`recent-searches-${site}`, JSON.stringify(newRecentSearches));
 
@@ -164,20 +150,12 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
 
   // Function to translate category names
   const translateCategory = (category) => {
-    if (site === 'chinese') {
-      return chineseCategories[category] || category;
-    } else if (site === 'korean') {
-      return koreanCategories[category] || category;
-    }
-    return category;
+    return vietnameseCategories[category] || category;
   };
 
   const getDisplayTitle = (article) => {
-    if (site === 'korean' && article.translatedTitles?.korean) {
-      return article.translatedTitles.korean;
-    }
-    if (site === 'chinese' && article.translatedTitles?.chinese) {
-      return article.translatedTitles.chinese;
+    if (site === 'vietnamese' && article.translatedTitles?.vietnamese) {
+      return article.translatedTitles.vietnamese;
     }
     return article.displayTitle || article.aiTitle || article.originalTitle;
   };
@@ -194,7 +172,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
           results_count: resultsCount,
           clicked_result: clickedResult,
           clicked_article_id: clickedArticleId,
-          language: site === 'chinese' ? 'zh' : 'ko'
+          language: 'vi'
         })
       });
     } catch (error) {
@@ -213,7 +191,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
 
   const highlightMatch = (text, searchQuery) => {
     if (!searchQuery.trim()) return text;
-    
+
     try {
       const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
       return text.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
@@ -229,10 +207,10 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
         <button
           onClick={handleSearchClick}
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-100"
-          aria-label="Search articles"
+          aria-label="Tìm kiếm bài viết"
         >
           <Search className="w-5 h-5" />
-          <span className="hidden md:inline text-sm">검색</span>
+          <span className="hidden md:inline text-sm">Tìm kiếm</span>
         </button>
       ) : (
         /* Expanded Search */
@@ -246,7 +224,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="뉴스 기사 검색..."
+              placeholder="Tìm kiếm tin tức..."
               className="flex-1 outline-none text-sm placeholder-gray-500"
             />
             {query && (
@@ -263,20 +241,20 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
           <div className="max-h-96 overflow-y-auto">
             {loading && (
               <div className="p-4 text-center text-gray-500 text-sm">
-                <div className="animate-pulse">검색 중...</div>
+                <div className="animate-pulse">Đang tìm kiếm...</div>
               </div>
             )}
 
             {!loading && query && results.length === 0 && (
               <div className="p-4 text-center text-gray-500 text-sm">
-                관련 기사를 찾을 수 없습니다
+                Không tìm thấy bài viết liên quan
               </div>
             )}
 
             {!loading && query && results.length > 0 && (
               <>
                 <div className="px-4 py-2 text-xs text-gray-500 bg-gray-50">
-                  {results.length}개의 기사를 찾았습니다
+                  Tìm thấy {results.length} bài viết
                 </div>
                 {results.map((article) => (
                   <Link
@@ -285,17 +263,17 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
                     className="block p-4 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
                     onClick={() => handleArticleClick(article)}
                   >
-                    <h4 
+                    <h4
                       className="text-sm font-medium text-gray-900 mb-1"
-                      dangerouslySetInnerHTML={{ 
-                        __html: highlightMatch(getDisplayTitle(article), query) 
+                      dangerouslySetInnerHTML={{
+                        __html: highlightMatch(getDisplayTitle(article), query)
                       }}
                     />
                     {article.matchedSummary && (
-                      <p 
+                      <p
                         className="text-xs text-gray-600 line-clamp-2"
-                        dangerouslySetInnerHTML={{ 
-                          __html: highlightMatch(article.matchedSummary, query) 
+                        dangerouslySetInnerHTML={{
+                          __html: highlightMatch(article.matchedSummary, query)
                         }}
                       />
                     )}
@@ -306,7 +284,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
                           // Parse date as local date to avoid timezone issues
                           const [year, month, day] = article.publishedDate.split('-');
                           const localDate = new Date(year, month - 1, day);
-                          return localDate.toLocaleDateString('ko-KR', {
+                          return localDate.toLocaleDateString('vi-VN', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
@@ -319,9 +297,9 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
                 {results.length >= 6 && (
                   <button
                     onClick={() => handleSearchSubmit()}
-                    className="w-full p-3 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 border-t border-gray-100"
+                    className="w-full p-3 text-sm text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50 border-t border-gray-100"
                   >
-                    모든 검색 결과 보기 →
+                    Xem tất cả kết quả tìm kiếm →
                   </button>
                 )}
               </>
@@ -331,12 +309,12 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
             {!query && recentSearches.length > 0 && (
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm font-medium text-gray-900">최근 검색</h4>
+                  <h4 className="text-sm font-medium text-gray-900">Tìm kiếm gần đây</h4>
                   <button
                     onClick={clearRecentSearches}
                     className="text-xs text-gray-500 hover:text-gray-700"
                   >
-                    지우기
+                    Xóa
                   </button>
                 </div>
                 {recentSearches.map((search, index) => (
@@ -355,7 +333,7 @@ const SearchBar = ({ className = '', site = 'korean' }) => {
             {/* No Recent Searches State */}
             {!query && recentSearches.length === 0 && (
               <div className="p-4 text-center text-gray-500 text-sm">
-                검색어를 입력해 주세요
+                Vui lòng nhập từ khóa tìm kiếm
               </div>
             )}
           </div>
