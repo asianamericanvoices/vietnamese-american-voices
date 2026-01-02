@@ -13,7 +13,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
                 <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
                 <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
                 <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
@@ -192,7 +192,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
                   <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
                   <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
                   <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>

@@ -264,14 +264,12 @@ export default function VietnameseAmericanVoices() {
   const getBreakingNews = () => {
     if (articles.length === 0) return [{ title: "Cập nhật tin tức mới nhất • Vấn đề quan trọng của cộng đồng Việt kiều • Tin cộng đồng", url: null }];
 
+    // Use the first 5 articles to populate breaking news - they already have Vietnamese translations
     const latestNews = articles
-      .filter(article => {
-        // Only show high priority or high relevance articles
-        return article.priority === 'high' || article.relevanceScore >= 7;
-      })
       .slice(0, 5)
       .map(article => {
-        const title = article.translatedTitles?.vietnamese;
+        // Use displayTitle which contains the Vietnamese translation from the API
+        const title = article.displayTitle || article.translatedTitles?.vietnamese;
         const shortTitle = title && title.length > 50 ? title.substring(0, 47) + '...' : title;
         return { title: shortTitle, url: getArticleUrl(article), id: article.id };
       })
@@ -428,7 +426,7 @@ export default function VietnameseAmericanVoices() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
                 <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
                 <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
                 <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
@@ -826,7 +824,7 @@ export default function VietnameseAmericanVoices() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
                   <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
                   <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
                   <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
