@@ -13,13 +13,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                <span className="text-white font-bold text-xs leading-none tracking-wide">Tiếng</span>
-                <span className="text-white font-bold text-xs leading-none tracking-wide">Nói</span>
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
+                <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
+                <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  Tiếng Nói Việt Mỹ
+                  Tiếng Nói Người Mỹ Gốc Việt
                 </h1>
                 <p className="text-xs text-gray-500">Vietnamese American Voices</p>
               </div>
@@ -75,7 +76,7 @@ export default function AboutPage() {
           <div className="bg-yellow-50 rounded-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Tuyên bố sứ mệnh</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Tiếng Nói Việt Mỹ cam kết cung cấp tin tức độc lập, chính xác và kịp thời cho cộng đồng người Mỹ gốc Việt. Chúng tôi tập trung vào các vấn đề quan trọng ảnh hưởng đến cộng đồng như chính trị, y tế và sức khỏe, giáo dục, nhập cư và chính sách kinh tế. Thông qua báo cáo chuyên nghiệp và phân tích chuyên sâu, chúng tôi nỗ lực nâng cao sự hiểu biết về trải nghiệm của người Mỹ gốc Việt trong và ngoài cộng đồng.
+              Tiếng Nói Người Mỹ Gốc Việt cam kết cung cấp tin tức độc lập, chính xác và kịp thời cho cộng đồng người Mỹ gốc Việt. Chúng tôi tập trung vào các vấn đề quan trọng ảnh hưởng đến cộng đồng như chính trị, y tế và sức khỏe, giáo dục, nhập cư và chính sách kinh tế. Thông qua báo cáo chuyên nghiệp và phân tích chuyên sâu, chúng tôi nỗ lực nâng cao sự hiểu biết về trải nghiệm của người Mỹ gốc Việt trong và ngoài cộng đồng.
             </p>
           </div>
 
@@ -191,13 +192,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <span className="text-white font-bold text-xs leading-none tracking-wide">Tiếng</span>
-                  <span className="text-white font-bold text-xs leading-none tracking-wide">Nói</span>
+                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                  <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
+                  <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
+                  <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">
-                    Tiếng Nói Việt Mỹ
+                    Tiếng Nói Người Mỹ Gốc Việt
                   </h3>
                   <p className="text-sm text-gray-400">Vietnamese American Voices</p>
                 </div>
@@ -220,7 +222,7 @@ export default function AboutPage() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
             <p>
-              &copy; 2025 Tiếng Nói Việt Mỹ. Bảo lưu mọi quyền.
+              &copy; 2025 Tiếng Nói Người Mỹ Gốc Việt. Bảo lưu mọi quyền.
               <span className="text-xs opacity-70 ml-2">Thuộc Asian American Voices Media, Inc.</span>
             </p>
           </div>

@@ -428,13 +428,14 @@ export default function VietnameseAmericanVoices() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                <span className="text-white font-bold text-[10px] leading-none tracking-wide">Tiếng</span>
-                <span className="text-white font-bold text-[10px] leading-none tracking-wide">Nói</span>
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
+                <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
+                <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  Tiếng Nói Việt Mỹ
+                  Tiếng Nói Người Mỹ Gốc Việt
                 </h1>
                 <p className="text-xs text-gray-500">Vietnamese American Voices</p>
               </div>
@@ -825,13 +826,14 @@ export default function VietnameseAmericanVoices() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <span className="text-white font-bold text-[10px] leading-none tracking-wide">Tiếng</span>
-                  <span className="text-white font-bold text-[10px] leading-none tracking-wide">Nói</span>
+                <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                  <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
+                  <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
+                  <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold font-vietnamese">
-                    Tiếng Nói Việt Mỹ
+                    Tiếng Nói Người Mỹ Gốc Việt
                   </h3>
                   <p className="text-sm text-gray-400">Vietnamese American Voices</p>
                 </div>
@@ -855,7 +857,7 @@ export default function VietnameseAmericanVoices() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
             <p className="font-vietnamese">
-              &copy; 2025 Tiếng Nói Người Mỹ Gốc Việt. Đã đăng ký bản quyền.
+              &copy; 2025 Tiếng Nói Người Mỹ Gốc Việt. Bảo lưu mọi quyền.
               <span className="text-xs opacity-70 ml-2">Thuộc Asian American Voices Media, Inc.</span>
             </p>
           </div>

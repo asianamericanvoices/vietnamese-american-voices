@@ -241,11 +241,12 @@ export default function ArticlePage({ params }) {
             <div className="flex items-center justify-between h-16">
               <Link href="/" className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
-                  <span className="text-white font-bold text-[8px] leading-none">Tiếng</span>
-                  <span className="text-white font-bold text-[8px] leading-none">Nói</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Tiếng Nói</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Người Mỹ</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Gốc Việt</span>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">Tiếng Nói Việt Mỹ</h1>
+                  <h1 className="text-xl font-bold text-gray-900">Tiếng Nói Người Mỹ Gốc Việt</h1>
                   <p className="text-xs text-gray-500">Vietnamese American Voices</p>
                 </div>
               </Link>
@@ -270,11 +271,12 @@ export default function ArticlePage({ params }) {
             <div className="flex items-center justify-between h-16">
               <Link href="/" className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
-                  <span className="text-white font-bold text-[8px] leading-none">Tiếng</span>
-                  <span className="text-white font-bold text-[8px] leading-none">Nói</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Tiếng Nói</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Người Mỹ</span>
+                  <span className="text-white font-bold text-[5px] leading-none">Gốc Việt</span>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">Tiếng Nói Việt Mỹ</h1>
+                  <h1 className="text-xl font-bold text-gray-900">Tiếng Nói Người Mỹ Gốc Việt</h1>
                   <p className="text-xs text-gray-500">Vietnamese American Voices</p>
                 </div>
               </Link>
@@ -299,13 +301,14 @@ export default function ArticlePage({ params }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                <span className="text-white font-bold text-[10px] leading-none tracking-wide">Tiếng</span>
-                <span className="text-white font-bold text-[10px] leading-none tracking-wide">Nói</span>
+              <div className="w-12 h-12 bg-yellow-500 rounded-lg flex flex-col items-center justify-center">
+                <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
+                <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
+                <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  Tiếng Nói Việt Mỹ
+                  Tiếng Nói Người Mỹ Gốc Việt
                 </h1>
                 <p className="text-xs text-gray-500">Vietnamese American Voices</p>
               </div>
@@ -592,7 +595,7 @@ export default function ArticlePage({ params }) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold font-vietnamese">
-                    Tiếng Nói Việt Mỹ
+                    Tiếng Nói Người Mỹ Gốc Việt
                   </h3>
                   <p className="text-sm text-gray-400">Vietnamese American Voices</p>
                 </div>
