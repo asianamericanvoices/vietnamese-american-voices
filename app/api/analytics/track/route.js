@@ -12,7 +12,7 @@ const supabase = createClient(
 // Hash IP for privacy compliance
 function hashIP(ip) {
   if (!ip) return null;
-  return crypto.createHash('sha256').update(ip + process.env.IP_SALT || 'korean-american-voices').digest('hex').substring(0, 16);
+  return crypto.createHash('sha256').update(ip + process.env.IP_SALT || 'vietnamese-american-voices').digest('hex').substring(0, 16);
 }
 
 // Get client IP from headers
@@ -33,15 +33,17 @@ function detectLanguage(metadata) {
   if (metadata.language) {
     // Normalize language codes
     const lang = metadata.language.toLowerCase();
+    if (lang === 'vietnamese' || lang === 'vi') return 'vi';
     if (lang === 'korean' || lang === 'ko') return 'ko';
     if (lang === 'chinese' || lang === 'zh') return 'zh';
     return lang;
   }
+  if (metadata.page_url && metadata.page_url.includes('/vi/')) return 'vi';
   if (metadata.page_url && metadata.page_url.includes('/zh/')) return 'zh';
   if (metadata.page_url && metadata.page_url.includes('/ko/')) return 'ko';
-  
-  // Default to Korean for Korean American Voices
-  return 'ko';
+
+  // Default to Vietnamese for Vietnamese American Voices
+  return 'vi';
 }
 
 export async function POST(request) {
@@ -147,7 +149,7 @@ async function handleReadingStart(metadata) {
       session_id: metadata.session_id,
       article_id: metadata.article_id,
       platform: metadata.platform,
-      language: metadata.article_language || 'ko'
+      language: metadata.article_language || 'vi'
     };
 
     const { error } = await supabase

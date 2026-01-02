@@ -1,4 +1,4 @@
-// app/api/analytics/search/route.js - Search behavior tracking for KAV
+// app/api/analytics/search/route.js - Search behavior tracking for Vietnamese American Voices
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
@@ -11,7 +11,7 @@ const supabase = createClient(
 // Hash IP for privacy compliance
 function hashIP(ip) {
   if (!ip) return null;
-  return crypto.createHash('sha256').update(ip + (process.env.IP_SALT || 'korean-american-voices')).digest('hex').substring(0, 16);
+  return crypto.createHash('sha256').update(ip + (process.env.IP_SALT || 'vietnamese-american-voices')).digest('hex').substring(0, 16);
 }
 
 // Get client IP from headers
@@ -55,7 +55,7 @@ export async function POST(request) {
         results_count: results_count || 0,
         clicked_result: clicked_result,
         clicked_article_id: clicked_article_id,
-        language: language || (site === 'chinese' ? 'zh' : 'ko')
+        language: language || (site === 'chinese' ? 'zh' : site === 'korean' ? 'ko' : 'vi')
       })
       .select();
 
