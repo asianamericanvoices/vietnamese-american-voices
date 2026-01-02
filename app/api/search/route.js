@@ -1,6 +1,8 @@
-// app/api/search/route.js - Local search API for KAV
+// app/api/search/route.js - Local search API for Vietnamese American Voices
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+
+export const dynamic = 'force-dynamic';
 
 const supabase = createClient(
   process.env.SUPABASE_URL,

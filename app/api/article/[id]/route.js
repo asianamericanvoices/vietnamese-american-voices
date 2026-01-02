@@ -1,5 +1,7 @@
-// app/api/article/[id]/route.js - Single Article API Endpoint for Korean American Voices
+// app/api/article/[id]/route.js - Single Article API Endpoint for Vietnamese American Voices
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 
 // Optional Supabase integration - connects to your existing dashboard database
 let supabase = null;

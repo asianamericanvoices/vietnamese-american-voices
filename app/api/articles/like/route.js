@@ -1,6 +1,8 @@
-// app/api/articles/like/route.js - Local like API for KAV
+// app/api/articles/like/route.js - Local like API for Vietnamese American Voices
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+
+export const dynamic = 'force-dynamic';
 
 // Create Supabase client with anon key (limited permissions)
 const supabase = createClient(
