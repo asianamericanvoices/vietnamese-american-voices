@@ -28,7 +28,7 @@ export default function AboutPage() {
 
             <div className="flex items-center space-x-4">
               <a
-                href="mailto:contact@vietnameseamericanvoices.com"
+                href="mailto:contact@tiengnoinguoimygocviet.us"
                 className="text-gray-700 hover:text-yellow-600 text-sm font-medium"
               >
                 Liên hệ
@@ -179,8 +179,8 @@ export default function AboutPage() {
             </p>
 
             <div className="space-y-2 text-gray-600">
-              <p>Email: <a href="mailto:contact@vietnameseamericanvoices.com" className="text-yellow-600 hover:text-yellow-700">contact@vietnameseamericanvoices.com</a></p>
-              <p>Gửi tin: <a href="mailto:tips@vietnameseamericanvoices.com" className="text-yellow-600 hover:text-yellow-700">tips@vietnameseamericanvoices.com</a></p>
+              <p>Email: <a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">contact@tiengnoinguoimygocviet.us</a></p>
+              <p>Gửi tin: <a href="mailto:tips@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">tips@tiengnoinguoimygocviet.us</a></p>
             </div>
           </div>
         </article>
@@ -213,7 +213,7 @@ export default function AboutPage() {
               <h4 className="font-semibold mb-4">Giới thiệu</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/about" className="text-gray-400 hover:text-white">Sứ mệnh của chúng tôi</Link></li>
-                <li><a href="mailto:contact@vietnameseamericanvoices.com" className="text-gray-400 hover:text-white">Liên hệ</a></li>
+                <li><a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-gray-400 hover:text-white">Liên hệ</a></li>
                 <li><Link href="/privacy" className="text-gray-400 hover:text-white">Chính sách bảo mật</Link></li>
                 <li><Link href="/terms" className="text-gray-400 hover:text-white">Điều khoản sử dụng</Link></li>
               </ul>

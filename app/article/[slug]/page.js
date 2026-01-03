@@ -609,7 +609,7 @@ export default function ArticlePage({ params }) {
               <h4 className="font-semibold mb-4 font-vietnamese">Giới thiệu</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/about" className="text-gray-400 hover:text-white font-vietnamese">Sứ mệnh của chúng tôi</Link></li>
-                <li><a href="mailto:contact@vietnameseamericanvoices.com" className="text-gray-400 hover:text-white font-vietnamese">Liên hệ</a></li>
+                <li><a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-gray-400 hover:text-white font-vietnamese">Liên hệ</a></li>
                 <li><Link href="/privacy" className="text-gray-400 hover:text-white font-vietnamese">Chính sách bảo mật</Link></li>
                 <li><Link href="/terms" className="text-gray-400 hover:text-white font-vietnamese">Điều khoản sử dụng</Link></li>
               </ul>

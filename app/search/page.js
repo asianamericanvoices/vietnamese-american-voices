@@ -329,7 +329,7 @@ function SearchResultsContent() {
               <h4 className="font-semibold mb-4">Giới thiệu</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/about" className="text-gray-400 hover:text-white">Sứ mệnh của chúng tôi</Link></li>
-                <li><a href="mailto:contact@vietnameseamericanvoices.com" className="text-gray-400 hover:text-white">Liên hệ</a></li>
+                <li><a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-gray-400 hover:text-white">Liên hệ</a></li>
                 <li><Link href="/privacy" className="text-gray-400 hover:text-white">Chính sách bảo mật</Link></li>
                 <li><Link href="/terms" className="text-gray-400 hover:text-white">Điều khoản sử dụng</Link></li>
               </ul>

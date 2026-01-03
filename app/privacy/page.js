@@ -28,7 +28,7 @@ export default function PrivacyPage() {
 
             <div className="flex items-center space-x-4">
               <a
-                href="mailto:contact@tiengnoivietmy.us"
+                href="mailto:contact@tiengnoinguoimygocviet.us"
                 className="text-gray-700 hover:text-yellow-600 text-sm font-medium"
               >
                 Liên hệ
@@ -308,8 +308,8 @@ export default function PrivacyPage() {
             </p>
 
             <div className="space-y-2 text-gray-600">
-              <p>Câu hỏi bảo mật: <a href="mailto:privacy@tiengnoivietmy.us" className="text-yellow-600 hover:text-yellow-700">privacy@tiengnoivietmy.us</a></p>
-              <p>Liên hệ chung: <a href="mailto:contact@tiengnoivietmy.us" className="text-yellow-600 hover:text-yellow-700">contact@tiengnoivietmy.us</a></p>
+              <p>Câu hỏi bảo mật: <a href="mailto:privacy@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">privacy@tiengnoinguoimygocviet.us</a></p>
+              <p>Liên hệ chung: <a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">contact@tiengnoinguoimygocviet.us</a></p>
             </div>
           </div>
         </article>
@@ -341,7 +341,7 @@ export default function PrivacyPage() {
               <h4 className="font-semibold mb-4">Giới thiệu</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/about" className="text-gray-400 hover:text-white">Sứ mệnh của chúng tôi</Link></li>
-                <li><a href="mailto:contact@tiengnoivietmy.us" className="text-gray-400 hover:text-white">Liên hệ</a></li>
+                <li><a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-gray-400 hover:text-white">Liên hệ</a></li>
                 <li><Link href="/privacy" className="text-gray-400 hover:text-white">Chính sách bảo mật</Link></li>
                 <li><Link href="/terms" className="text-gray-400 hover:text-white">Điều khoản sử dụng</Link></li>
               </ul>
