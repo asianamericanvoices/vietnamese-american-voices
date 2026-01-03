@@ -263,11 +263,11 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
         {language === 'korean' ? (
           <span>이 오디오는 ElevenLabs 기술로 생성된 AI 음성입니다</span>
         ) : language === 'chinese' ? (
-          <span>此音频由ElevenLabs技术生成的AI语音朗读</span>
+          <span>此音频由Speechify技术生成的AI语音朗读</span>
         ) : language === 'vietnamese' ? (
-          <span>Âm thanh này được đọc bởi giọng nói AI do ElevenLabs cung cấp</span>
+          <span>Âm thanh này được đọc bởi giọng nói AI do Speechify cung cấp</span>
         ) : (
-          <span>This audio is narrated by an AI voice powered by ElevenLabs</span>
+          <span>This audio is narrated by an AI voice powered by Speechify</span>
         )}
       </div>
     </div>
