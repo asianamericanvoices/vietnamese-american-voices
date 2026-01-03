@@ -86,7 +86,7 @@ export async function POST(request) {
         site_source: 'vietnamese',
         user_agent: userAgent,
         ip_address: ipAddress,
-        confirmed: false
+        confirmed: true
       })
       .select()
       .single();
