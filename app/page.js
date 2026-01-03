@@ -270,7 +270,8 @@ export default function VietnameseAmericanVoices() {
       .map(article => {
         // Prioritize Vietnamese translated title, fall back to displayTitle if not available
         const title = article.translatedTitles?.vietnamese || article.displayTitle;
-        const shortTitle = title && title.length > 50 ? title.substring(0, 47) + '...' : title;
+        // Vietnamese titles need more space - use 100 char limit
+        const shortTitle = title && title.length > 100 ? title.substring(0, 97) + '...' : title;
         return { title: shortTitle, url: getArticleUrl(article), id: article.id };
       })
       .filter(item => item.title); // Remove null/undefined titles
