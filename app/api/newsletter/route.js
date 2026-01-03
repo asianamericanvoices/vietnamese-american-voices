@@ -123,11 +123,7 @@ export async function POST(request) {
           html: `
             <div style="font-family: 'Noto Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="width: 60px; height: 60px; background-color: #eab308; border-radius: 12px; margin: 0 auto 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                  <span style="color: white; font-weight: bold; font-size: 7px; line-height: 1;">Tiếng Nói</span>
-                  <span style="color: white; font-weight: bold; font-size: 7px; line-height: 1;">Người Mỹ</span>
-                  <span style="color: white; font-weight: bold; font-size: 7px; line-height: 1;">Gốc Việt</span>
-                </div>
+                <img src="https://tiengnoinguoimygocviet.us/Vietnamese-Icon-v3.png" alt="Tiếng Nói Người Mỹ Gốc Việt" style="width: 60px; height: 60px; border-radius: 12px; margin: 0 auto 16px;" />
                 <h1 style="color: #111827; margin: 0; font-size: 24px;">Tiếng Nói Người Mỹ Gốc Việt</h1>
                 <p style="color: #6b7280; margin: 4px 0 0 0; font-size: 14px;">Vietnamese American Voices</p>
               </div>

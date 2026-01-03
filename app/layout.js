@@ -18,7 +18,7 @@ export const metadata = {
     url: 'https://vietnamese-american-voices.vercel.app',
     images: [
       {
-        url: '/og-logo-vietnamese.png',
+        url: '/og-logo-vietnamese-3.png',
         width: 1200,
         height: 630,
         alt: 'Tiếng Nói Người Mỹ Gốc Việt - Vietnamese American Voices News',
@@ -31,7 +31,7 @@ export const metadata = {
     site: '@VietAmVoices',
     title: 'Tiếng Nói Người Mỹ Gốc Việt | Vietnamese American Voices',
     description: 'Tin tức độc lập cho cộng đồng người Mỹ gốc Việt',
-    images: ['/og-logo-vietnamese.png']
+    images: ['/og-logo-vietnamese-3.png']
   },
   alternates: {
     languages: {
@@ -175,10 +175,10 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" type="image/png" sizes="32x32" href="/Vietnamese-Icon.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/Vietnamese-Icon.png" />
-        <link rel="apple-touch-icon" href="/Vietnamese-Icon.png" />
-        <link rel="shortcut icon" href="/Vietnamese-Icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/Vietnamese-Icon-v3.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/Vietnamese-Icon-v3.png" />
+        <link rel="apple-touch-icon" href="/Vietnamese-Icon-v3.png" />
+        <link rel="shortcut icon" href="/Vietnamese-Icon-v3.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#EAB308" />
       </head>

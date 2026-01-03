@@ -59,11 +59,11 @@ function UnsubscribeContent() {
       <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-yellow-500 rounded-xl mx-auto mb-4 flex flex-col items-center justify-center gap-0.5">
-            <span className="text-white font-bold text-[7px] leading-none">Tiếng Nói</span>
-            <span className="text-white font-bold text-[7px] leading-none">Người Mỹ</span>
-            <span className="text-white font-bold text-[7px] leading-none">Gốc Việt</span>
-          </div>
+          <img
+            src="/Vietnamese-Icon-v3.png"
+            alt="Tiếng Nói Người Mỹ Gốc Việt"
+            className="w-16 h-16 rounded-xl mx-auto mb-4"
+          />
           <h1 className="text-2xl font-bold text-gray-900">Tiếng Nói Người Mỹ Gốc Việt</h1>
           <p className="text-gray-500 text-sm">Vietnamese American Voices</p>
         </div>

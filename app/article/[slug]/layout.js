@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
 
     const vietnameseTitle = article.translatedTitles?.vietnamese || article.originalTitle;
     const vietnameseSummary = article.translations?.vietnamese || article.aiSummary;
-    const imageUrl = article.imageUrl || '/og-logo-vietnamese.png'; // Fallback to branded logo
+    const imageUrl = article.imageUrl || '/og-logo-vietnamese-3.png'; // Fallback to branded logo
 
     return {
       title: `${vietnameseTitle} | Tiếng Nói Việt Mỹ`,
