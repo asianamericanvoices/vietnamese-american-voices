@@ -268,8 +268,8 @@ export default function VietnameseAmericanVoices() {
     const latestNews = articles
       .slice(0, 5)
       .map(article => {
-        // Use displayTitle which contains the Vietnamese translation from the API
-        const title = article.displayTitle || article.translatedTitles?.vietnamese;
+        // Prioritize Vietnamese translated title, fall back to displayTitle if not available
+        const title = article.translatedTitles?.vietnamese || article.displayTitle;
         const shortTitle = title && title.length > 50 ? title.substring(0, 47) + '...' : title;
         return { title: shortTitle, url: getArticleUrl(article), id: article.id };
       })
