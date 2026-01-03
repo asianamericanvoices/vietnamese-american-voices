@@ -56,7 +56,7 @@ export async function GET(request) {
           image_attribution,
           original_url,
           status,
-          is_hero,
+          is_vietnamese_hero,
           targeted_event,
           is_event_hero,
           event_hero_for,
@@ -86,9 +86,9 @@ export async function GET(request) {
         query = query.not('topic', 'in', '("International News","China-US Relations","Vietnam-US Relations","Event Explainers")');
       }
 
-      // Apply ordering after filtering - prioritize hero, then chronological
+      // Apply ordering after filtering - prioritize Vietnamese hero, then chronological
       query = query
-        .order('is_hero', { ascending: false })
+        .order('is_vietnamese_hero', { ascending: false })
         .order('scraped_date', { ascending: false });
 
       // Apply pagination limits LAST
@@ -146,7 +146,7 @@ export async function GET(request) {
           imageSource: article.image_source,
           imageAttribution: article.image_attribution,
           originalUrl: article.original_url,
-          isHero: article.is_hero || false,
+          isHero: article.is_vietnamese_hero || false,
           additionalSources: parseJsonField(article.additional_sources) || [],
           isEventHero: article.is_event_hero || false,
           eventHeroFor: article.event_hero_for,
