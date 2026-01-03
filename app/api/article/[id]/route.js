@@ -109,7 +109,13 @@ export async function GET(request, { params }) {
           chinese_audio_generated_at,
           english_audio_url,
           english_audio_duration,
-          english_audio_generated_at
+          english_audio_generated_at,
+          vietnamese_audio_url,
+          vietnamese_audio_duration,
+          vietnamese_audio_generated_at,
+          vietnamese_translation,
+          vietnamese_translated_title,
+          vietnamese_social_caption
         `)
         .eq('id', queryId)
         .eq('status', 'published')
@@ -130,6 +136,25 @@ export async function GET(request, { params }) {
         return NextResponse.json({ error: 'Article not found' }, { status: 404 });
       }
 
+      // Get base translations from JSONB and merge with Vietnamese dedicated columns
+      const baseTranslations = parseJsonField(data.translations) || { chinese: null, korean: null, vietnamese: null };
+      const baseTranslatedTitles = parseJsonField(data.translated_titles) || { chinese: null, korean: null, vietnamese: null };
+      const baseSocialCaptions = parseJsonField(data.social_captions) || { chinese: null, korean: null, vietnamese: null };
+
+      // Vietnamese uses dedicated columns - override JSONB with dedicated column values if they exist
+      const translations = {
+        ...baseTranslations,
+        vietnamese: data.vietnamese_translation || baseTranslations.vietnamese
+      };
+      const translatedTitles = {
+        ...baseTranslatedTitles,
+        vietnamese: data.vietnamese_translated_title || baseTranslatedTitles.vietnamese
+      };
+      const socialCaptions = {
+        ...baseSocialCaptions,
+        vietnamese: data.vietnamese_social_caption || baseSocialCaptions.vietnamese
+      };
+
       // Transform to frontend format
       article = {
         id: data.id,
@@ -137,9 +162,9 @@ export async function GET(request, { params }) {
         aiTitle: data.ai_title,
         displayTitle: data.display_title,
         aiSummary: data.ai_summary,
-        translations: parseJsonField(data.translations) || { chinese: null, korean: null },
-        translatedTitles: parseJsonField(data.translated_titles) || { chinese: null, korean: null },
-        socialCaptions: parseJsonField(data.social_captions) || { chinese: null, korean: null },
+        translations,
+        translatedTitles,
+        socialCaptions,
         source: data.source,
         author: data.author,
         publishedDate: data.scraped_date, // Use scraped_date for authentic news chronology
@@ -166,6 +191,9 @@ export async function GET(request, { params }) {
         englishAudioUrl: data.english_audio_url,
         englishAudioDuration: data.english_audio_duration,
         englishAudioGeneratedAt: data.english_audio_generated_at,
+        vietnameseAudioUrl: data.vietnamese_audio_url,
+        vietnameseAudioDuration: data.vietnamese_audio_duration,
+        vietnameseAudioGeneratedAt: data.vietnamese_audio_generated_at,
         // Keep legacy fields for backward compatibility (if they exist)
         audioUrl: data.audio_url,
         audioDuration: data.audio_duration,
@@ -189,6 +217,11 @@ export async function GET(request, { params }) {
       const hasTranslations = article.translations?.korean || article.translatedTitles?.korean;
       if (!hasTranslations) {
         return NextResponse.json({ error: 'Article not available in Korean' }, { status: 404 });
+      }
+    } else if (language === 'vietnamese') {
+      const hasTranslations = article.translations?.vietnamese || article.translatedTitles?.vietnamese;
+      if (!hasTranslations) {
+        return NextResponse.json({ error: 'Article not available in Vietnamese' }, { status: 404 });
       }
     }
 
