@@ -141,6 +141,12 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
       error: '无法播放音频',
       speed: '速度'
     },
+    vietnamese: {
+      listen: 'Nghe bài viết này',
+      loading: 'Đang tải...',
+      error: 'Không thể phát âm thanh',
+      speed: 'Tốc độ'
+    },
     english: {
       listen: 'Listen to this article',
       loading: 'Loading...',
@@ -149,13 +155,13 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
     }
   };
 
-  const t = texts[language] || texts.english;
+  const t = texts[language] || texts.vietnamese;
 
   // Ensure we're rendering something
   console.log('✅ ArticleAudioPlayer rendering with audioUrl:', audioUrl);
 
   return (
-    <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200" data-audio-player="true">
+    <div className="bg-yellow-50 rounded-lg p-4 mb-6 border border-yellow-200" data-audio-player="true">
       <audio
         ref={audioRef}
         src={audioUrl}
@@ -168,8 +174,8 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
       />
 
       <div className="flex items-center gap-2 mb-3">
-        <Volume2 className="w-5 h-5 text-blue-600" />
-        <span className="text-sm font-medium text-blue-800">{t.listen}</span>
+        <Volume2 className="w-5 h-5 text-yellow-600" />
+        <span className="text-sm font-medium text-yellow-800">{t.listen}</span>
         {(actualDuration || duration) && (
           <span className="text-xs text-gray-500 ml-auto">
             {formatTime(currentTime)} / {formatTime(actualDuration || duration)}
@@ -184,10 +190,10 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
           {/* Skip backward 10s */}
           <button
             onClick={() => skip(-10)}
-            className="p-2 rounded-full hover:bg-blue-100 transition-colors"
+            className="p-2 rounded-full hover:bg-yellow-100 transition-colors"
             aria-label="Skip backward 10 seconds"
           >
-            <SkipBack className="w-4 h-4 text-blue-600" />
+            <SkipBack className="w-4 h-4 text-yellow-600" />
           </button>
 
           {/* Play/Pause button */}
@@ -197,12 +203,12 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
             className={`
               p-3 rounded-full shadow-md transition-all
               ${isLoading ? 'opacity-50 cursor-wait' : 'hover:shadow-lg active:scale-95'}
-              ${isPlaying ? 'bg-blue-700' : 'bg-blue-600'}
+              ${isPlaying ? 'bg-yellow-600' : 'bg-yellow-500'}
             `}
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isLoading ? (
-              <div className="w-6 h-6 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+              <div className="w-6 h-6 border-2 border-yellow-300 border-t-transparent rounded-full animate-spin" />
             ) : isPlaying ? (
               <Pause className="w-6 h-6 text-white" />
             ) : (
@@ -213,16 +219,16 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
           {/* Skip forward 10s */}
           <button
             onClick={() => skip(10)}
-            className="p-2 rounded-full hover:bg-blue-100 transition-colors"
+            className="p-2 rounded-full hover:bg-yellow-100 transition-colors"
             aria-label="Skip forward 10 seconds"
           >
-            <SkipForward className="w-4 h-4 text-blue-600" />
+            <SkipForward className="w-4 h-4 text-yellow-600" />
           </button>
 
           {/* Progress bar - clickable for seeking */}
           <div className="flex-1 mx-2">
             <div
-              className="h-2 bg-blue-100 rounded-full overflow-hidden cursor-pointer relative"
+              className="h-2 bg-yellow-100 rounded-full overflow-hidden cursor-pointer relative"
               onClick={(e) => {
                 if (!audioRef.current?.duration) return;
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -234,7 +240,7 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
               }}
             >
               <div
-                className="h-full bg-blue-600 transition-all duration-200 pointer-events-none"
+                className="h-full bg-yellow-500 transition-all duration-200 pointer-events-none"
                 style={{
                   width: `${audioRef.current?.duration ? (currentTime / audioRef.current.duration) * 100 : 0}%`
                 }}
@@ -245,7 +251,7 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
           {/* Speed control */}
           <button
             onClick={changeSpeed}
-            className="px-3 py-1 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors"
+            className="px-3 py-1 bg-yellow-500 text-white rounded-lg text-xs font-medium hover:bg-yellow-600 transition-colors"
           >
             {playbackRate}x
           </button>
@@ -258,6 +264,8 @@ export default function ArticleAudioPlayer({ audioUrl, title, duration, language
           <span>이 오디오는 ElevenLabs 기술로 생성된 AI 음성입니다</span>
         ) : language === 'chinese' ? (
           <span>此音频由ElevenLabs技术生成的AI语音朗读</span>
+        ) : language === 'vietnamese' ? (
+          <span>Âm thanh này được đọc bởi giọng nói AI do ElevenLabs cung cấp</span>
         ) : (
           <span>This audio is narrated by an AI voice powered by ElevenLabs</span>
         )}
