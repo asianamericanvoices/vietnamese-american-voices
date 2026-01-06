@@ -181,6 +181,9 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/Vietnamese-Icon-v3.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#EAB308" />
+
+        {/* Newsletter Popup Styles */}
+        <link rel="stylesheet" href="/newsletter-popup.css" />
       </head>
       <body className="bg-white font-inter antialiased">
         {/* Google Tag Manager (noscript) - TBD for Vietnamese */}
@@ -193,6 +196,9 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         {children}
+
+        {/* Newsletter Popup Script */}
+        <Script src="/newsletter-popup.js" strategy="afterInteractive" />
       </body>
     </html>
   )
