@@ -17,7 +17,8 @@ const vietnameseCategories = {
   'Economy': 'Kinh tế',
   'Culture': 'Văn hóa',
   'Sports': 'Thể thao',
-  'Fact Checks': 'Kiểm chứng'
+  'Fact Checks': 'Kiểm chứng',
+  'Analysis': 'Phân tích'
 };
 
 const SearchBar = ({ className = '', site = 'vietnamese' }) => {

@@ -4,7 +4,7 @@
 
 import Script from 'next/script';
 import React, { useState, useEffect, useRef } from 'react';
-import { Clock, ExternalLink, ChevronRight, Globe, TrendingUp, Users, Building2, Flag, MapPin, Heart, GraduationCap, Plane, Palette, Newspaper, Trophy, Stethoscope, FileText, ShieldCheck } from 'lucide-react';
+import { Clock, ExternalLink, ChevronRight, Globe, TrendingUp, Users, Building2, Flag, MapPin, Heart, GraduationCap, Plane, Palette, Newspaper, Trophy, Stethoscope, FileText, ShieldCheck, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 import SearchBar from './components/SearchBar';
 import ArticleRequestForm from './components/ArticleRequestForm';
@@ -46,7 +46,8 @@ export default function VietnameseAmericanVoices() {
     { id: 'Economy', name: 'Kinh tế', icon: TrendingUp },
     { id: 'Culture', name: 'Văn hóa', icon: Palette },
     { id: 'Sports', name: 'Thể thao', icon: Trophy },
-    { id: 'Fact Checks', name: 'Kiểm chứng', icon: ShieldCheck }
+    { id: 'Fact Checks', name: 'Kiểm chứng', icon: ShieldCheck },
+    { id: 'Analysis', name: 'Phân tích', icon: Lightbulb }
   ];
 
   // Filter out international categories from visible categories for VAV site per funder requirements
@@ -311,6 +312,7 @@ export default function VietnameseAmericanVoices() {
       case 'Culture': return 'text-pink-600 bg-pink-50';
       case 'Sports': return 'text-indigo-600 bg-indigo-50';
       case 'Fact Checks': return 'text-teal-600 bg-teal-50';
+      case 'Analysis': return 'text-amber-600 bg-amber-50';
       case 'Technology': return 'text-cyan-600 bg-cyan-50';
       case 'International News': return 'text-slate-600 bg-slate-50';
       case 'Event Explainers': return 'text-purple-600 bg-purple-50';
