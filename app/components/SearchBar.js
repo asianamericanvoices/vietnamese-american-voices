@@ -16,7 +16,8 @@ const vietnameseCategories = {
   'Immigration': 'Di trú',
   'Economy': 'Kinh tế',
   'Culture': 'Văn hóa',
-  'Sports': 'Thể thao'
+  'Sports': 'Thể thao',
+  'Fact Checks': 'Kiểm chứng'
 };
 
 const SearchBar = ({ className = '', site = 'vietnamese' }) => {
