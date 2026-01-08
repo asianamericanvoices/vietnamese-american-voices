@@ -143,7 +143,9 @@ export default function ArticlePage({ params }) {
       'Economy': 'Kinh tế',
       'Culture': 'Văn hóa',
       'Sports': 'Thể thao',
-      'General': 'Tổng hợp'
+      'General': 'Tổng hợp',
+      'Fact Checks': 'Kiểm chứng',
+      'Analysis': 'Phân tích chuyên sâu'
     };
 
     if (directCategoryMap[topic]) {

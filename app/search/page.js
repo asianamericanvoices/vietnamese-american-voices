@@ -82,7 +82,10 @@ function SearchResultsContent() {
       'Immigration': 'Di trú',
       'Economy': 'Kinh tế',
       'Culture': 'Văn hóa',
-      'Sports': 'Thể thao'
+      'Sports': 'Thể thao',
+      'Fact Checks': 'Kiểm chứng',
+      'Analysis': 'Phân tích chuyên sâu',
+      'Event Explainers': 'Giải thích sự kiện'
     };
     return vietnameseCategories[category] || category;
   };
