@@ -249,6 +249,51 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           }
         ],
         footerMessage: '테네시 제7선거구 국회 특별선거는 워싱턴에서 우리를 대표할 의원을 결정합니다.'
+      },
+      'NC': {
+        title: 'Cử tri North Carolina thân mến',
+        subtitle: 'Thông tin Bầu cử North Carolina 2026 - Thượng viện, Tòa án Tối cao, Ủy ban Bầu cử',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
+            link: 'https://vt.ncsbe.gov/RegLkup/',
+            linkText: 'Truy cập NC Voter Search'
+          },
+          {
+            icon: FileText,
+            title: 'Đăng ký bỏ phiếu vắng mặt',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
+            link: 'https://www.ncsbe.gov/voting/vote-mail',
+            linkText: 'Thông tin bỏ phiếu qua bưu điện'
+          },
+          {
+            icon: MapPin,
+            title: 'Tìm địa điểm bỏ phiếu',
+            description: 'Tìm địa điểm bỏ phiếu gần bạn',
+            link: 'https://vt.ncsbe.gov/PPLkup/',
+            linkText: 'Tra cứu địa điểm bỏ phiếu'
+          },
+          {
+            icon: Info,
+            title: 'Thông tin bầu cử',
+            description: 'Thông tin chi tiết về bầu cử North Carolina',
+            link: 'https://www.ncsbe.gov/',
+            linkText: 'NC State Board of Elections'
+          },
+          {
+            icon: Calendar,
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
+            dates: [
+              'Hạn đăng ký cử tri: 9 tháng 10, 2026',
+              'Bỏ phiếu sớm: 15 - 31 tháng 10, 2026',
+              'Hạn đăng ký bỏ phiếu vắng mặt: 27 tháng 10, 2026'
+            ]
+          }
+        ],
+        footerMessage: 'Bầu cử Thượng viện, Tòa án Tối cao và Ủy ban Bầu cử North Carolina ảnh hưởng đến chính sách tiểu bang và công lý tư pháp. Lá phiếu của bạn rất quan trọng!'
       }
     };
 
