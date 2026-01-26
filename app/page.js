@@ -610,6 +610,42 @@ export default function VietnameseAmericanVoices() {
 
           {/* Sidebar */}
           <div className="space-y-8">
+            {/* Newsletter Signup - Moved above trending for marketing optimization */}
+            <div className="bg-yellow-50 rounded-lg p-6">
+              <h2 className="text-lg font-bold text-gray-900 mb-2 font-vietnamese">
+                Đăng ký nhận tin
+              </h2>
+              <p className="text-sm text-gray-600 mb-4 font-vietnamese">
+                Nhận tin tức mới nhất ảnh hưởng đến cộng đồng Việt kiều qua email.
+              </p>
+              <form onSubmit={handleNewsletterSignup} className="space-y-3">
+                <input
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Nhập địa chỉ email của bạn"
+                  disabled={newsletterStatus === 'loading'}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 disabled:opacity-50"
+                />
+                {/* reCAPTCHA */}
+                <div ref={recaptchaRef} className="mb-3"></div>
+                <button
+                  type="submit"
+                  disabled={newsletterStatus === 'loading'}
+                  className="w-full bg-yellow-500 text-white py-2 rounded-lg text-sm font-medium hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {newsletterStatus === 'loading' ? 'Đang xử lý...' : 'Đăng ký'}
+                </button>
+                {newsletterMessage && (
+                  <div className={`text-sm font-vietnamese ${
+                    newsletterStatus === 'success' ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {newsletterMessage}
+                  </div>
+                )}
+              </form>
+            </div>
+
             {/* Trending Section */}
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center justify-between mb-4">
@@ -684,42 +720,6 @@ export default function VietnameseAmericanVoices() {
                   )
                 )}
               </div>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-yellow-50 rounded-lg p-6">
-              <h2 className="text-lg font-bold text-gray-900 mb-2 font-vietnamese">
-                Đăng ký nhận tin
-              </h2>
-              <p className="text-sm text-gray-600 mb-4 font-vietnamese">
-                Nhận tin tức mới nhất ảnh hưởng đến cộng đồng Việt kiều qua email.
-              </p>
-              <form onSubmit={handleNewsletterSignup} className="space-y-3">
-                <input
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Nhập địa chỉ email của bạn"
-                  disabled={newsletterStatus === 'loading'}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 disabled:opacity-50"
-                />
-                {/* reCAPTCHA */}
-                <div ref={recaptchaRef} className="mb-3"></div>
-                <button
-                  type="submit"
-                  disabled={newsletterStatus === 'loading'}
-                  className="w-full bg-yellow-500 text-white py-2 rounded-lg text-sm font-medium hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {newsletterStatus === 'loading' ? 'Đang xử lý...' : 'Đăng ký'}
-                </button>
-                {newsletterMessage && (
-                  <div className={`text-sm font-vietnamese ${
-                    newsletterStatus === 'success' ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                    {newsletterMessage}
-                  </div>
-                )}
-              </form>
             </div>
 
             {/* Article Request Form - New Feature */}
