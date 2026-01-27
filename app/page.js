@@ -864,10 +864,8 @@ export default function VietnameseAmericanVoices() {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p className="font-vietnamese">
-              &copy; 2025 Tiếng Nói Người Mỹ Gốc Việt. Bảo lưu mọi quyền.
-              <span className="text-xs opacity-70 ml-2">Thuộc Asian American Voices Media, Inc.</span>
-            </p>
+            <p className="font-vietnamese">&copy; 2025 Tiếng Nói Người Mỹ Gốc Việt. Bảo lưu mọi quyền.</p>
+            <p className="font-vietnamese text-xs opacity-70 mt-2">Xuất bản tại Hoa Kỳ bởi Asian American Voices Media (AAVM), một tổ chức phi lợi nhuận và phi đảng phái của Hoa Kỳ.</p>
           </div>
         </div>
       </footer>
