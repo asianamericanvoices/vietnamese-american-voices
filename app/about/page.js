@@ -76,7 +76,7 @@ export default function AboutPage() {
           <div className="bg-yellow-50 rounded-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Tuyên bố sứ mệnh</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Tiếng Nói Người Mỹ Gốc Việt cam kết cung cấp tin tức độc lập, chính xác và kịp thời cho cộng đồng người Mỹ gốc Việt. Chúng tôi tập trung vào các vấn đề quan trọng ảnh hưởng đến cộng đồng như chính trị, y tế và sức khỏe, giáo dục, nhập cư và chính sách kinh tế. Thông qua báo cáo chuyên nghiệp và phân tích chuyên sâu, chúng tôi nỗ lực nâng cao sự hiểu biết về trải nghiệm của người Mỹ gốc Việt trong và ngoài cộng đồng.
+              Tiếng Nói Người Mỹ Gốc Việt là một nền tảng truyền thông độc lập có trụ sở tại Hoa Kỳ, phục vụ cộng đồng người Mỹ gốc Việt. Từ góc nhìn của Hoa Kỳ, chúng tôi cung cấp tin tức chính xác và kịp thời về các vấn đề công cộng của Hoa Kỳ, bao gồm chính trị, y tế và sức khỏe, giáo dục, nhập cư và chính sách kinh tế. Mục tiêu của chúng tôi là nâng cao nhận thức công dân và khuyếch đại tiếng nói cũng như quan điểm của người Mỹ gốc Việt trong đời sống công cộng Hoa Kỳ.
             </p>
           </div>
 
