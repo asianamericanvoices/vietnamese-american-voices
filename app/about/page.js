@@ -173,15 +173,22 @@ export default function AboutPage() {
 
           {/* Contact Information */}
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Liên hệ với chúng tôi</h2>
-            <p className="text-lg text-gray-700 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 font-vietnamese">Liên hệ với chúng tôi</h2>
+            <p className="text-lg text-gray-700 mb-6 font-vietnamese">
               Nếu bạn có tin tức, ý kiến, đề xuất hoặc muốn hợp tác, xin hãy liên hệ với chúng tôi bất cứ lúc nào.
             </p>
 
             <div className="space-y-2 text-gray-600">
-              <p>Email: <a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">contact@tiengnoinguoimygocviet.us</a></p>
-              <p>Gửi tin: <a href="mailto:tips@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">tips@tiengnoinguoimygocviet.us</a></p>
+              <p className="font-vietnamese">Email: <a href="mailto:contact@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">contact@tiengnoinguoimygocviet.us</a></p>
+              <p className="font-vietnamese">Gửi tin: <a href="mailto:tips@tiengnoinguoimygocviet.us" className="text-yellow-600 hover:text-yellow-700">tips@tiengnoinguoimygocviet.us</a></p>
             </div>
+          </div>
+
+          {/* About AAVM */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <p className="text-sm text-gray-500 leading-relaxed font-vietnamese">
+              Asian American Voices Media (AAVM) là một tổ chức truyền thông phi đảng phái có trụ sở tại Hoa Kỳ, xuất bản các thương hiệu con đa ngôn ngữ phục vụ cộng đồng người Mỹ gốc Á. AAVM hoạt động độc lập với các chính phủ và đảng phái nước ngoài, đồng thời duy trì sự độc lập biên tập trên tất cả các nền tảng.
+            </p>
           </div>
         </article>
       </main>
