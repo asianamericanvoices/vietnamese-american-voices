@@ -41,7 +41,7 @@ export async function POST(request) {
       response: body.response,
       ip_address: ip,
       user_agent: request.headers.get('user-agent') || 'unknown',
-      language: body.language || 'ko', // Default to Korean
+      language: body.language || 'vi', // Default to Vietnamese
       metadata: {
         timestamp: body.timestamp,
         referrer: request.headers.get('referer') || null,

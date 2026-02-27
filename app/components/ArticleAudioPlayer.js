@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, SkipBack, SkipForward } from 'lucide-react';
 
-export default function ArticleAudioPlayer({ audioUrl, title, duration, language = 'korean' }) {
+export default function ArticleAudioPlayer({ audioUrl, title, duration, language = 'vietnamese' }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);

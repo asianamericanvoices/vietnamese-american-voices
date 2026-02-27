@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, X, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 
-export default function VideoHighlightsCarousel({ videos = [], language = 'chinese' }) {
+export default function VideoHighlightsCarousel({ videos = [], language = 'vietnamese' }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -12,6 +12,13 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
 
   // Translations
   const translations = {
+    vietnamese: {
+      title: 'Video nổi bật',
+      close: 'Đóng',
+      noVideos: 'Chưa có video',
+      noVideosDesc: 'Chúng tôi đang chuẩn bị nội dung video. Vui lòng quay lại sau.',
+      scrollHint: 'Vuốt sang trái/phải để xem thêm video'
+    },
     chinese: {
       title: '视频精选',
       close: '关闭',
@@ -28,7 +35,7 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
     }
   };
 
-  const t = translations[language] || translations.chinese;
+  const t = translations[language] || translations.vietnamese;
 
   useEffect(() => {
     checkScrollButtons();
@@ -73,7 +80,7 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
       const date = new Date(dateString);
       if (isNaN(date.getTime())) return '';
       return date.toLocaleDateString(
-        language === 'chinese' ? 'zh-CN' : 'ko-KR',
+        language === 'vietnamese' ? 'vi-VN' : language === 'chinese' ? 'zh-CN' : 'ko-KR',
         { year: 'numeric', month: 'long', day: 'numeric' }
       );
     } catch {

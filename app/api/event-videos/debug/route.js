@@ -16,7 +16,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const eventId = searchParams.get('event') || 'pennsylvania-supreme-court-2025';
-    const language = searchParams.get('language') || 'korean';
+    const language = searchParams.get('language') || 'vietnamese';
 
     debugInfo.query = { eventId, language };
 

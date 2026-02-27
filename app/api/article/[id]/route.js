@@ -23,7 +23,7 @@ export async function GET(request, { params }) {
     // Get the article ID from the URL params
     const { id } = params;
     const url = new URL(request.url);
-    const language = url.searchParams.get('language') || 'korean';
+    const language = url.searchParams.get('language') || 'vietnamese';
 
     console.log(`📰 Fetching article ID: ${id} for language: ${language}`);
 

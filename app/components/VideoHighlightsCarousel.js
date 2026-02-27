@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize2, X, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 
-export default function VideoHighlightsCarousel({ videos = [], language = 'chinese' }) {
+export default function VideoHighlightsCarousel({ videos = [], language = 'vietnamese' }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -13,6 +13,13 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
 
   // Translations
   const translations = {
+    vietnamese: {
+      title: 'Video nổi bật',
+      close: 'Đóng',
+      noVideos: 'Chưa có video',
+      noVideosDesc: 'Chúng tôi đang chuẩn bị nội dung video. Vui lòng quay lại sau.',
+      scrollHint: 'Vuốt sang trái/phải để xem thêm video'
+    },
     chinese: {
       title: '视频精选',
       close: '关闭',
@@ -29,7 +36,7 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
     }
   };
 
-  const t = translations[language] || translations.chinese;
+  const t = translations[language] || translations.vietnamese;
 
   useEffect(() => {
     checkScrollButtons();
@@ -279,10 +286,10 @@ export default function VideoHighlightsCarousel({ videos = [], language = 'chine
 
               {/* Metadata */}
               <div className="mt-1 flex items-center text-sm text-gray-500 gap-2">
-                <span>{video.source || (language === 'chinese' ? '美华集萃' : '한미목소리')}</span>
+                <span>{video.source || 'Tiếng Nói'}</span>
                 <span>•</span>
                 <span>{new Date(video.date || video.publishDate).toLocaleDateString(
-                  language === 'chinese' ? 'zh-CN' : 'ko-KR'
+                  language === 'vietnamese' ? 'vi-VN' : language === 'chinese' ? 'zh-CN' : 'ko-KR'
                 )}</span>
               </div>
             </div>

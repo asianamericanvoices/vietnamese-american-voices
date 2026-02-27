@@ -4,12 +4,12 @@ import { NextResponse } from 'next/server';
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-// GET /api/event-videos?event=pennsylvania-supreme-court-2025&language=korean
+// GET /api/event-videos?event=pennsylvania-supreme-court-2025&language=vietnamese
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const eventId = searchParams.get('event');
-    const language = searchParams.get('language') || 'korean';
+    const language = searchParams.get('language') || 'vietnamese';
 
     console.log('API called with:', { eventId, language });
 

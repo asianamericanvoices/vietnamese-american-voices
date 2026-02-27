@@ -1,4 +1,4 @@
-// Debug endpoint to check Korean site environment variables
+// Debug endpoint to check Vietnamese site environment variables
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -49,7 +49,7 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      status: 'Korean American Voices API Debug',
+      status: 'Vietnamese American Voices API Debug',
       timestamp: new Date().toISOString(),
       environment_variables: envCheck,
       supabase_status: supabaseStatus,

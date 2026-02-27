@@ -8,7 +8,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const eventId = searchParams.get('event');
-    const language = searchParams.get('language') || 'korean';
+    const language = searchParams.get('language') || 'vietnamese';
 
     console.log('[TEST API] Called with:', { eventId, language });
 

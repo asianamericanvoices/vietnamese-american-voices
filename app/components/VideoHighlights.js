@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize2, Clock } from 'lucide-react';
 
-export default function VideoHighlights({ videos = [], language = 'chinese' }) {
+export default function VideoHighlights({ videos = [], language = 'vietnamese' }) {
   const [playingIndex, setPlayingIndex] = useState(null);
   const [videoStates, setVideoStates] = useState({});
   const videoRefs = useRef({});
@@ -22,10 +22,17 @@ export default function VideoHighlights({ videos = [], language = 'chinese' }) {
       duration: '길이',
       watchNow: '지금 보기',
       loading: '로딩 중...'
+    },
+    vietnamese: {
+      title: 'Video nổi bật',
+      subtitle: 'Tóm tắt video các bài báo chính',
+      duration: 'Thời lượng',
+      watchNow: 'Xem ngay',
+      loading: 'Đang tải...'
     }
   };
 
-  const t = translations[language] || translations.chinese;
+  const t = translations[language] || translations.vietnamese;
 
   const formatDuration = (seconds) => {
     if (!seconds) return '0:00';
@@ -179,7 +186,7 @@ export default function VideoHighlights({ videos = [], language = 'chinese' }) {
               <div className="flex items-center text-sm text-gray-500 gap-2">
                 <span>{video.source}</span>
                 <span>•</span>
-                <span>{new Date(video.date).toLocaleDateString(language === 'chinese' ? 'zh-CN' : 'ko-KR')}</span>
+                <span>{new Date(video.date).toLocaleDateString(language === 'vietnamese' ? 'vi-VN' : language === 'chinese' ? 'zh-CN' : 'ko-KR')}</span>
               </div>
             </div>
           </div>
@@ -188,7 +195,7 @@ export default function VideoHighlights({ videos = [], language = 'chinese' }) {
 
       {/* Mobile-specific scroll hint */}
       <div className="md:hidden mt-4 text-center text-sm text-gray-500">
-        <span>← {language === 'chinese' ? '滑动查看更多' : '더 보려면 스와이프'} →</span>
+        <span>← Vuốt để xem thêm →</span>
       </div>
     </div>
   );

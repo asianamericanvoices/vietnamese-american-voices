@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const HeartButton = ({ articleId, site = 'korean', className = '', size = 'md' }) => {
+const HeartButton = ({ articleId, site = 'vietnamese', className = '', size = 'md' }) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [loading, setLoading] = useState(false);

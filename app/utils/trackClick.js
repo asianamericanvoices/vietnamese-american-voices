@@ -22,7 +22,7 @@ export async function trackClick(eventType, metadata) {
         referrer: document.referrer,
         platform: navigator.platform,
         timestamp: new Date().toISOString(),
-        language: 'korean' // or detect from page
+        language: 'vietnamese' // or detect from page
       }
     };
 

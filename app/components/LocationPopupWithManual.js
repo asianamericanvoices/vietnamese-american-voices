@@ -42,171 +42,171 @@ export default function LocationPopup({ state, eventType }) {
   const getPopupContent = (detectedState) => {
     const content = {
       'GA': {
-        title: '조지아 유권자 여러분께',
-        subtitle: '조지아주 공공서비스위원회 선거 정보',
+        title: 'Cử tri Georgia thân mến',
+        subtitle: 'Thông tin Bầu cử Ủy ban Dịch vụ Công Georgia',
         resources: [
           {
             icon: Vote,
-            title: '유권자 등록 확인',
-            description: '귀하의 등록 상태를 확인하세요',
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
             link: 'https://www.mvp.sos.ga.gov/MVP/mvp.do',
-            linkText: 'My Voter Page 방문'
+            linkText: 'Truy cập My Voter Page'
           },
           {
             icon: FileText,
-            title: '부재자 투표 신청',
-            description: '우편 투표를 신청하세요',
+            title: 'Đăng ký bỏ phiếu vắng mặt',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
             link: 'https://ballotrequest.sos.ga.gov/',
-            linkText: '부재자 투표 신청서'
+            linkText: 'Đơn bỏ phiếu vắng mặt'
           },
           {
             icon: MapPin,
-            title: '투표소 찾기',
-            description: '가까운 투표소를 찾아보세요',
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
             link: 'https://www.mvp.sos.ga.gov/MVP/mvp.do',
-            linkText: '투표소 위치 확인'
+            linkText: 'Xem vị trí điểm bỏ phiếu'
           },
           {
             icon: Calendar,
-            title: '중요 일정',
-            description: '선거일: 2025년 11월 4일',
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 4 tháng 11, 2025',
             dates: [
-              '유권자 등록 마감: 2025년 10월 6일',
-              '조기 투표: 2025년 10월 13일 - 10월 31일',
-              '부재자 투표 신청 마감: 2025년 10월 24일'
+              'Hạn chót đăng ký cử tri: 6 tháng 10, 2025',
+              'Bỏ phiếu sớm: 13 tháng 10 - 31 tháng 10, 2025',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 24 tháng 10, 2025'
             ]
           }
         ],
-        footerMessage: '조지아주 공공서비스위원회는 전기, 가스, 전화 서비스 요금을 규제합니다. 여러분의 투표가 공공요금에 직접적인 영향을 미칩니다.'
+        footerMessage: 'Ủy ban Dịch vụ Công Georgia quản lý giá điện, gas và điện thoại. Lá phiếu của bạn ảnh hưởng trực tiếp đến chi phí dịch vụ công.'
       },
       'PA': {
-        title: '펜실베이니아 유권자 여러분께',
-        subtitle: '펜실베이니아 대법원 재임용 선거 정보',
+        title: 'Cử tri Pennsylvania thân mến',
+        subtitle: 'Thông tin Bầu cử Tái bổ nhiệm Tòa án Tối cao Pennsylvania',
         resources: [
           {
             icon: Vote,
-            title: '유권자 등록 확인',
-            description: '귀하의 등록 상태를 확인하세요',
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
             link: 'https://www.pavoterservices.pa.gov/pages/voterregistrationstatus.aspx',
-            linkText: 'PA Voter Services 방문'
+            linkText: 'Truy cập PA Voter Services'
           },
           {
             icon: FileText,
-            title: '우편 투표 신청',
-            description: '우편 투표를 신청하세요',
+            title: 'Đăng ký bỏ phiếu qua bưu điện',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
             link: 'https://www.pavoterservices.pa.gov/OnlineAbsenteeApplication/',
-            linkText: '우편 투표 신청서'
+            linkText: 'Đơn bỏ phiếu qua bưu điện'
           },
           {
             icon: MapPin,
-            title: '투표소 찾기',
-            description: '가까운 투표소를 찾아보세요',
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
             link: 'https://www.pavoterservices.pa.gov/pages/pollingplaceinfo.aspx',
-            linkText: '투표소 위치 확인'
+            linkText: 'Xem vị trí điểm bỏ phiếu'
           },
           {
             icon: Calendar,
-            title: '중요 일정',
-            description: '선거일: 2025년 11월 4일',
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 4 tháng 11, 2025',
             dates: [
-              '유권자 등록 마감: 2025년 10월 14일',
-              '우편 투표 신청 마감: 2025년 10월 28일',
-              '우편 투표 반송 마감: 2025년 11월 4일 오후 8시'
+              'Hạn chót đăng ký cử tri: 14 tháng 10, 2025',
+              'Hạn chót đăng ký bỏ phiếu qua bưu điện: 28 tháng 10, 2025',
+              'Hạn chót nộp phiếu qua bưu điện: 4 tháng 11, 2025 lúc 8 giờ tối'
             ]
           }
         ],
-        footerMessage: '펜실베이니아 대법원 판사 재임용은 사법부의 독립성과 공정성을 유지하는 중요한 결정입니다.'
+        footerMessage: 'Việc tái bổ nhiệm thẩm phán Tòa án Tối cao Pennsylvania là quyết định quan trọng để duy trì tính độc lập và công bằng của tư pháp.'
       },
       'CA': {
-        title: '캘리포니아 유권자 여러분께',
-        subtitle: '제50호 발의안 - 선거구 재조정 정보',
+        title: 'Cử tri California thân mến',
+        subtitle: 'Đề xuất số 50 - Thông tin Tái phân chia khu vực bầu cử',
         resources: [
           {
             icon: Vote,
-            title: '유권자 등록 확인',
-            description: '귀하의 등록 상태를 확인하세요',
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
             link: 'https://voterstatus.sos.ca.gov/',
-            linkText: 'CA Voter Status 방문'
+            linkText: 'Truy cập CA Voter Status'
           },
           {
             icon: FileText,
-            title: '투표용지 추적',
-            description: '우편 투표용지를 추적하세요',
+            title: 'Theo dõi phiếu bầu',
+            description: 'Theo dõi phiếu bầu qua bưu điện của bạn',
             link: 'https://california.ballottrax.net/voter/',
             linkText: 'Where\'s My Ballot?'
           },
           {
             icon: Info,
-            title: '제50호 발의안 정보',
-            description: '선거구 재조정 발의안 상세 정보',
+            title: 'Thông tin Đề xuất số 50',
+            description: 'Chi tiết về đề xuất tái phân chia khu vực bầu cử',
             link: 'https://voterguide.sos.ca.gov/quick-reference-guide/50.htm',
-            linkText: '공식 유권자 안내서'
+            linkText: 'Hướng dẫn cử tri chính thức'
           },
           {
             icon: MapPin,
-            title: '투표소 찾기',
-            description: '가까운 투표소를 찾아보세요',
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
             link: 'https://www.sos.ca.gov/elections/polling-place',
-            linkText: '투표소 위치 확인'
+            linkText: 'Xem vị trí điểm bỏ phiếu'
           },
           {
             icon: Calendar,
-            title: '중요 일정',
-            description: '선거일: 2025년 11월 4일',
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 4 tháng 11, 2025',
             dates: [
-              '유권자 등록 마감: 2025년 10월 20일',
-              '우편 투표 시작: 2025년 10월 6일',
-              '우편 투표 반송 마감: 2025년 11월 4일 오후 8시'
+              'Hạn chót đăng ký cử tri: 20 tháng 10, 2025',
+              'Bắt đầu bỏ phiếu qua bưu điện: 6 tháng 10, 2025',
+              'Hạn chót nộp phiếu qua bưu điện: 4 tháng 11, 2025 lúc 8 giờ tối'
             ]
           }
         ],
-        footerMessage: '선거구 재조정은 공정한 대표성을 보장하는 민주주의의 핵심입니다.'
+        footerMessage: 'Tái phân chia khu vực bầu cử là nền tảng của dân chủ, đảm bảo quyền đại diện công bằng.'
       },
       'NJ': {
-        title: '뉴저지 유권자 여러분께',
-        subtitle: '2025년 뉴저지 주지사 선거 정보',
+        title: 'Cử tri New Jersey thân mến',
+        subtitle: 'Thông tin Bầu cử Thống đốc New Jersey 2025',
         resources: [
           {
             icon: Vote,
-            title: '유권자 등록 확인',
-            description: '귀하의 등록 상태를 확인하세요',
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
             link: 'https://voter.svrs.nj.gov/registration-check',
-            linkText: 'NJ Voter Registration 방문'
+            linkText: 'Truy cập NJ Voter Registration'
           },
           {
             icon: FileText,
-            title: '우편 투표 신청',
-            description: 'Vote-by-Mail 투표를 신청하세요',
+            title: 'Đăng ký bỏ phiếu qua bưu điện',
+            description: 'Đăng ký Vote-by-Mail',
             link: 'https://www.nj.gov/state/elections/vote-by-mail.shtml',
-            linkText: '우편 투표 신청서'
+            linkText: 'Đơn bỏ phiếu qua bưu điện'
           },
           {
             icon: MapPin,
-            title: '투표소 찾기',
-            description: '가까운 투표소를 찾아보세요',
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
             link: 'https://voter.svrs.nj.gov/polling-place-search',
-            linkText: '투표소 위치 확인'
+            linkText: 'Xem vị trí điểm bỏ phiếu'
           },
           {
             icon: Info,
-            title: '후보자 정보',
-            description: '주지사 후보자들에 대해 알아보세요',
+            title: 'Thông tin ứng cử viên',
+            description: 'Tìm hiểu về các ứng cử viên thống đốc',
             link: 'https://www.nj.gov/state/elections/',
-            linkText: '선거 정보 센터'
+            linkText: 'Trung tâm thông tin bầu cử'
           },
           {
             icon: Calendar,
-            title: '중요 일정',
-            description: '선거일: 2025년 11월 4일',
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 4 tháng 11, 2025',
             dates: [
-              '유권자 등록 마감: 2025년 10월 14일',
-              '우편 투표 신청 마감: 2025년 10월 28일',
-              '조기 투표: 2025년 10월 25일 - 11월 2일',
-              '우편 투표 반송 마감: 2025년 11월 4일 오후 8시'
+              'Hạn chót đăng ký cử tri: 14 tháng 10, 2025',
+              'Hạn chót đăng ký bỏ phiếu qua bưu điện: 28 tháng 10, 2025',
+              'Bỏ phiếu sớm: 25 tháng 10 - 2 tháng 11, 2025',
+              'Hạn chót nộp phiếu qua bưu điện: 4 tháng 11, 2025 lúc 8 giờ tối'
             ]
           }
         ],
-        footerMessage: '뉴저지 주지사는 주 정책과 예산을 결정하는 중요한 직책입니다. 한인 커뮤니티의 목소리를 내주세요.'
+        footerMessage: 'Thống đốc New Jersey quyết định chính sách và ngân sách của tiểu bang. Hãy lên tiếng cho cộng đồng người Mỹ gốc Việt.'
       }
     };
 
@@ -308,7 +308,7 @@ export default function LocationPopup({ state, eventType }) {
       user_state: state,
       event_type: eventType,
       link_type: stateSpecificType,
-      link_type_korean: linkType,
+      link_type_vietnamese: linkType,
       link_url: linkUrl,
       link_text: linkText,
       link_text_english: `${state} - ${englishLabels[linkType] || linkType}`

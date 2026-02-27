@@ -55,7 +55,7 @@ export async function DELETE(request) {
   try {
     const { searchParams } = new URL(request.url);
     const article_id = searchParams.get('article_id');
-    const site = searchParams.get('site') || 'korean';
+    const site = searchParams.get('site') || 'vietnamese';
     const ip_address = getClientIP(request);
 
     await supabase
@@ -86,7 +86,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const article_id = searchParams.get('article_id');
-    const site = searchParams.get('site') || 'korean';
+    const site = searchParams.get('site') || 'vietnamese';
     const ip_address = getClientIP(request);
 
     // Check if user liked on this site

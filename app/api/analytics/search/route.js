@@ -57,7 +57,7 @@ export async function POST(request) {
         results_count: results_count || 0,
         clicked_result: clicked_result,
         clicked_article_id: clicked_article_id,
-        language: language || (site === 'chinese' ? 'zh' : site === 'korean' ? 'ko' : 'vi')
+        language: language || 'vi'
       })
       .select();
 
