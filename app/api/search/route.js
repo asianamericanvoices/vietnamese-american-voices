@@ -13,44 +13,40 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q') || '';
-    const site = searchParams.get('site') || 'korean';
+    const site = searchParams.get('site') || 'vietnamese';
     const limit = parseInt(searchParams.get('limit') || '20');
 
     if (!query) {
       return NextResponse.json({ success: true, results: [] });
     }
 
-    // Search published articles using dedicated search fields
+    // Search published articles - use vietnamese_translated_title and translations (raw JSON text search)
     const { data: articles } = await supabase
       .from('articles')
       .select('*, scraped_date, published_date, image_url, relevance_score')
       .eq('status', 'published')
-      .or(`original_title.ilike.%${query}%,korean_title_search.ilike.%${query}%,korean_content_search.ilike.%${query}%`)
+      .or(`original_title.ilike.%${query}%,vietnamese_translated_title.ilike.%${query}%,translations.ilike.%${query}%`)
+      .not('vietnamese_translated_title', 'is', null) // Only return articles that have Vietnamese translations
       .order('scraped_date', { ascending: false })
       .order('relevance_score', { ascending: false, nullsLast: true })
       .limit(limit);
 
     const results = articles?.map(article => {
       // Get the appropriate title and summary based on site language
-      const translatedTitles = typeof article.translated_titles === 'string' 
-        ? JSON.parse(article.translated_titles || '{}') 
+      const translatedTitles = typeof article.translated_titles === 'string'
+        ? JSON.parse(article.translated_titles || '{}')
         : article.translated_titles || {};
-      
+
       const translations = typeof article.translations === 'string'
         ? JSON.parse(article.translations || '{}')
         : article.translations || {};
 
-      const displayTitle = site === 'chinese' && translatedTitles.chinese
-        ? translatedTitles.chinese
-        : site === 'korean' && translatedTitles.korean
-          ? translatedTitles.korean
-          : article.display_title || article.original_title;
+      const displayTitle = translatedTitles.vietnamese
+        || article.vietnamese_translated_title
+        || article.display_title || article.original_title;
 
-      const displaySummary = site === 'chinese' && translations.chinese
-        ? translations.chinese
-        : site === 'korean' && translations.korean
-          ? translations.korean
-          : article.ai_summary || '';
+      const displaySummary = translations.vietnamese
+        || article.ai_summary || '';
 
       return {
         id: article.id,
@@ -60,7 +56,7 @@ export async function GET(request) {
         translations: translations,
         topic: article.topic,
         source: article.source,
-        publishedDate: article.scraped_date, // Use scraped_date to match article pages
+        publishedDate: article.scraped_date,
         matchedSummary: displaySummary.substring(0, 200),
         imageUrl: article.image_url,
         relevanceScore: article.relevance_score
