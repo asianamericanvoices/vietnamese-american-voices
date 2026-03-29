@@ -51,10 +51,8 @@ export default function VietnameseAmericanVoices() {
   ];
 
   // Filter out certain categories from visible category bar for VAV site
-  // TODO: TO ENABLE FACT CHECKS/ANALYSIS - Remove 'Fact Checks' and 'Analysis' from this array
-  // Also remove from filteredArticles below (search: "ENABLE FACT CHECKS")
   const visibleCategories = categories.filter(cat =>
-    !['China-US Relations', 'Vietnam-US Relations', 'International News', 'Fact Checks', 'Analysis'].includes(cat.id)
+    !['China-US Relations', 'Vietnam-US Relations', 'International News', 'Analysis'].includes(cat.id)
   );
 
   // Fetch articles based on selected category
@@ -283,19 +281,12 @@ export default function VietnameseAmericanVoices() {
     return latestNews.length > 0 ? latestNews : [{ title: "Cập nhật tin tức mới nhất • Vấn đề quan trọng của cộng đồng Việt kiều", url: null }];
   };
 
-  // Hide Fact Checks and Analysis from main feed, but allow direct category access
-  // TODO: ENABLE FACT CHECKS/ANALYSIS - Remove this filter to show these categories in article grids
-  // Also remove 'Fact Checks' and 'Analysis' from visibleCategories above
+  // Hide Analysis from main feed (Fact Checks now visible)
   const filteredArticles = articles.filter(article => {
-    // If viewing Fact Checks category directly, show Fact Checks articles
-    if (selectedCategory === 'Fact Checks') {
-      return article.topic === 'Fact Checks';
-    }
     if (selectedCategory === 'Analysis') {
       return article.topic === 'Analysis';
     }
-    // Otherwise, filter out Fact Checks and Analysis from the feed
-    return article.topic !== 'Fact Checks' && article.topic !== 'Analysis';
+    return article.topic !== 'Analysis';
   });
 
   const featuredArticle = filteredArticles[0];
