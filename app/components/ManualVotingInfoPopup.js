@@ -73,7 +73,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           {
             icon: Calendar,
             title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
             dates: [
               'Hạn chót đăng ký cử tri: 14 tháng 10, 2025',
               'Hạn chót đăng ký bỏ phiếu qua bưu điện: 28 tháng 10, 2025',
@@ -112,7 +112,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           {
             icon: Calendar,
             title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
             dates: [
               'Hạn chót đăng ký cử tri: 14 tháng 10, 2025',
               'Hạn chót đăng ký bỏ phiếu qua bưu điện: 28 tháng 10, 2025',
@@ -124,7 +124,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
       },
       'GA': {
         title: 'Cử tri Georgia thân mến',
-        subtitle: 'Thông tin Bầu cử Ủy ban Dịch vụ Công Georgia',
+        subtitle: 'Thông tin Bầu cử Tòa án Tối cao Georgia 2026',
         resources: [
           {
             icon: Vote,
@@ -150,15 +150,15 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           {
             icon: Calendar,
             title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
             dates: [
-              'Hạn chót đăng ký cử tri: 6 tháng 10, 2025',
-              'Bỏ phiếu sớm: 13 tháng 10 - 31 tháng 10, 2025',
-              'Hạn chót đăng ký bỏ phiếu vắng mặt: 24 tháng 10, 2025'
+              'Hạn chót đăng ký cử tri: 5 tháng 10, 2026',
+              'Bỏ phiếu sớm: 12 tháng 10 - 30 tháng 10, 2026',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 23 tháng 10, 2026'
             ]
           }
         ],
-        footerMessage: 'Ủy ban Dịch vụ Công Georgia quản lý giá điện, gas và điện thoại. Lá phiếu của bạn ảnh hưởng trực tiếp đến chi phí dịch vụ công.'
+        footerMessage: 'Tòa án Tối cao Georgia là tòa án cao nhất của tiểu bang. Các thẩm phán có ảnh hưởng lớn đến các vấn đề pháp lý quan trọng. Lá phiếu của bạn quyết định ai sẽ ngồi trên ghế thẩm phán.'
       },
       'CA': {
         title: 'Cử tri California thân mến',
@@ -195,7 +195,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           {
             icon: Calendar,
             title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
             dates: [
               'Hạn chót đăng ký cử tri: 20 tháng 10, 2025',
               'Bắt đầu bỏ phiếu qua bưu điện: 6 tháng 10, 2025',
