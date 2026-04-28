@@ -124,7 +124,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
       },
       'GA': {
         title: 'Cử tri Georgia thân mến',
-        subtitle: 'Thông tin Bầu cử Tòa án Tối cao Georgia 2026',
+        subtitle: 'Thông tin Bầu cử Sơ bộ Georgia 2026 - Tòa án Tối cao (phi đảng phái)',
         resources: [
           {
             icon: Vote,
@@ -149,16 +149,16 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           },
           {
             icon: Calendar,
-            title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 3 tháng 11, 2026',
+            title: 'Ngày quan trọng (Sơ bộ)',
+            description: 'Ngày bầu cử sơ bộ: 19 tháng 5, 2026',
             dates: [
-              'Hạn chót đăng ký cử tri: 5 tháng 10, 2026',
-              'Bỏ phiếu sớm: 12 tháng 10 - 30 tháng 10, 2026',
-              'Hạn chót đăng ký bỏ phiếu vắng mặt: 23 tháng 10, 2026'
+              'Bỏ phiếu sớm (đang diễn ra): 27 tháng 4 - 15 tháng 5, 2026',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 8 tháng 5, 2026',
+              'Hạn chót đăng ký cử tri: 20 tháng 4, 2026 (đã hết hạn)'
             ]
           }
         ],
-        footerMessage: 'Tòa án Tối cao Georgia là tòa án cao nhất của tiểu bang. Các thẩm phán có ảnh hưởng lớn đến các vấn đề pháp lý quan trọng. Lá phiếu của bạn quyết định ai sẽ ngồi trên ghế thẩm phán.'
+        footerMessage: 'Bầu cử Thẩm phán Tòa án Tối cao Georgia là phi đảng phái và được quyết định trong cuộc bầu cử sơ bộ ngày 19 tháng 5, KHÔNG phải bầu cử tổng quát tháng 11. Hãy đi bỏ phiếu vào tháng 5! Lá phiếu của bạn định hình tư pháp của tiểu bang.'
       },
       'CA': {
         title: 'Cử tri California thân mến',
