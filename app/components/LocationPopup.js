@@ -81,7 +81,7 @@ export default function LocationPopup({ state, eventType }) {
       },
       'PA': {
         title: 'Cử tri Pennsylvania thân mến',
-        subtitle: 'Thông tin Bầu cử Tái bổ nhiệm Tòa án Tối cao Pennsylvania',
+        subtitle: 'Thông tin Bầu cử Sơ bộ Khu vực 1 Quốc hội Pennsylvania 2026 (PA-1 Primary)',
         resources: [
           {
             icon: Vote,
@@ -106,16 +106,16 @@ export default function LocationPopup({ state, eventType }) {
           },
           {
             icon: Calendar,
-            title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            title: 'Ngày quan trọng (Sơ bộ)',
+            description: 'Ngày bầu cử sơ bộ: 19 tháng 5, 2026',
             dates: [
-              'Hạn chót đăng ký cử tri: 14 tháng 10, 2025',
-              'Hạn chót đăng ký bỏ phiếu qua bưu điện: 28 tháng 10, 2025',
-              'Hạn chót nộp phiếu qua bưu điện: 4 tháng 11, 2025 lúc 8 giờ tối'
+              'Hạn chót đăng ký cử tri: 4 tháng 5, 2026',
+              'Hạn chót đăng ký bỏ phiếu qua bưu điện: 12 tháng 5, 2026',
+              'Hạn chót nộp phiếu qua bưu điện: 19 tháng 5, 2026 lúc 8 giờ tối'
             ]
           }
         ],
-        footerMessage: 'Việc tái bổ nhiệm thẩm phán Tòa án Tối cao Pennsylvania là quyết định quan trọng để duy trì tính độc lập và công bằng của tư pháp.'
+        footerMessage: 'Khu vực 1 Pennsylvania là một trong những khu vực swing quan trọng nhất nước. Hãy đi bỏ phiếu sơ bộ vào ngày 19 tháng 5!'
       },
       'CA': {
         title: 'Cử tri California thân mến',
