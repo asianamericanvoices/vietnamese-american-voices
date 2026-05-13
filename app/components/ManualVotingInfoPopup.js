@@ -120,7 +120,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
             ]
           }
         ],
-        footerMessage: 'Khu vực 1 Pennsylvania là một trong những khu vực swing quan trọng nhất nước. Hãy đi bỏ phiếu sơ bộ vào ngày 19 tháng 5, lá phiếu của bạn quyết định ứng cử viên Dân chủ!'
+        footerMessage: 'Khu vực 1 Pennsylvania là một trong những khu vực swing được chú ý nhất nước. Hãy đi bỏ phiếu sơ bộ ngày 19 tháng 5 để quyết định ai sẽ đại diện cho cộng đồng của bạn!'
       },
       'GA': {
         title: 'Cử tri Georgia thân mến',
