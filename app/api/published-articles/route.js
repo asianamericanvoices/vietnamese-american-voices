@@ -236,9 +236,16 @@ function parseJsonField(field) {
   if (!field) return null;
   if (typeof field === 'object') return field;
   try {
-    return JSON.parse(field);
+    let parsed = JSON.parse(field);
+    // Handle double-encoded JSON (a string that itself contains JSON).
+    // This is common in older AAVM articles where translations were
+    // JSON.stringify()'d twice during the save path.
+    if (typeof parsed === 'string') {
+      try { parsed = JSON.parse(parsed); } catch { /* keep as string */ }
+    }
+    return parsed;
   } catch (e) {
-    console.warn('Failed to parse JSON field:', field);
+    console.warn('Failed to parse JSON field:', String(field).substring(0, 100));
     return null;
   }
 }

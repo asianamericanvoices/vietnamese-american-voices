@@ -256,9 +256,13 @@ function parseJsonField(field) {
   if (!field) return null;
   if (typeof field === 'object') return field;
   try {
-    return JSON.parse(field);
+    let parsed = JSON.parse(field);
+    if (typeof parsed === 'string') {
+      try { parsed = JSON.parse(parsed); } catch { /* keep as string */ }
+    }
+    return parsed;
   } catch (e) {
-    console.warn('Failed to parse JSON field:', field);
+    console.warn('Failed to parse JSON field:', String(field).substring(0, 100));
     return null;
   }
 }
