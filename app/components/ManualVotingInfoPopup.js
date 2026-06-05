@@ -295,6 +295,44 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
         ],
         footerMessage: 'Bầu cử Thượng viện, Tòa án Tối cao và Ủy ban Bầu cử North Carolina ảnh hưởng đến chính sách tiểu bang và công lý tư pháp. Lá phiếu của bạn rất quan trọng!'
       }
+      'IA': {
+        title: 'Cử tri Iowa thân mến',
+        subtitle: 'Thông tin Bầu cử Thượng viện Iowa 2026 (Tổng tuyển cử 3/11)',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
+            link: 'https://sos.iowa.gov/elections/voterreg/regtovote/search.aspx',
+            linkText: 'Truy cập Iowa Voter Registration'
+          },
+          {
+            icon: FileText,
+            title: 'Đăng ký bỏ phiếu vắng mặt',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
+            link: 'https://sos.iowa.gov/elections/absentee/',
+            linkText: 'Thông tin bỏ phiếu vắng mặt'
+          },
+          {
+            icon: MapPin,
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
+            link: 'https://sos.iowa.gov/elections/voterreg/PollPlace/search.aspx',
+            linkText: 'Xem vị trí điểm bỏ phiếu'
+          },
+          {
+            icon: Calendar,
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026',
+            dates: [
+              'Hạn chót đăng ký cử tri: 24 tháng 10, 2026',
+              'Bỏ phiếu sớm: 14 tháng 10 - 3 tháng 11, 2026',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 19 tháng 10, 2026'
+            ]
+          }
+        ],
+        footerMessage: 'Ghế Thượng nghị sĩ Iowa đang bỏ trống sau khi Thượng nghị sĩ Ernst nghỉ hưu. Hãy đi bỏ phiếu tổng tuyển cử ngày 3 tháng 11 để quyết định ai đại diện cho Iowa!'
+      },
     };
 
     return content[state] || null;
