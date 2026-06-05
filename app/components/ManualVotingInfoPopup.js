@@ -294,7 +294,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           }
         ],
         footerMessage: 'Bầu cử Thượng viện, Tòa án Tối cao và Ủy ban Bầu cử North Carolina ảnh hưởng đến chính sách tiểu bang và công lý tư pháp. Lá phiếu của bạn rất quan trọng!'
-      }
+      },
       'IA': {
         title: 'Cử tri Iowa thân mến',
         subtitle: 'Thông tin Bầu cử Thượng viện Iowa 2026 (Tổng tuyển cử 3/11)',

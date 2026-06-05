@@ -207,7 +207,7 @@ export default function LocationPopup({ state, eventType }) {
           }
         ],
         footerMessage: 'Thống đốc New Jersey quyết định chính sách và ngân sách của tiểu bang. Hãy lên tiếng cho cộng đồng người Mỹ gốc Việt.'
-      }
+      },
       'IA': {
         title: 'Cử tri Iowa thân mến',
         subtitle: 'Thông tin Bầu cử Thượng viện Iowa 2026 (Tổng tuyển cử 3/11)',
