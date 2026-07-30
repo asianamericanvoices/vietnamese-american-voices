@@ -124,7 +124,7 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
       },
       'GA': {
         title: 'Cử tri Georgia thân mến',
-        subtitle: 'Thông tin Bầu cử Sơ bộ Georgia 2026 - Tòa án Tối cao (phi đảng phái)',
+        subtitle: 'Thông tin Bầu cử Tổng quát Georgia ngày 3 tháng 11, 2026 — Thượng viện, Thống đốc, Quốc hội và Ủy ban Dịch vụ Công',
         resources: [
           {
             icon: Vote,
@@ -149,16 +149,17 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
           },
           {
             icon: Calendar,
-            title: 'Ngày quan trọng (Sơ bộ)',
-            description: 'Ngày bầu cử sơ bộ: 19 tháng 5, 2026',
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026 (giờ bỏ phiếu 7 giờ sáng–7 giờ tối)',
             dates: [
-              'Bỏ phiếu sớm (đang diễn ra): 27 tháng 4 - 15 tháng 5, 2026',
-              'Hạn chót đăng ký bỏ phiếu vắng mặt: 8 tháng 5, 2026',
-              'Hạn chót đăng ký cử tri: 20 tháng 4, 2026 (đã hết hạn)'
+              'Hạn chót đăng ký cử tri: 5 tháng 10, 2026',
+              'Bỏ phiếu sớm: 13 tháng 10 - 30 tháng 10, 2026',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 23 tháng 10, 2026',
+              'Hạn chót nộp phiếu vắng mặt: trước 7 giờ tối ngày bầu cử 3 tháng 11'
             ]
           }
         ],
-        footerMessage: 'Bầu cử Thẩm phán Tòa án Tối cao Georgia là phi đảng phái và được quyết định trong cuộc bầu cử sơ bộ ngày 19 tháng 5, KHÔNG phải bầu cử tổng quát tháng 11. Hãy đi bỏ phiếu vào tháng 5! Lá phiếu của bạn định hình tư pháp của tiểu bang.'
+        footerMessage: 'Cuộc bầu cử tổng quát ngày 3 tháng 11, 2026 sẽ quyết định Thượng nghị sĩ liên bang, Thống đốc, Dân biểu Quốc hội và Ủy ban Dịch vụ Công của Georgia. Điểm bỏ phiếu mở cửa từ 7 giờ sáng đến 7 giờ tối. Hãy đi bỏ phiếu để tiếng nói của cộng đồng người Việt được lắng nghe!'
       },
       'CA': {
         title: 'Cử tri California thân mến',

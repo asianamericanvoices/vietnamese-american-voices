@@ -43,7 +43,7 @@ export default function LocationPopup({ state, eventType }) {
     const content = {
       'GA': {
         title: 'Cử tri Georgia thân mến',
-        subtitle: 'Thông tin Bầu cử Ủy ban Dịch vụ Công Georgia',
+        subtitle: 'Thông tin Bầu cử Tổng quát Georgia ngày 3 tháng 11, 2026 — Thượng viện, Thống đốc, Quốc hội và Ủy ban Dịch vụ Công',
         resources: [
           {
             icon: Vote,
@@ -69,15 +69,16 @@ export default function LocationPopup({ state, eventType }) {
           {
             icon: Calendar,
             title: 'Ngày quan trọng',
-            description: 'Ngày bầu cử: 4 tháng 11, 2025',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026 (giờ bỏ phiếu 7 giờ sáng–7 giờ tối)',
             dates: [
-              'Hạn chót đăng ký cử tri: 6 tháng 10, 2025',
-              'Bỏ phiếu sớm: 13 tháng 10 - 31 tháng 10, 2025',
-              'Hạn chót đăng ký bỏ phiếu vắng mặt: 24 tháng 10, 2025'
+              'Hạn chót đăng ký cử tri: 5 tháng 10, 2026',
+              'Bỏ phiếu sớm: 13 tháng 10 - 30 tháng 10, 2026',
+              'Hạn chót đăng ký bỏ phiếu vắng mặt: 23 tháng 10, 2026',
+              'Hạn chót nộp phiếu vắng mặt: trước 7 giờ tối ngày bầu cử 3 tháng 11'
             ]
           }
         ],
-        footerMessage: 'Ủy ban Dịch vụ Công Georgia quản lý giá điện, gas và điện thoại. Lá phiếu của bạn ảnh hưởng trực tiếp đến chi phí dịch vụ công.'
+        footerMessage: 'Cuộc bầu cử tổng quát ngày 3 tháng 11, 2026 sẽ quyết định Thượng nghị sĩ liên bang, Thống đốc, Dân biểu Quốc hội và Ủy ban Dịch vụ Công của Georgia. Điểm bỏ phiếu mở cửa từ 7 giờ sáng đến 7 giờ tối. Hãy đi bỏ phiếu để tiếng nói của cộng đồng người Việt được lắng nghe!'
       },
       'PA': {
         title: 'Cử tri Pennsylvania thân mến',
