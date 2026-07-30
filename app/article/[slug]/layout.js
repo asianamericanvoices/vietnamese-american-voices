@@ -5,18 +5,17 @@ export async function generateMetadata({ params }) {
   try {
     const slug = await Promise.resolve(params.slug);
 
-    // Fetch the article to get its data
+    // Fetch the SPECIFIC article by id. Previously this scanned the top-200
+    // published-articles list and .find()'d the id, so any article deeper than
+    // 200 got the "not found" title/OG card even though the page body loaded fine
+    // (the client fetches by id independently). Fetch by id directly instead.
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vietnamese-american-voices.vercel.app';
-    const response = await fetch(`${baseUrl}/api/published-articles?language=vietnamese&limit=200&_t=${Date.now()}`, {
+    const response = await fetch(`${baseUrl}/api/article/${slug}?language=vietnamese&_t=${Date.now()}`, {
       cache: 'no-store' // Ensure fresh data
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch articles');
-    }
-
-    const data = await response.json();
-    const article = data.articles?.find(a => a.id.toString() === slug.toString());
+    const data = response.ok ? await response.json() : null;
+    const article = data?.article;
 
     if (!article) {
       return {
