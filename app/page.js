@@ -491,8 +491,8 @@ export default function VietnameseAmericanVoices() {
         </div>
       </div>
 
-      {/* Prominent Event Hub Bar — HIDDEN until go-live. To make visible: change `false` to `true` below. */}
-      {false && (
+      {/* Prominent Event Hub Bar — LIVE. To hide again: change `true` to `false` below. */}
+      {true && (
         <div className="border-b border-gray-200 py-3 bg-gradient-to-r from-purple-50 via-green-50 to-red-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-center gap-2 flex-wrap">
