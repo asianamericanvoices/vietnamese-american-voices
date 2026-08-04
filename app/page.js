@@ -491,6 +491,20 @@ export default function VietnameseAmericanVoices() {
         </div>
       </div>
 
+      {/* Prominent Event Hub Bar — HIDDEN until go-live. To make visible: change `false` to `true` below. */}
+      {false && (
+        <div className="border-b border-gray-200 py-3 bg-gradient-to-r from-purple-50 via-green-50 to-red-50">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <span className="text-sm font-bold text-gray-700">🗳️ Bầu cử quan trọng:</span>
+              <Link href="/event/alaska-senate-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 shadow transition-colors">🏔️ Thượng viện Alaska 2026</Link>
+              <Link href="/event/georgia-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-600 text-white hover:bg-green-700 shadow transition-colors">🍑 Bầu cử Georgia 2026</Link>
+              <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-600 text-white hover:bg-red-700 shadow transition-colors">🗳️ Bầu cử North Carolina 2026</Link>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Category Navigation with Event Hubs */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
