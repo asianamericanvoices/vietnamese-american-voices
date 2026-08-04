@@ -41,6 +41,51 @@ export default function LocationPopup({ state, eventType }) {
   // Get popup content based on state
   const getPopupContent = (detectedState) => {
     const content = {
+      'AK': {
+        title: 'Cử tri Alaska thân mến',
+        subtitle: 'Thông tin Bầu cử Thượng viện Alaska 2026',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
+            link: 'https://myvoterinformation.alaska.gov/',
+            linkText: 'Truy cập AK Voter Information'
+          },
+          {
+            icon: FileText,
+            title: 'Đăng ký bỏ phiếu vắng mặt',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
+            link: 'https://absenteeballotapplication.alaska.gov/',
+            linkText: 'Đơn bỏ phiếu vắng mặt'
+          },
+          {
+            icon: MapPin,
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
+            link: 'https://myvoterinformation.alaska.gov/',
+            linkText: 'Xem vị trí điểm bỏ phiếu'
+          },
+          {
+            icon: Info,
+            title: 'Về Bỏ phiếu Xếp hạng (RCV)',
+            description: 'Tìm hiểu hệ thống RCV của Alaska',
+            link: 'https://www.elections.alaska.gov/RCV.php',
+            linkText: 'Hướng dẫn RCV'
+          },
+          {
+            icon: Calendar,
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử tổng quát: 3 tháng 11, 2026',
+            dates: [
+              'Bầu cử sơ bộ mở (top 4): 18 tháng 8, 2026',
+              'Hạn chót đăng ký cử tri: 4 tháng 10, 2026 (30 ngày trước bầu cử)',
+              'Bỏ phiếu sớm bắt đầu: 19 tháng 10, 2026'
+            ]
+          }
+        ],
+        footerMessage: 'Alaska sử dụng bầu cử sơ bộ mở và bỏ phiếu xếp hạng (RCV). Mọi cử tri đều có thể tham gia bất kể đảng phái.'
+      },
       'GA': {
         title: 'Cử tri Georgia thân mến',
         subtitle: 'Thông tin Bầu cử Tổng quát Georgia ngày 3 tháng 11, 2026 — Thượng viện, Thống đốc, Quốc hội và Ủy ban Dịch vụ Công',
