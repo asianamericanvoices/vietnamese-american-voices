@@ -23,7 +23,7 @@ export default function NorthCarolinaElections2026() {
 
   const EVENT_NAME = 'North Carolina Elections 2026';
   const EVENT_TITLE = 'Bầu cử North Carolina 2026';
-  const EVENT_COLOR = 'bg-green-100 text-green-800 border-green-300';
+  const EVENT_COLOR = 'bg-blue-100 text-blue-800 border-blue-300';
 
   // Categories in Vietnamese (for navigation)
   const categories = [
@@ -211,7 +211,7 @@ export default function NorthCarolinaElections2026() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-green-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
+              <div className="w-12 h-12 bg-blue-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
                 <span className="text-white font-bold text-xs leading-none tracking-wide">Việt</span>
                 <span className="text-white font-bold text-xs leading-none tracking-wide">Mỹ</span>
               </div>
@@ -223,21 +223,21 @@ export default function NorthCarolinaElections2026() {
 
             <div className="flex items-center space-x-4">
               <SearchBar site="vietnamese" />
-              <a href="mailto:contact@vietnameseamericanvoices.us" className="text-gray-700 hover:text-green-600 text-sm font-medium">
+              <a href="mailto:contact@vietnameseamericanvoices.us" className="text-gray-700 hover:text-blue-600 text-sm font-medium">
                 Liên hệ
               </a>
             </div>
           </div>
 
         {/* Prominent Event Hub Bar - Part of Sticky Header */}
-        <div className="border-t border-gray-200 py-3 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+        <div className="border-t border-gray-200 py-3 bg-gradient-to-r from-blue-50 via-yellow-50 to-red-50">
           <div className="max-w-7xl mx-auto px-6">
             {/* Desktop: Inline layout */}
             <div className="hidden md:flex items-center justify-center gap-3 flex-wrap">
               <span className="text-sm font-bold text-gray-700">🗳️ Sự kiện bầu cử quan trọng:</span>
               <Link
                 href="/event/north-carolina-elections-2026"
-                className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium transition-all transform hover:scale-105 bg-green-600 text-white hover:bg-green-700 shadow-lg"
+                className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium transition-all transform hover:scale-105 bg-blue-600 text-white hover:bg-blue-700 shadow-lg"
               >
                 <span>🗳️ Bầu cử North Carolina 2026</span>
               </Link>
@@ -249,7 +249,7 @@ export default function NorthCarolinaElections2026() {
               <div className="flex flex-col items-center space-y-2 w-full">
                 <Link
                   href="/event/north-carolina-elections-2026"
-                  className="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium transition-all transform hover:scale-105 bg-green-600 text-white hover:bg-green-700 shadow-lg w-full max-w-xs"
+                  className="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium transition-all transform hover:scale-105 bg-blue-600 text-white hover:bg-blue-700 shadow-lg w-full max-w-xs"
                 >
                   <span>🗳️ Bầu cử North Carolina 2026</span>
                 </Link>
@@ -261,10 +261,10 @@ export default function NorthCarolinaElections2026() {
       </header>
 
       {/* Event Banner - Dynamic Breaking News Ticker */}
-      <div className="bg-green-600 text-white py-2">
+      <div className="bg-blue-600 text-white py-2">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center">
-            <span className="bg-white text-green-600 px-2 py-1 text-xs font-bold rounded mr-4 flex-shrink-0">
+            <span className="bg-white text-blue-600 px-2 py-1 text-xs font-bold rounded mr-4 flex-shrink-0">
               Tin đặc biệt
             </span>
             <div className="overflow-hidden flex-1">
@@ -272,7 +272,7 @@ export default function NorthCarolinaElections2026() {
                 {getBreakingNews().map((item, index) => (
                   <span key={item.id || index}>
                     {item.url ? (
-                      <Link href={item.url} className="hover:text-green-200 transition-colors">
+                      <Link href={item.url} className="hover:text-blue-200 transition-colors">
                         {item.title}
                       </Link>
                     ) : (
@@ -333,7 +333,7 @@ export default function NorthCarolinaElections2026() {
       </div>
 
       {/* Voting Information Button */}
-      <div className="bg-gradient-to-r from-green-50 to-yellow-50 py-4 border-b border-green-200">
+      <div className="bg-gradient-to-r from-blue-50 to-yellow-50 py-4 border-b border-blue-200">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <button
             onClick={() => {
@@ -363,7 +363,7 @@ export default function NorthCarolinaElections2026() {
               // Show the manual popup
               setShowManualPopup(true);
             }}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-full shadow-lg transition-all transform hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg transition-all transform hover:scale-105"
           >
             <Vote className="w-5 h-5" />
             <span className="text-lg">🗳️ Thông tin cử tri North Carolina</span>
@@ -404,7 +404,7 @@ export default function NorthCarolinaElections2026() {
                     </div>
 
                     <div className="mt-6">
-                      <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-green-600 transition-colors font-vietnamese">
+                      <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors font-vietnamese">
                         {getDisplayTitle(featuredArticle)}
                       </h1>
 
@@ -424,7 +424,7 @@ export default function NorthCarolinaElections2026() {
                       </div>
 
                       <div className="mt-6 flex items-center justify-between">
-                        <div className="inline-flex items-center space-x-2 text-green-600 hover:text-green-700 font-medium">
+                        <div className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium">
                           <span>Đọc toàn bộ bài viết</span>
                           <ChevronRight className="w-4 h-4" />
                         </div>
@@ -453,7 +453,7 @@ export default function NorthCarolinaElections2026() {
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold text-gray-900 flex items-center font-vietnamese">
-                    <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
+                    <TrendingUp className="w-5 h-5 mr-2 text-blue-600" />
                     Tin phổ biến khác
                   </h2>
                 </div>
@@ -463,11 +463,11 @@ export default function NorthCarolinaElections2026() {
                     <article key={article.id} className="group cursor-pointer">
                       <a href={getArticleUrl(article)} className="block">
                         <div className="flex space-x-3">
-                          <span className="text-2xl font-bold text-green-600 mt-1">
+                          <span className="text-2xl font-bold text-blue-600 mt-1">
                             {index + 1}
                           </span>
                           <div className="flex-1">
-                            <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors leading-tight font-vietnamese">
+                            <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight font-vietnamese">
                               {getDisplayTitle(article)}
                             </h3>
                             <div className="mt-2 flex items-center text-xs text-gray-500 space-x-2">
@@ -485,7 +485,7 @@ export default function NorthCarolinaElections2026() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="bg-green-50 rounded-lg p-6">
+              <div className="bg-blue-50 rounded-lg p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-2 font-vietnamese">
                   Đăng ký bản tin
                 </h2>
@@ -499,12 +499,12 @@ export default function NorthCarolinaElections2026() {
                     onChange={(e) => setNewsletterEmail(e.target.value)}
                     placeholder="Nhập địa chỉ email"
                     disabled={newsletterStatus === 'loading'}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                   />
                   <button
                     type="submit"
                     disabled={newsletterStatus === 'loading'}
-                    className="w-full bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {newsletterStatus === 'loading' ? 'Đang đăng ký...' : 'Đăng ký'}
                   </button>
@@ -543,7 +543,7 @@ export default function NorthCarolinaElections2026() {
                         className="w-full h-48 object-cover rounded-lg mb-3"
                       />
                     )}
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors leading-tight font-vietnamese mb-2">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight font-vietnamese mb-2">
                       {getDisplayTitle(article)}
                     </h3>
                     <p className="text-sm text-gray-600 line-clamp-2 mb-3">
@@ -571,7 +571,7 @@ export default function NorthCarolinaElections2026() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-green-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex flex-col items-center justify-center gap-0.5">
                   <span className="text-white font-bold text-xs leading-none">Việt</span>
                   <span className="text-white font-bold text-xs leading-none">Mỹ</span>
                 </div>
