@@ -121,7 +121,7 @@ export default function Pennsylvania1stDistrict2026() {
   };
 
   const featuredArticle = articles.find(article =>
-    article.isEventHero || article.eventHeroFor === EVENT_NAME
+    article.isEventHero && article.eventHeroFor === EVENT_NAME
   ) || articles[0];
 
   const otherArticles = articles.filter(article => article.id !== featuredArticle?.id);

@@ -139,7 +139,7 @@ export default function NewJerseyGovernor2025() {
 
   // Find the event hero article (Event Explainer) or fall back to the first article
   const featuredArticle = articles.find(article =>
-    article.isEventHero || article.eventHeroFor === EVENT_NAME
+    article.isEventHero && article.eventHeroFor === EVENT_NAME
   ) || articles[0];
 
   // Filter out the featured article from the other articles list
