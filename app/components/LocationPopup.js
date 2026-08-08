@@ -43,7 +43,7 @@ export default function LocationPopup({ state, eventType }) {
     const content = {
       'AK': {
         title: 'Cử tri Alaska thân mến',
-        subtitle: 'Thông tin Bầu cử Thượng viện Alaska 2026',
+        subtitle: 'Thông tin Bầu cử Alaska 2026 — Thượng viện & Thống đốc',
         resources: [
           {
             icon: Vote,
