@@ -1,5 +1,7 @@
 // app/api/newsletter/unsubscribe/route.js - Newsletter unsubscribe endpoint (Vietnamese)
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import crypto from 'crypto';
 
 // Supabase client setup

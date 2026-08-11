@@ -1,6 +1,8 @@
 // Debug endpoint to check Vietnamese site environment variables
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     // Check environment variables (don't expose actual values for security)

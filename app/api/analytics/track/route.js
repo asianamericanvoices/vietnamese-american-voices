@@ -1,6 +1,8 @@
 // app/api/analytics/track/route.js - Analytics tracking endpoint
 // Make sure this file is in: app/api/analytics/track/route.js
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
 
