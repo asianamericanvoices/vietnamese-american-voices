@@ -167,6 +167,83 @@ export default function ManualVotingInfoPopup({ state, eventType, isOpen, onClos
         ],
         footerMessage: 'Alaska sử dụng bầu cử sơ bộ mở và bỏ phiếu xếp hạng (RCV). Mọi cử tri đều có thể tham gia bất kể đảng phái.'
       },
+      'MI': {
+        title: 'Cử tri Michigan thân mến',
+        subtitle: 'Thông tin Bầu cử Michigan ngày 3 tháng 11, 2026 — Thống đốc, Thượng viện & Quốc hội',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
+            link: 'https://mvic.sos.state.mi.us/',
+            linkText: 'Truy cập Michigan Voter Information Center'
+          },
+          {
+            icon: FileText,
+            title: 'Bỏ phiếu vắng mặt (qua thư)',
+            description: 'Đăng ký bỏ phiếu qua bưu điện',
+            link: 'https://mvic.sos.state.mi.us/AVApplication',
+            linkText: 'Đơn bỏ phiếu vắng mặt'
+          },
+          {
+            icon: MapPin,
+            title: 'Tìm điểm bỏ phiếu',
+            description: 'Tìm điểm bỏ phiếu gần bạn',
+            link: 'https://mvic.sos.state.mi.us/',
+            linkText: 'Xem vị trí điểm bỏ phiếu'
+          },
+          {
+            icon: Calendar,
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026 (giờ bỏ phiếu 7 giờ sáng–8 giờ tối)',
+            dates: [
+              'Hạn chót đăng ký cử tri (trực tuyến/qua thư): 19 tháng 10, 2026 (sau đó đăng ký trực tiếp cùng ngày đến ngày bầu cử)',
+              'Bỏ phiếu sớm: 24 tháng 10 - 1 tháng 11, 2026',
+              'Hạn chót xin phiếu vắng mặt: 30 tháng 10, 2026 (thứ Sáu trước bầu cử)',
+              'Hạn nộp phiếu vắng mặt: trước 8 giờ tối ngày 3 tháng 11'
+            ]
+          }
+        ],
+        footerMessage: 'Michigan cho phép đăng ký cử tri cùng ngày và bỏ phiếu vắng mặt (qua thư) không cần lý do; mọi cử tri đã đăng ký đều có thể tham gia.'
+      },
+      'NV': {
+        title: 'Cử tri Nevada thân mến',
+        subtitle: 'Thông tin Bầu cử Nevada ngày 3 tháng 11, 2026 — Thống đốc & Quốc hội',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký của bạn',
+            link: 'https://www.nvsos.gov/votersearch/',
+            linkText: 'Truy cập Nevada Voter Search'
+          },
+          {
+            icon: FileText,
+            title: 'Phiếu bầu qua thư & theo dõi',
+            description: 'Nevada gửi phiếu bầu qua thư cho mọi cử tri đã đăng ký',
+            link: 'https://www.nvsos.gov/elections/voters/tracking',
+            linkText: 'Theo dõi phiếu bầu qua thư'
+          },
+          {
+            icon: MapPin,
+            title: 'Điểm bỏ phiếu & bỏ phiếu sớm',
+            description: 'Tìm điểm bỏ phiếu và bỏ phiếu sớm gần bạn',
+            link: 'https://www.nvsos.gov/elections/election-information/2026-election-information/2026-polling-locations',
+            linkText: 'Xem địa điểm bỏ phiếu'
+          },
+          {
+            icon: Calendar,
+            title: 'Ngày quan trọng',
+            description: 'Ngày bầu cử: 3 tháng 11, 2026 (giờ bỏ phiếu 7 giờ sáng–7 giờ tối)',
+            dates: [
+              'Hạn chót đăng ký cử tri trực tuyến: 29 tháng 10, 2026 (sau đó đăng ký cùng ngày đến ngày bầu cử)',
+              'Bỏ phiếu sớm: 17 tháng 10 - 30 tháng 10, 2026',
+              'Nộp phiếu qua thư: đóng dấu bưu điện trong ngày bầu cử, hoặc bỏ vào thùng phiếu trước 7 giờ tối'
+            ]
+          }
+        ],
+        footerMessage: 'Nevada tự động gửi phiếu bầu qua thư cho mọi cử tri đã đăng ký và cho phép đăng ký cùng ngày.'
+      },
       'GA': {
         title: 'Cử tri Georgia thân mến',
         subtitle: 'Thông tin Bầu cử Tổng quát Georgia ngày 3 tháng 11, 2026 — Thượng viện, Thống đốc, Quốc hội và Ủy ban Dịch vụ Công',

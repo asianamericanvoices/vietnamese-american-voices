@@ -500,6 +500,8 @@ export default function VietnameseAmericanVoices() {
               <Link href="/event/alaska-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 shadow transition-colors">🏔️ Bầu cử Alaska 2026</Link>
               <Link href="/event/georgia-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-600 text-white hover:bg-green-700 shadow transition-colors">🍑 Bầu cử Georgia 2026</Link>
               <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition-colors">🗳️ Bầu cử North Carolina 2026</Link>
+              {false && (<Link href="/event/michigan-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🗳️ Bầu cử Michigan 2026</Link>)}
+              {false && (<Link href="/event/nevada-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🗳️ Bầu cử Nevada 2026</Link>)}
             </div>
           </div>
         </div>
