@@ -6,8 +6,11 @@ export const metadata = {
   title: 'Tiếng Nói Người Mỹ Gốc Việt | Vietnamese American Voices',
   description: 'Tin tức độc lập cho cộng đồng người Mỹ gốc Việt. Cập nhật về chính trị, y tế, giáo dục, di trú và đời sống cộng đồng.',
   keywords: 'Vietnamese American, Asian American, news, politics, healthcare, education, immigration, community, Việt kiều, người Mỹ gốc Việt, tin tức',
-  authors: [{ name: 'Vietnamese American Voices', url: 'https://vietnamese-american-voices.vercel.app' }],
-  metadataBase: new URL('https://vietnamese-american-voices.vercel.app'),
+  authors: [{ name: 'Vietnamese American Voices', url: 'https://www.tiengnoinguoimygocviet.us' }],
+  metadataBase: new URL('https://www.tiengnoinguoimygocviet.us'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Tiếng Nói Người Mỹ Gốc Việt | Vietnamese American Voices',
     description: 'Tin tức độc lập cho cộng đồng người Mỹ gốc Việt | Independent news for Vietnamese American communities',
@@ -15,7 +18,7 @@ export const metadata = {
     locale: 'vi_VN',
     alternateLocale: 'en_US',
     siteName: 'Vietnamese American Voices',
-    url: 'https://vietnamese-american-voices.vercel.app',
+    url: 'https://www.tiengnoinguoimygocviet.us',
     images: [
       {
         url: '/og-logo-vietnamese-3.png',
@@ -32,19 +35,35 @@ export const metadata = {
     title: 'Tiếng Nói Người Mỹ Gốc Việt | Vietnamese American Voices',
     description: 'Tin tức độc lập cho cộng đồng người Mỹ gốc Việt',
     images: ['/og-logo-vietnamese-3.png']
-  },
-  alternates: {
-    languages: {
-      'en': '/en',
-      'vi': '/vi'
-    }
   }
+}
+
+// schema.org publisher identity — helps Google News and AI answer engines
+// recognize us as a trusted in-language news outlet.
+const ORG_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsMediaOrganization',
+  name: 'Tiếng Nói Người Mỹ Gốc Việt',
+  alternateName: 'Vietnamese American Voices',
+  url: 'https://www.tiengnoinguoimygocviet.us',
+  logo: 'https://www.tiengnoinguoimygocviet.us/og-logo-vietnamese-3.png',
+  inLanguage: 'vi',
+  parentOrganization: {
+    '@type': 'NewsMediaOrganization',
+    name: 'Asian American Voices Media, Inc.',
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="vi">
       <head>
+        {/* Organization structured data for search + AI answer engines */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
+        />
+
         {/* Google Tag Manager - Sunflower Marketing (VAV container) */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
