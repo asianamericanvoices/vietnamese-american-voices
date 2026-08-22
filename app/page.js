@@ -495,14 +495,15 @@ export default function VietnameseAmericanVoices() {
       {true && (
         <div className="border-b border-gray-200 py-3 bg-gradient-to-r from-purple-50 via-green-50 to-red-50">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center justify-center gap-1.5 flex-wrap">
+            <div className="flex items-center justify-center gap-2 flex-wrap">
               <span className="text-sm font-bold text-gray-700">🗳️ Bầu cử quan trọng:</span>
-              <Link href="/event/alaska-elections-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white hover:bg-purple-700 shadow transition-colors">🏔️ Bầu cử Alaska 2026</Link>
-              <Link href="/event/georgia-elections-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-green-600 text-white hover:bg-green-700 shadow transition-colors">🍑 Bầu cử Georgia 2026</Link>
-              <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition-colors">✈️ Bầu cử North Carolina 2026</Link>
-              <Link href="/event/michigan-elections-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🚗 Bầu cử Michigan 2026</Link>
-              <Link href="/event/nevada-elections-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🎰 Bầu cử Nevada 2026</Link>
-              <Link href="/event/iowa-senate-2026" className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-600 text-white hover:bg-red-700 shadow transition-colors">🌽 Bầu cử Thượng viện Iowa 2026</Link>
+              <Link href="/event/alaska-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 shadow transition-colors">🏔️ Bầu cử Alaska 2026</Link>
+              <Link href="/event/georgia-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-600 text-white hover:bg-green-700 shadow transition-colors">🍑 Bầu cử Georgia 2026</Link>
+              <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition-colors">✈️ Bầu cử North Carolina 2026</Link>
+              <div className="basis-full h-0" aria-hidden="true"></div>
+              <Link href="/event/michigan-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🚗 Bầu cử Michigan 2026</Link>
+              <Link href="/event/nevada-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🎰 Bầu cử Nevada 2026</Link>
+              <Link href="/event/iowa-senate-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-600 text-white hover:bg-red-700 shadow transition-colors">🌽 Bầu cử Thượng viện Iowa 2026</Link>
             </div>
           </div>
         </div>
