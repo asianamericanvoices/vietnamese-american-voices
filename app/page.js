@@ -499,9 +499,9 @@ export default function VietnameseAmericanVoices() {
               <span className="text-sm font-bold text-gray-700">🗳️ Bầu cử quan trọng:</span>
               <Link href="/event/alaska-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 shadow transition-colors">🏔️ Bầu cử Alaska 2026</Link>
               <Link href="/event/georgia-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-600 text-white hover:bg-green-700 shadow transition-colors">🍑 Bầu cử Georgia 2026</Link>
-              <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition-colors">🗳️ Bầu cử North Carolina 2026</Link>
-              <Link href="/event/michigan-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🗳️ Bầu cử Michigan 2026</Link>
-              <Link href="/event/nevada-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🗳️ Bầu cử Nevada 2026</Link>
+              <Link href="/event/north-carolina-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition-colors">✈️ Bầu cử North Carolina 2026</Link>
+              <Link href="/event/michigan-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🚗 Bầu cử Michigan 2026</Link>
+              <Link href="/event/nevada-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🎰 Bầu cử Nevada 2026</Link>
               <Link href="/event/iowa-senate-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-600 text-white hover:bg-red-700 shadow transition-colors">🌽 Bầu cử Thượng viện Iowa 2026</Link>
             </div>
           </div>
