@@ -163,6 +163,47 @@ export default function LocationPopup({ state, eventType }) {
         ],
         footerMessage: 'Nevada tự động gửi phiếu bầu qua thư cho mọi cử tri đã đăng ký và cho phép đăng ký cùng ngày.'
       },
+      'TX': {
+        title: 'Cử tri Texas thân mến',
+        subtitle: 'Thông tin bầu cử Texas 2026 — Thượng viện, Thống đốc và Hạ viện (Bầu cử sơ bộ 3/3, Tổng tuyển cử 3/11)',
+        resources: [
+          {
+            icon: Vote,
+            title: 'Kiểm tra đăng ký cử tri',
+            description: 'Kiểm tra tình trạng đăng ký (“Am I Registered?”)',
+            link: 'https://teamrv-mvp.sos.texas.gov/MVP/mvp.do',
+            linkText: 'Truy cập Texas “Am I Registered?”'
+          },
+          {
+            icon: FileText,
+            title: 'Đăng ký cử tri',
+            description: 'Texas không có đăng ký trực tuyến — phải gửi thư hoặc đăng ký trực tiếp',
+            link: 'https://www.votetexas.gov/register-to-vote/index.html',
+            linkText: 'Hướng dẫn đăng ký VoteTexas.gov'
+          },
+          {
+            icon: MapPin,
+            title: 'Tìm địa điểm bỏ phiếu',
+            description: 'Tìm địa điểm bỏ phiếu gần bạn',
+            link: 'https://www.votetexas.gov/voting/where.html',
+            linkText: 'Tra cứu địa điểm bỏ phiếu'
+          },
+          {
+            icon: Calendar,
+            title: 'Các mốc thời gian quan trọng',
+            description: 'Ngày tổng tuyển cử: 3 tháng 11, 2026 (7 giờ sáng–7 giờ tối)',
+            dates: [
+              'Bầu cử sơ bộ (chọn ứng viên đảng): 3 tháng 3, 2026',
+              'Hạn đăng ký cho bầu cử sơ bộ: 2 tháng 2, 2026',
+              'Hạn đăng ký cho tổng tuyển cử: 5 tháng 10, 2026 (Texas yêu cầu đăng ký trước 30 ngày, không có đăng ký trong ngày)',
+              'Bỏ phiếu sớm (tổng tuyển cử): 19 – 30 tháng 10, 2026',
+              'Hạn nộp đơn xin phiếu bầu qua thư: 23 tháng 10, 2026 (chỉ dành cho người đủ điều kiện: trên 65 tuổi, khuyết tật, vắng mặt khỏi quận, hoặc đang bị giam)',
+              'Hạn gửi trả phiếu bầu qua thư: trước 7 giờ tối ngày 3 tháng 11, 2026 (hoặc có dấu bưu điện ngày bầu cử và nhận trước ngày 4 tháng 11)'
+            ]
+          }
+        ],
+        footerMessage: 'Texas không có đăng ký trực tuyến hay đăng ký trong ngày bầu cử — hãy đăng ký trước ngày 5 tháng 10, 2026. Bỏ phiếu qua thư chỉ dành cho cử tri đủ điều kiện.'
+      },
       'GA': {
         title: 'Cử tri Georgia thân mến',
         subtitle: 'Thông tin Bầu cử Tổng quát Georgia ngày 3 tháng 11, 2026 — Thượng viện, Thống đốc, Quốc hội và Ủy ban Dịch vụ Công',
