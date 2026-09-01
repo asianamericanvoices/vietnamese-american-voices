@@ -289,8 +289,20 @@ export default function VietnameseAmericanVoices() {
     return article.topic !== 'Analysis';
   });
 
-  const featuredArticle = filteredArticles[0];
-  const otherArticles = filteredArticles.slice(1);
+  // Stale-hero fallback: the hand-picked hero sorts to position 0 via is_vietnamese_hero.
+  // If that hero's article is older than 2 days, feature the most recent article instead,
+  // so the homepage never leads with a stale story. No-op when no hero is set or nothing is newer.
+  const HERO_STALE_MS = 2 * 24 * 60 * 60 * 1000; // 2 days
+  let featuredArticle = filteredArticles[0];
+  if (featuredArticle && filteredArticles.length > 1) {
+    const heroAge = Date.now() - new Date(featuredArticle.publishedDate).getTime();
+    if (heroAge > HERO_STALE_MS) {
+      const freshest = [...filteredArticles]
+        .sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate))[0];
+      if (freshest && freshest.id !== featuredArticle.id) featuredArticle = freshest;
+    }
+  }
+  const otherArticles = filteredArticles.filter(a => a.id !== featuredArticle.id);
 
   const formatDate = (dateString) => {
     // Fix timezone issue: treat date as local date, not UTC
