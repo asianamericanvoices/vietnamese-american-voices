@@ -294,15 +294,21 @@ export default function VietnameseAmericanVoices() {
   // so the homepage never leads with a stale story. No-op when no hero is set or nothing is newer.
   const HERO_STALE_MS = 2 * 24 * 60 * 60 * 1000; // 2 days
   let featuredArticle = filteredArticles[0];
+  let overriddenHeroId = null; // a stale manual hero we overrode — hide it from the lists below too
   if (featuredArticle && filteredArticles.length > 1) {
     const heroAge = Date.now() - new Date(featuredArticle.publishedDate).getTime();
     if (heroAge > HERO_STALE_MS) {
       const freshest = [...filteredArticles]
         .sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate))[0];
-      if (freshest && freshest.id !== featuredArticle.id) featuredArticle = freshest;
+      if (freshest && freshest.id !== featuredArticle.id) {
+        overriddenHeroId = featuredArticle.id;
+        featuredArticle = freshest;
+      }
     }
   }
-  const otherArticles = filteredArticles.filter(a => a.id !== featuredArticle.id);
+  // Exclude the featured article, and (when overridden) the stale ex-hero, from the
+  // trending box and archive grid so a demoted stale hero doesn't reappear in the sidebar.
+  const otherArticles = filteredArticles.filter(a => a.id !== featuredArticle.id && a.id !== overriddenHeroId);
 
   const formatDate = (dateString) => {
     // Fix timezone issue: treat date as local date, not UTC
@@ -516,7 +522,7 @@ export default function VietnameseAmericanVoices() {
               <Link href="/event/michigan-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-600 text-white hover:bg-yellow-700 shadow transition-colors">🚗 Bầu cử Michigan 2026</Link>
               <Link href="/event/nevada-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 shadow transition-colors">🎰 Bầu cử Nevada 2026</Link>
               <Link href="/event/iowa-senate-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-600 text-white hover:bg-red-700 shadow transition-colors">🌽 Bầu cử Thượng viện Iowa 2026</Link>
-              {false && (<Link href="/event/texas-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600 text-white hover:bg-orange-700 shadow transition-colors">🤠 Bầu cử Texas 2026</Link>)}
+              {false && (<Link href="/event/texas-elections-2026" className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600 text-white hover:bg-orange-700 shadow transition-colors">⭐ Bầu cử Texas 2026</Link>)}
             </div>
           </div>
         </div>
