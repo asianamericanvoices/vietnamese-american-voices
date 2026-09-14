@@ -57,6 +57,7 @@ export async function GET(request) {
           original_url,
           status,
           is_vietnamese_hero,
+          vietnamese_hero_lock_until,
           targeted_event,
           is_event_hero,
           event_hero_for,
@@ -147,6 +148,8 @@ export async function GET(request) {
           imageAttribution: article.image_attribution,
           originalUrl: article.original_url,
           isHero: article.is_vietnamese_hero || false,
+          // Manual hero override expiry; the homepage skips its stale-hero swap while this is in the future.
+          heroLockUntil: article.vietnamese_hero_lock_until || null,
           additionalSources: parseJsonField(article.additional_sources) || [],
           isEventHero: article.is_event_hero || false,
           eventHeroFor: article.event_hero_for,

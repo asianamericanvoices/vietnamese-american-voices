@@ -295,7 +295,12 @@ export default function VietnameseAmericanVoices() {
   const HERO_STALE_MS = 2 * 24 * 60 * 60 * 1000; // 2 days
   let featuredArticle = filteredArticles[0];
   let overriddenHeroId = null; // a stale manual hero we overrode — hide it from the lists below too
-  if (featuredArticle && filteredArticles.length > 1) {
+  // A manual override pins the editor's pick: while heroLockUntil is in the future the
+  // freshness swap below is skipped entirely. The lock carries its own expiry, so control
+  // returns to the automatic rule on its own if nobody clears it.
+  const heroLockUntil = featuredArticle?.heroLockUntil;
+  const heroLocked = !!heroLockUntil && new Date(heroLockUntil).getTime() > Date.now();
+  if (featuredArticle && filteredArticles.length > 1 && !heroLocked) {
     const heroAge = Date.now() - new Date(featuredArticle.publishedDate).getTime();
     if (heroAge > HERO_STALE_MS) {
       const freshest = [...filteredArticles]
