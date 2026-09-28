@@ -266,12 +266,16 @@ export default function VietnameseAmericanVoices() {
   const getBreakingNews = () => {
     if (articles.length === 0) return [{ title: "Cập nhật tin tức mới nhất • Vấn đề quan trọng của cộng đồng Việt kiều • Tin cộng đồng", url: null }];
 
-    // Use the first 5 articles to populate breaking news - they already have Vietnamese translations
+    // Fact Checks are kept out of the ticker, matching the Chinese and Korean sites.
     const latestNews = articles
+      .filter(article => article.topic !== 'Fact Checks')
       .slice(0, 5)
       .map(article => {
-        // Prioritize Vietnamese translated title, fall back to displayTitle if not available
-        const title = article.translatedTitles?.vietnamese || article.displayTitle;
+        // Vietnamese translated title ONLY. There used to be a displayTitle fallback here,
+        // which put an English headline in the ticker of an in-language site whenever an
+        // article had not been translated yet. Untranslated articles are dropped by the
+        // .filter(item => item.title) below instead.
+        const title = article.translatedTitles?.vietnamese;
         // Vietnamese titles need more space - use 100 char limit
         const shortTitle = title && title.length > 100 ? title.substring(0, 97) + '...' : title;
         return { title: shortTitle, url: getArticleUrl(article), id: article.id };
