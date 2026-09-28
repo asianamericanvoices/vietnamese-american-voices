@@ -97,7 +97,7 @@ export default function VietnameseAmericanVoices() {
         });
       } else {
         console.log('📋 Không tìm thấy bài viết, sử dụng dữ liệu mẫu');
-        const mockData = getMockArticles();
+        const mockData = [];
         setArticles(mockData);
         setHasMore(false);
       }
@@ -107,7 +107,7 @@ export default function VietnameseAmericanVoices() {
       console.error('❌ Lỗi khi tải bài viết:', error);
       console.log('📋 Sử dụng dữ liệu mẫu');
 
-      const mockData = getMockArticles();
+      const mockData = [];
       setArticles(mockData);
       setHasMore(false);
       setLoading(false);
@@ -214,53 +214,10 @@ export default function VietnameseAmericanVoices() {
     }
   };
 
-  // Mock data function for fallback
-  const getMockArticles = () => {
-    return [
-      {
-        id: 1,
-        originalTitle: "Trump calls for U.S. census to exclude for the first time people with no legal status",
-        displayTitle: "Trump kêu gọi điều tra dân số Mỹ lần đầu tiên loại trừ người không có giấy tờ hợp pháp",
-        aiSummary: "Tổng thống Trump đã công bố kế hoạch điều tra dân số \"mới\" sẽ loại trừ những người không có tình trạng pháp lý, khởi động lại nỗ lực gây tranh cãi từ nhiệm kỳ đầu tiên của ông. Tu chính án thứ 14 yêu cầu đếm \"toàn bộ số người\" trong mỗi tiểu bang để xác định đại diện Quốc hội.",
-        source: "NPR",
-        publishedDate: "2025-08-07",
-        topic: "Immigration",
-        priority: "high",
-        relevanceScore: 8.5,
-        imageUrl: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=800&h=400&fit=crop",
-        originalUrl: "https://www.npr.org/2025/08/07/nx-s1-5265650/new-census-trump-immigrants-counted",
-        slug: "trump-census-immigration-policy"
-      },
-      {
-        id: 2,
-        originalTitle: "Immigrants who are crime victims and waiting for visas now face deportation",
-        displayTitle: "Nạn nhân tội phạm nhập cư đang chờ visa hiện đối mặt với trục xuất",
-        aiSummary: "Một số nạn nhân tội phạm nhập cư đang nộp đơn xin visa U đang bị giam giữ, như một phần của chiến dịch trục xuất hàng loạt của chính quyền Trump. Chương trình visa U được thiết kế để giúp nạn nhân tội phạm hợp tác với cơ quan thực thi pháp luật, nhưng chính sách mới không còn bảo vệ người nộp đơn khỏi thủ tục trục xuất.",
-        source: "NBC News",
-        publishedDate: "2025-08-07",
-        topic: "Immigration",
-        priority: "high",
-        relevanceScore: 9.0,
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
-        originalUrl: "https://www.nbcnews.com/news/latino/immigrants-u-visas-deportation-new-trump-rules-ice-rcna223480",
-        slug: "u-visa-deportation-changes"
-      },
-      {
-        id: 3,
-        originalTitle: "Trump administration freezes $108M at Duke amid inquiry into alleged racial preferences",
-        displayTitle: "Chính quyền Trump đóng băng 108 triệu đô la tại Duke giữa cuộc điều tra về ưu đãi chủng tộc",
-        aiSummary: "Chính quyền Trump đã đóng băng 108 triệu đô la tài trợ nghiên cứu của Đại học Duke, cáo buộc trường phân biệt chủng tộc thông qua chính sách ưu đãi. Đây là động thái tiếp theo sau các hành động tương tự đối với Harvard, Columbia và Cornell, như một phần của chiến dịch rộng hơn chống lại các chương trình đa dạng, công bằng và hòa nhập.",
-        source: "AP News",
-        publishedDate: "2025-08-07",
-        topic: "Education",
-        priority: "medium",
-        relevanceScore: 7.5,
-        imageUrl: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&h=400&fit=crop",
-        originalUrl: "https://apnews.com/article/duke-university-funding-freeze-trump-dei-23a70359ee44a21fdc55bef6dfe52413",
-        slug: "duke-university-funding-freeze"
-      }
-    ];
-  };
+  // A placeholder-article fallback used to live here. It substituted fabricated stories
+  // attributed to NPR / NBC News / AP News, dated 2025-08-07, whenever the fetch failed
+  // or returned nothing -- rendering them as genuine reporting, hero included. The empty
+  // state below is the only honest answer, so the fallback is now an empty list.
 
   // Generate dynamic breaking news ticker from latest articles
   const getBreakingNews = () => {
@@ -269,6 +226,13 @@ export default function VietnameseAmericanVoices() {
     // Fact Checks are kept out of the ticker, matching the Chinese and Korean sites.
     const latestNews = articles
       .filter(article => article.topic !== 'Fact Checks')
+      // Drop untranslated articles BEFORE slicing. This filter used to run after the
+      // slice, so an untranslated article consumed one of the five ticker slots and then
+      // vanished, leaving the ticker short.
+      .filter(article => article.translatedTitles?.vietnamese)
+      // Sort by news date explicitly. published-articles returns hero-first, so without
+      // this a deliberately pinned older hero would lead the "breaking" ticker.
+      .sort((a, b) => new Date(b.publishedDate || b.scrapedDate || 0) - new Date(a.publishedDate || a.scrapedDate || 0))
       .slice(0, 5)
       .map(article => {
         // Vietnamese translated title ONLY. There used to be a displayTitle fallback here,

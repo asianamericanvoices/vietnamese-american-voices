@@ -174,8 +174,8 @@ export async function GET(request) {
       }
     } else {
       // Mock data for demo/development
-      console.log('📋 Using mock data for development');
-      articles = getMockArticles();
+      console.log('⚠️ Supabase not configured — returning no articles rather than placeholder content');
+      articles = [];
     }
 
     // Filter articles that have at least some translation content in the requested language
@@ -221,7 +221,11 @@ export async function GET(request) {
     console.error('❌ Error fetching published articles:', error);
 
     // Fallback to mock data on error
-    const mockArticles = getMockArticles();
+    // Never serve placeholder articles. These used to be fabricated stories attributed
+    // to NPR / NBC News / AP News with real-looking URLs and a fixed 2025-08-07 date,
+    // which would render as genuine reporting whenever a query failed. An empty list
+    // and the site's own empty state is the only honest answer here.
+    const mockArticles = [];
 
     return NextResponse.json({
       articles: mockArticles,
@@ -265,85 +269,3 @@ function generateSlug(title, id) {
     .replace(/-+$/, '');      // Remove trailing hyphens
 }
 
-function getMockArticles() {
-  return [
-    {
-      id: 1,
-      originalTitle: "Trump calls for U.S. census to exclude for the first time people with no legal status",
-      displayTitle: "Trump kêu gọi điều tra dân số Mỹ loại trừ người không có giấy tờ",
-      aiTitle: "Trump Proposes Historic Change to Census Counting",
-      aiSummary: "President Trump announced plans for a 'new' census that would exclude people without legal status, renewing controversial efforts from his first administration. The 14th Amendment requires counting the 'whole number of persons in each state' for congressional representation, making this proposal constitutionally challenging.",
-      translations: {
-        chinese: "特朗普总统宣布了一项\"新\"人口普查计划，该计划将排除没有合法身份的人员，重新启动了他第一届政府的争议性努力。第十四修正案要求对\"每个州的全部人数\"进行计算，以确定国会代表权，这使得该提案在宪法上面临挑战。",
-        korean: "트럼프 대통령은 합법적 신분이 없는 사람들을 제외하는 '새로운' 인구조사 계획을 발표했습니다.",
-        vietnamese: "Tổng thống Trump đã công bố kế hoạch điều tra dân số \"mới\" sẽ loại trừ những người không có tình trạng pháp lý, khởi động lại nỗ lực gây tranh cãi từ nhiệm kỳ đầu tiên của ông. Tu chính án thứ 14 yêu cầu đếm \"toàn bộ số người\" trong mỗi tiểu bang để xác định đại diện Quốc hội."
-      },
-      translatedTitles: {
-        chinese: "特朗普呼吁美国人口普查首次排除无合法身份人员",
-        korean: "트럼프, 미국 인구조사에서 불법 체류자 첫 제외 요구",
-        vietnamese: "Trump kêu gọi điều tra dân số Mỹ lần đầu tiên loại trừ người không có giấy tờ hợp pháp"
-      },
-      source: "NPR",
-      author: "NPR Staff",
-      publishedDate: "2025-08-07",
-      topic: "Immigration",
-      priority: "high",
-      relevanceScore: 8.5,
-      imageUrl: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=800&h=400&fit=crop",
-      originalUrl: "https://www.npr.org/2025/08/07/nx-s1-5265650/new-census-trump-immigrants-counted",
-      slug: "trump-calls-for-us-census-to-exclude-for-the-first-time"
-    },
-    {
-      id: 2,
-      originalTitle: "Immigrants who are crime victims and waiting for visas now face deportation",
-      displayTitle: "Nạn nhân tội phạm nhập cư chờ visa đối mặt trục xuất",
-      aiTitle: "Crime Victims With Pending Visas Targeted for Deportation",
-      aiSummary: "Some immigrants who've applied for U visas as crime victims are being detained as part of the Trump administration's mass deportation campaign. The U visa program was designed to help victims of crimes cooperate with law enforcement, but new policies no longer protect applicants from removal proceedings.",
-      translations: {
-        chinese: "一些申请U签证的犯罪受害者移民正在被拘留，这是特朗普政府大规模驱逐行动的一部分。U签证项目旨在帮助犯罪受害者与执法部门合作，但新政策不再保护申请人免于驱逐程序。",
-        korean: "트럼프 대통령은 합법적 신분이 없는 사람들을 제외하는 '새로운' 인구조사 계획을 발표했습니다.",
-        vietnamese: "Một số nạn nhân tội phạm nhập cư đang nộp đơn xin visa U đang bị giam giữ, như một phần của chiến dịch trục xuất hàng loạt của chính quyền Trump. Chương trình visa U được thiết kế để giúp nạn nhân tội phạm hợp tác với cơ quan thực thi pháp luật, nhưng chính sách mới không còn bảo vệ người nộp đơn khỏi thủ tục trục xuất."
-      },
-      translatedTitles: {
-        chinese: "等待签证的犯罪受害者移民现在面临驱逐",
-        korean: "범죄 피해자이면서 비자를 기다리는 이민자들, 이제 추방 위기에 직면",
-        vietnamese: "Nạn nhân tội phạm nhập cư đang chờ visa hiện đối mặt với trục xuất"
-      },
-      source: "NBC News",
-      author: "NBC News Staff",
-      publishedDate: "2025-08-07",
-      topic: "Immigration",
-      priority: "high",
-      relevanceScore: 9.0,
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
-      originalUrl: "https://www.nbcnews.com/news/latino/immigrants-u-visas-deportation-new-trump-rules-ice-rcna223480",
-      slug: "immigrants-who-are-crime-victims-and-waiting-for-visas"
-    },
-    {
-      id: 3,
-      originalTitle: "Trump administration freezes $108M at Duke amid inquiry into alleged racial preferences",
-      displayTitle: "Chính quyền Trump đóng băng 108 triệu đô la tại Duke",
-      aiTitle: "Federal Funding Frozen at Duke Over Discrimination Claims",
-      aiSummary: "The Trump administration froze $108 million in research funding to Duke University, accusing the school of racial discrimination through affirmative action policies. This follows similar actions against Harvard, Columbia, and Cornell as part of a broader campaign against diversity, equity and inclusion programs.",
-      translations: {
-        chinese: "特朗普政府冻结了杜克大学1.08亿美元的研究资金，指控该校通过平权行动政策进行种族歧视。这是继对哈佛、哥伦比亚和康奈尔采取类似行动之后，作为反对多元化、公平和包容项目的更广泛运动的一部分。",
-        korean: "트럼프 대통령은 합법적 신분이 없는 사람들을 제외하는 '새로운' 인구조사 계획을 발표했습니다.",
-        vietnamese: "Chính quyền Trump đã đóng băng 108 triệu đô la tài trợ nghiên cứu của Đại học Duke, cáo buộc trường phân biệt chủng tộc thông qua chính sách ưu đãi. Đây là động thái tiếp theo sau các hành động tương tự đối với Harvard, Columbia và Cornell, như một phần của chiến dịch rộng hơn chống lại các chương trình đa dạng, công bằng và hòa nhập."
-      },
-      translatedTitles: {
-        chinese: "特朗普政府因调查涉嫌种族偏好冻结杜克大学1.08亿美元资金",
-        korean: "트럼프 대통령은 합법적 신분이 없는 사람들을 제외하는 '새로운' 인구조사 계획을 발표했습니다.",
-        vietnamese: "Chính quyền Trump đóng băng 108 triệu đô la tại Duke giữa cuộc điều tra về ưu đãi chủng tộc"
-      },
-      source: "AP News",
-      author: "AP Staff",
-      publishedDate: "2025-08-07",
-      topic: "Education",
-      priority: "medium",
-      relevanceScore: 7.5,
-      imageUrl: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&h=400&fit=crop",
-      originalUrl: "https://apnews.com/article/duke-university-funding-freeze-trump-dei-23a70359ee44a21fdc55bef6dfe52413",
-      slug: "trump-administration-freezes-108m-at-duke-amid-inquiry"
-    }
-  ];
-}
