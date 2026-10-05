@@ -20,10 +20,20 @@ export default function TexasElections2026() {
   const [newsletterStatus, setNewsletterStatus] = useState(''); // '', 'loading', 'success', 'error'
   const [newsletterMessage, setNewsletterMessage] = useState('');
   const [showManualPopup, setShowManualPopup] = useState(false);
+  const [visibleOther, setVisibleOther] = useState(6);
 
   const EVENT_NAME = 'Texas Elections 2026';
   const EVENT_TITLE = 'Bầu cử Texas 2026';
   const EVENT_COLOR = 'bg-orange-100 text-orange-800 border-orange-300';
+
+  const SUBTAG_BARS = [
+    {
+      tag: 'Texas Railroad Commission 2026',
+      title: 'Ủy ban Đường sắt Texas 2026',
+      blurb: 'Đưa tin về bầu cử cơ quan quản lý năng lượng và dầu khí của Texas',
+    },
+  ];
+  const SUBTAG_VALUES = SUBTAG_BARS.map((b) => b.tag);
 
   // Categories in Vietnamese (for navigation)
   const categories = [
@@ -93,9 +103,9 @@ export default function TexasElections2026() {
 
   // Generate dynamic breaking news ticker from event articles using social captions
   const getBreakingNews = () => {
-    if (articles.length === 0) return [{ title: `Đang tải tin mới nhất về ${EVENT_TITLE}...`, url: null }];
+    if (mainArticles.length === 0) return [{ title: `Đang tải tin mới nhất về ${EVENT_TITLE}...`, url: null }];
 
-    const latestNews = articles
+    const latestNews = mainArticles
       .slice(0, 5)
       .map(article => {
         const caption = article.socialCaptions?.vietnamese || article.translatedTitles?.vietnamese || article.display_title || article.ai_title;
@@ -107,7 +117,7 @@ export default function TexasElections2026() {
         };
       });
 
-    return latestNews.length > 0 ? latestNews : [{ title: `${EVENT_TITLE} - Tổng cộng ${articles.length} bài viết`, url: null }];
+    return latestNews.length > 0 ? latestNews : [{ title: `${EVENT_TITLE} - Tổng cộng ${mainArticles.length} bài viết`, url: null }];
   };
 
   const getDisplayTitle = (article) => {
@@ -123,13 +133,22 @@ export default function TexasElections2026() {
     return `/article/${article.id}`;
   };
 
+  // Subset articles carry the main "Texas Elections 2026" targeted_event (so they
+  // still count as Texas everywhere) PLUS an eventSubtags entry. On THIS page we
+  // surface them ONLY in their dedicated sub-bar and keep them out of the main feed
+  // to avoid showing them twice.
+  const isSubtagArticle = (article) =>
+    Array.isArray(article.eventSubtags) && article.eventSubtags.some((t) => SUBTAG_VALUES.includes(t));
+
+  const mainArticles = articles.filter((article) => !isSubtagArticle(article));
+
   // Find the event hero article or fall back to the first article
-  const featuredArticle = articles.find(article =>
+  const featuredArticle = mainArticles.find(article =>
     article.isEventHero && article.eventHeroFor === EVENT_NAME
-  ) || articles[0];
+  ) || mainArticles[0];
 
   // Filter out the featured article from the other articles list
-  const otherArticles = articles.filter(article => article.id !== featuredArticle?.id);
+  const otherArticles = mainArticles.filter(article => article.id !== featuredArticle?.id);
 
   const handleRecaptchaLoad = () => {
     if (window.grecaptcha && window.grecaptcha.ready) {
@@ -359,7 +378,7 @@ export default function TexasElections2026() {
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
             <p className="mt-4 text-gray-600">Đang tải...</p>
           </div>
-        ) : articles.length === 0 ? (
+        ) : mainArticles.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-600">Chưa có tin liên quan</p>
           </div>
@@ -514,7 +533,7 @@ export default function TexasElections2026() {
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Thêm tin tức</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {otherArticles.map((article) => (
+              {otherArticles.slice(0, visibleOther).map((article) => (
                 <article key={article.id} className="group cursor-pointer">
                   <a href={getArticleUrl(article)} className="block">
                     {article.imageUrl && (
@@ -542,8 +561,67 @@ export default function TexasElections2026() {
                 </article>
               ))}
             </div>
+            {otherArticles.length > visibleOther && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setVisibleOther((n) => n + 6)}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium bg-orange-600 text-white hover:bg-orange-700 transition-colors shadow"
+                >
+                  Xem thêm bài viết
+                </button>
+              </div>
+            )}
           </div>
         )}
+
+        {/* Subset sub-bars (e.g. Railroad Commission) — each shows its subtagged articles */}
+        {SUBTAG_BARS.map((bar) => {
+          const barArticles = articles.filter(
+            (article) => Array.isArray(article.eventSubtags) && article.eventSubtags.includes(bar.tag)
+          );
+          if (barArticles.length === 0) return null;
+          return (
+            <div key={bar.tag} className="mt-16">
+              <div className="flex items-center gap-3 border-l-4 border-slate-600 bg-slate-50 rounded-r-lg px-5 py-4 mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 font-vietnamese leading-tight">
+                    {bar.title}
+                  </h2>
+                  <p className="text-sm text-gray-500">{bar.blurb}</p>
+                </div>
+              </div>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {barArticles.map((article) => (
+                  <article key={article.id} className="group cursor-pointer">
+                    <a href={getArticleUrl(article)} className="block">
+                      {article.imageUrl && (
+                        <img
+                          src={article.imageUrl}
+                          alt={getDisplayTitle(article)}
+                          className="w-full h-48 object-cover rounded-lg mb-3"
+                        />
+                      )}
+                      <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors leading-tight font-vietnamese mb-2">
+                        {getDisplayTitle(article)}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                        {getDisplaySummary(article)}
+                      </p>
+                      <div className="flex items-center text-xs text-gray-500 space-x-2">
+                        <span>{article.source}</span>
+                        <span>•</span>
+                        <div className="flex items-center space-x-1">
+                          <Clock className="w-3 h-3" />
+                          <span>{formatDate(article.publishedDate || article.scraped_date)}</span>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </main>
 
       {/* Footer */}
