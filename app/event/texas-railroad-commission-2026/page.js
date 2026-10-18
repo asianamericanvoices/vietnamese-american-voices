@@ -690,7 +690,7 @@ export default function TexasRailroadCommission2026() {
                         />
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors leading-snug line-clamp-3">
+                        <h3 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors leading-snug">
                           {getTitle(article)}
                         </h3>
                         {/* Source wraps in full; the date drops to its own line when space runs out */}
