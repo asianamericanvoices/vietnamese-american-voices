@@ -25,6 +25,7 @@ export async function GET(request) {
   const limit = parseInt(url.searchParams.get('limit')) || 25;
   const offset = parseInt(url.searchParams.get('offset')) || 0;
   const targetedEvent = url.searchParams.get('targeted_event') || null;
+  const eventSubtag = url.searchParams.get('event_subtag') || null; // Subset within an event (e.g. Railroad Commission)
 
   try {
     let articles = [];
@@ -86,6 +87,12 @@ export async function GET(request) {
         // Event Explainers are only shown when pinned as event heroes
         // Only apply this filter when NOT filtering by event (event pages show all event content)
         query = query.not('topic', 'in', '("International News","China-US Relations","Vietnam-US Relations","Event Explainers")');
+      }
+
+      // Filter by event subtag if specified. event_subtags is a TEXT column holding a
+      // JSON array (e.g. '["Texas Railroad Commission 2026"]'), so substring-match the tag.
+      if (eventSubtag) {
+        query = query.ilike('event_subtags', `%${eventSubtag}%`);
       }
 
       // Apply ordering after filtering - prioritize Vietnamese hero, then chronological

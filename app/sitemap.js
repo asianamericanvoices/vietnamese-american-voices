@@ -1,3 +1,4 @@
+import { RRC_PAGE_PUBLIC, RRC_PAGE_SLUG } from '../lib/rrcPage';
 // app/sitemap.js - Dynamic sitemap for Vietnamese American Voices
 // Lists the homepage, event hub pages, and every published article that has a
 // Vietnamese translation.
@@ -21,6 +22,7 @@ const EVENT_SLUGS = [
   'pennsylvania-1st-district-2026',
   'pennsylvania-supreme-court-2025',
   'tennessee-7th-congressional-2025',
+  'texas-elections-2026',
 ];
 
 async function fetchAllPublishedArticles() {
@@ -65,7 +67,7 @@ export default async function sitemap() {
 
   const staticEntries = [
     { url: `${SITE}/`, lastModified: now, changeFrequency: 'hourly', priority: 1.0 },
-    ...EVENT_SLUGS.map((slug) => ({
+    ...[...EVENT_SLUGS, ...(RRC_PAGE_PUBLIC ? [RRC_PAGE_SLUG] : [])].map((slug) => ({
       url: `${SITE}/event/${slug}`,
       lastModified: now,
       changeFrequency: 'daily',
