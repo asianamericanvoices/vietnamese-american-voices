@@ -88,6 +88,13 @@ function SiteLogo() {
   );
 }
 
+// "博·弗伦奇 (Bo French)" -> native name, with the English name on its own line.
+// Names without a parenthetical (English, Tagalog, Vietnamese) are unchanged.
+function splitName(name) {
+  const m = name.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
+  return m ? { primary: m[1], english: m[2] } : { primary: name, english: null };
+}
+
 function CandidatePhoto({ candidate, showPhotos, size = 'w-12 h-12' }) {
   if (showPhotos) {
     // Same circular crop for all three; portraits are framed head-and-shoulders, so bias toward the face.
@@ -145,6 +152,7 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
 
   return (
     <section aria-roledescription="carousel" aria-label={ui.carouselLabel}>
+      <div className="relative">
       <div
         ref={trackRef}
         onScroll={handleScroll}
@@ -161,7 +169,7 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
             aria-roledescription="slide"
             aria-label={ui.slideOf(i + 1, total)}
             aria-hidden={i !== current}
-            className="w-full flex-shrink-0 snap-center bg-slate-800 text-white p-6 sm:p-10"
+            className="w-full flex-shrink-0 snap-center bg-slate-800 text-white px-11 py-6 sm:px-14 sm:py-10"
           >
             {slide.eyebrow && (
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-orange-300">{slide.eyebrow}</p>
@@ -177,7 +185,10 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
                     <div className="flex items-center gap-3 sm:flex-col sm:text-center">
                       <CandidatePhoto candidate={c} showPhotos={showPhotos} size="w-14 h-14 sm:w-20 sm:h-20" />
                       <div>
-                        <p className="font-bold text-lg leading-tight">{c.name}</p>
+                        <p className="font-bold text-lg leading-tight">{splitName(c.name).primary}</p>
+                        {splitName(c.name).english && (
+                          <p className="text-xs text-slate-300">({splitName(c.name).english})</p>
+                        )}
                         <p className="text-sm text-slate-300">{c.party}</p>
                       </div>
                     </div>
@@ -209,6 +220,27 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
             )}
           </div>
         ))}
+      </div>
+
+        {/* Side arrows, vertically centered on the slide box */}
+        <button
+          type="button"
+          onClick={() => goTo(current - 1)}
+          aria-label={ui.prevSlide}
+          className={`absolute left-1 lg:-left-5 top-1/2 -translate-y-1/2 w-9 h-9 lg:w-11 lg:h-11 rounded-full bg-white/90 text-slate-800 shadow-lg flex items-center justify-center hover:bg-white transition-opacity ${current === 0 ? 'opacity-0 pointer-events-none' : ''}`}
+          tabIndex={current === 0 ? -1 : 0}
+        >
+          <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
+        </button>
+        <button
+          type="button"
+          onClick={() => goTo(current + 1)}
+          aria-label={ui.nextSlide}
+          className={`absolute right-1 lg:-right-5 top-1/2 -translate-y-1/2 w-9 h-9 lg:w-11 lg:h-11 rounded-full bg-white/90 text-slate-800 shadow-lg flex items-center justify-center hover:bg-white transition-opacity ${current === total - 1 ? 'opacity-0 pointer-events-none' : ''}`}
+          tabIndex={current === total - 1 ? -1 : 0}
+        >
+          <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
+        </button>
       </div>
 
       <p className="sr-only" aria-live="polite">{ui.slideOf(current + 1, total)}</p>
@@ -753,7 +785,8 @@ export default function TexasRailroadCommission2026() {
                         <div className="flex items-center gap-3">
                           <CandidatePhoto candidate={c} showPhotos={showPhotos} />
                           <div>
-                            <p className="text-base font-bold text-gray-900">{c.name}</p>
+                            <p className="text-base font-bold text-gray-900">{splitName(c.name).primary}</p>
+                          {splitName(c.name).english && <p className="text-xs font-normal text-gray-500">({splitName(c.name).english})</p>}
                             <p className="text-sm font-normal text-gray-600">{c.party}</p>
                           </div>
                         </div>
@@ -793,7 +826,8 @@ export default function TexasRailroadCommission2026() {
                   <div className="flex items-center gap-3">
                     <CandidatePhoto candidate={c} showPhotos={showPhotos} />
                     <div>
-                      <p className="text-base font-bold text-gray-900">{c.name}</p>
+                      <p className="text-base font-bold text-gray-900">{splitName(c.name).primary}</p>
+                          {splitName(c.name).english && <p className="text-xs font-normal text-gray-500">({splitName(c.name).english})</p>}
                       <p className="text-sm text-gray-600">{c.party}</p>
                     </div>
                   </div>
@@ -825,7 +859,12 @@ export default function TexasRailroadCommission2026() {
                 <article key={c.id}>
                   <div className="flex items-center gap-4">
                     <CandidatePhoto candidate={c} showPhotos={showPhotos} size="w-16 h-16" />
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{c.name}, {c.party}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                      {splitName(c.name).primary}, {c.party}
+                      {splitName(c.name).english && (
+                        <span className="block text-base font-medium text-gray-500">({splitName(c.name).english})</span>
+                      )}
+                    </h3>
                   </div>
                   <p className="mt-4 text-lg text-gray-700 leading-relaxed">
                     <strong className="text-gray-900">{content.candidatesSection.backgroundLabel}</strong>{' '}
