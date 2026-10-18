@@ -686,18 +686,20 @@ export default function TexasRailroadCommission2026() {
                         <img
                           src={article.imageUrl}
                           alt=""
-                          className="w-28 h-20 sm:w-32 sm:h-24 object-cover rounded-md flex-shrink-0"
+                          className="w-24 h-20 sm:w-32 sm:h-24 object-cover rounded-md flex-shrink-0"
                         />
                       )}
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors leading-snug line-clamp-3">
                           {getTitle(article)}
                         </h3>
-                        <div className="mt-2 flex items-center text-xs text-gray-500 space-x-2">
-                          <span className="truncate">{article.source}</span>
-                          <span>•</span>
-                          <Clock className="w-3 h-3 flex-shrink-0" />
-                          <span className="whitespace-nowrap">{formatDate(article.publishedDate)}</span>
+                        {/* Source wraps in full; the date drops to its own line when space runs out */}
+                        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-gray-500">
+                          <span className="font-medium text-gray-600">{article.source}</span>
+                          <span className="inline-flex items-center gap-1 whitespace-nowrap">
+                            <Clock className="w-3 h-3 flex-shrink-0" />
+                            {formatDate(article.publishedDate)}
+                          </span>
                         </div>
                       </div>
                     </a>
