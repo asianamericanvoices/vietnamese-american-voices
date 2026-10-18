@@ -77,6 +77,13 @@ const PARTY_CARD = {
   L: 'bg-yellow-400/20 ring-yellow-200/40',
 };
 
+// Same idea on the white page background, for the candidate profile cards.
+const PARTY_PROFILE = {
+  R: 'bg-red-50 border-red-200',
+  D: 'bg-blue-50 border-blue-200',
+  L: 'bg-yellow-50 border-yellow-200',
+};
+
 // Brand mark from site.js (same markup on every site; text and color differ).
 function SiteLogo() {
   return (
@@ -856,9 +863,9 @@ export default function TexasRailroadCommission2026() {
             </div>
 
             {/* Profiles */}
-            <div className="mt-10 space-y-10">
+            <div className="mt-10 space-y-6">
               {candidates.map((c) => (
-                <article key={c.id}>
+                <article key={c.id} className={`rounded-xl border p-5 sm:p-6 ${PARTY_PROFILE[c.partyKey] || 'bg-gray-50 border-gray-200'}`}>
                   <div className="flex items-center gap-4">
                     <CandidatePhoto candidate={c} showPhotos={showPhotos} size="w-16 h-16" />
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
