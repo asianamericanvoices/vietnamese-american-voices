@@ -77,6 +77,19 @@ const PARTY_CARD = {
   L: 'bg-yellow-400/20 ring-yellow-200/40',
 };
 
+// Desktop comparison table: tinted column header with a colored top stripe, and a
+// fainter wash down each candidate's column.
+const PARTY_TABLE_HEAD = {
+  R: 'bg-red-50 border-t-4 border-red-300',
+  D: 'bg-blue-50 border-t-4 border-blue-300',
+  L: 'bg-yellow-50 border-t-4 border-yellow-300',
+};
+const PARTY_TABLE_CELL = {
+  R: 'bg-red-50/40',
+  D: 'bg-blue-50/40',
+  L: 'bg-yellow-50/40',
+};
+
 // Same idea on the white page background, for the candidate profile cards.
 const PARTY_PROFILE = {
   R: 'bg-red-50 border-red-200',
@@ -790,7 +803,7 @@ export default function TexasRailroadCommission2026() {
                   <tr>
                     <th scope="col" className="p-3"><span className="sr-only">{ui.candidateColumn}</span></th>
                     {candidates.map((c) => (
-                      <th key={c.id} scope="col" className="p-3 align-top">
+                      <th key={c.id} scope="col" className={`p-3 align-top ${PARTY_TABLE_HEAD[c.partyKey] || ''}`}>
                         <div className="flex items-center gap-3">
                           <CandidatePhoto candidate={c} showPhotos={showPhotos} />
                           <div>
@@ -814,7 +827,7 @@ export default function TexasRailroadCommission2026() {
                     <tr key={row.key} className="border-t border-gray-200">
                       <th scope="row" className="p-3 align-top font-semibold text-gray-900 bg-gray-50">{row.label}</th>
                       {candidates.map((c) => (
-                        <td key={c.id} className="p-3 align-top text-gray-700 leading-relaxed">
+                        <td key={c.id} className={`p-3 align-top text-gray-700 leading-relaxed ${PARTY_TABLE_CELL[c.partyKey] || ''}`}>
                           {row.key === 'website' ? (
                             <a href={c.website} target="_blank" rel="noopener noreferrer" className="underline text-orange-700">{c.websiteLabel}</a>
                           ) : (
