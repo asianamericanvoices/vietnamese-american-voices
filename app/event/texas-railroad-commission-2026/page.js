@@ -463,8 +463,6 @@ export default function TexasRailroadCommission2026() {
   const latestIds = new Set(latestArticles.map((a) => a.id));
   const coverageArticles = articles.filter((a) => !latestIds.has(a.id));
 
-  const newestStoryDate = articles[0]?.publishedDate ? String(articles[0].publishedDate).slice(0, 10) : '';
-  const lastUpdated = newestStoryDate > content.lastUpdated ? newestStoryDate : content.lastUpdated;
 
   const handleVotingInfoClick = () => {
     track('voting_link_click', { link: 'voter_info_popup' });
@@ -1017,7 +1015,7 @@ export default function TexasRailroadCommission2026() {
         </section>
         )}
 
-        {/* 8. Guide footer: disclaimer, sources, corrections, last updated */}
+        {/* 8. Guide footer: disclaimer, sources, corrections */}
         <section className="mt-16 max-w-5xl mx-auto border-t border-gray-200 pt-8 text-sm text-gray-600">
           <p className="font-medium text-gray-800">
             {content.footer.disclaimer}{showPhotos && ` ${content.footer.photoCredit}`}
@@ -1042,7 +1040,6 @@ export default function TexasRailroadCommission2026() {
             {content.footer.corrections}{' '}
             <a href={`mailto:${content.footer.correctionsEmail}`} className="underline text-gray-700">{content.footer.correctionsEmail}</a>.
           </p>
-          <p className="mt-2">{ui.lastUpdatedLabel}: {formatDate(lastUpdated)}</p>
         </section>
       </main>
 
