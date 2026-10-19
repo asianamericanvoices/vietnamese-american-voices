@@ -477,7 +477,7 @@ export default function TexasRailroadCommission2026() {
     }
   };
 
-  const handleNewsletterSignup = async (e) => {
+  const handleNewsletterSignup = async (e, location = 'page') => {
     e.preventDefault();
 
     if (!newsletterEmail || !newsletterEmail.includes('@')) {
@@ -500,6 +500,7 @@ export default function TexasRailroadCommission2026() {
 
       if (response.ok) {
         setNewsletterStatus('success');
+        track('newsletter_signup', { location });
         setNewsletterMessage(data.message);
         setNewsletterEmail('');
       } else {
@@ -512,6 +513,36 @@ export default function TexasRailroadCommission2026() {
       setNewsletterMessage(site.newsletterError);
     }
   };
+
+  // Newsletter box, rendered in the desktop sidebar and inline on mobile (one shared form state).
+  const newsletterBox = (location) => (
+    <div className={`${SITE.theme.newsletterBox} rounded-lg p-6`}>
+      <h2 className="text-lg font-bold text-gray-900 mb-2">{site.newsletterHeading}</h2>
+      <p className="text-sm text-gray-600 mb-4">{site.newsletterBody}</p>
+      <form onSubmit={(ev) => handleNewsletterSignup(ev, location)} className="space-y-3">
+        <input
+          type="email"
+          value={newsletterEmail}
+          onChange={(ev) => setNewsletterEmail(ev.target.value)}
+          placeholder={site.newsletterPlaceholder}
+          disabled={newsletterStatus === 'loading'}
+          className={`w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 ${SITE.theme.newsletterRing} disabled:opacity-50`}
+        />
+        <button
+          type="submit"
+          disabled={newsletterStatus === 'loading'}
+          className={`w-full ${SITE.theme.newsletterButton} text-white py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
+        >
+          {newsletterStatus === 'loading' ? site.newsletterLoading : site.newsletterButton}
+        </button>
+        {newsletterMessage && (
+          <div className={`text-sm ${newsletterStatus === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+            {newsletterMessage}
+          </div>
+        )}
+      </form>
+    </div>
+  );
 
   const sectionHeading = 'text-2xl font-bold text-gray-900 leading-tight';
 
@@ -673,7 +704,9 @@ export default function TexasRailroadCommission2026() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-10">
+        <div className="min-w-0">
+        <div>
           {/* 1. Title + date line */}
           <div className="mb-6">
             <span className="inline-block px-4 py-1.5 rounded-full text-sm font-bold border bg-slate-100 text-slate-800 border-slate-300">
@@ -913,6 +946,11 @@ export default function TexasRailroadCommission2026() {
           </section>
         </div>
 
+        {/* Newsletter (mobile/tablet; desktop uses the sticky sidebar) */}
+        <div className="lg:hidden mt-12 max-w-xl mx-auto">
+          {newsletterBox('inline')}
+        </div>
+
         {/* 7. Coverage of the race (hub-style card grid; stories after the Latest four) */}
         {(loading || coverageArticles.length > 0) && (
         <section className="mt-16">
@@ -986,34 +1024,6 @@ export default function TexasRailroadCommission2026() {
         </section>
         )}
 
-        {/* Newsletter Signup */}
-        <div className={`mt-12 max-w-xl mx-auto ${SITE.theme.newsletterBox} rounded-lg p-6`}>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">{site.newsletterHeading}</h2>
-          <p className="text-sm text-gray-600 mb-4">{site.newsletterBody}</p>
-          <form onSubmit={handleNewsletterSignup} className="space-y-3">
-            <input
-              type="email"
-              value={newsletterEmail}
-              onChange={(ev) => setNewsletterEmail(ev.target.value)}
-              placeholder={site.newsletterPlaceholder}
-              disabled={newsletterStatus === 'loading'}
-              className={`w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 ${SITE.theme.newsletterRing} disabled:opacity-50`}
-            />
-            <button
-              type="submit"
-              disabled={newsletterStatus === 'loading'}
-              className={`w-full ${SITE.theme.newsletterButton} text-white py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
-            >
-              {newsletterStatus === 'loading' ? site.newsletterLoading : site.newsletterButton}
-            </button>
-            {newsletterMessage && (
-              <div className={`text-sm ${newsletterStatus === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-                {newsletterMessage}
-              </div>
-            )}
-          </form>
-        </div>
-
         {/* 8. Guide footer: disclaimer, sources, corrections, last updated */}
         <section className="mt-16 max-w-5xl mx-auto border-t border-gray-200 pt-8 text-sm text-gray-600">
           <p className="font-medium text-gray-800">
@@ -1041,6 +1051,15 @@ export default function TexasRailroadCommission2026() {
           </p>
           <p className="mt-2">{ui.lastUpdatedLabel}: {formatDate(lastUpdated)}</p>
         </section>
+        </div>
+
+        {/* Desktop sidebar: newsletter stays in view while reading */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-40">
+            {newsletterBox('sidebar')}
+          </div>
+        </aside>
+        </div>
       </main>
 
       {/* Footer */}
