@@ -13,6 +13,11 @@
 
   // Check if user has already subscribed or dismissed
   function shouldShowPopup() {
+    // The Texas Railroad Commission voter guide has its own signup bar; no popup there.
+    if (window.location.pathname.indexOf('/event/texas-railroad-commission-2026') === 0) {
+      return false;
+    }
+
     if (CONFIG.debugMode) {
       console.log('[VAV Newsletter] Debug mode enabled');
       return true;
