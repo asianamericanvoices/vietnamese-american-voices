@@ -831,7 +831,7 @@ export default function TexasRailroadCommission2026() {
             {/* Per-candidate cards below 640px (same order, same fields) */}
             <div className="sm:hidden mt-6 space-y-4">
               {candidates.map((c) => (
-                <div key={c.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={c.id} className={`border rounded-lg p-4 ${PARTY_PROFILE[c.partyKey] || 'bg-white border-gray-200'}`}>
                   <div className="flex items-center gap-3">
                     <CandidatePhoto candidate={c} showPhotos={showPhotos} />
                     <div>
