@@ -60,6 +60,10 @@ const vi = {
     lastUpdatedLabel: 'Cập nhật lần cuối',
     loading: 'Đang tải…',
     noStories: 'Chưa có bài viết nào.',
+    readFullAnswer: 'Đọc toàn bộ câu trả lời',
+    readFullProfile: 'Xem toàn bộ hồ sơ',
+    showLess: 'Thu gọn',
+    compareByTopic: 'So sánh theo chủ đề',
   },
 
   header: {

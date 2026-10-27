@@ -115,6 +115,39 @@ function splitName(name) {
   return m ? { primary: m[1], english: m[2] } : { primary: name, english: null };
 }
 
+// Phones: clamp long text to an equal-length preview with a toggle, so every
+// candidate gets the same first impression. From the sm breakpoint up, text shows
+// in full and the toggle is hidden.
+function ClampedText({ as: Tag = 'div', className = '', lines = 'line-clamp-4', moreLabel, lessLabel, buttonClass, children }) {
+  const ref = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [overflows, setOverflows] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => { if (!open) setOverflows(el.scrollHeight > el.clientHeight + 1); };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [open, children]);
+  return (
+    <>
+      <Tag ref={ref} className={`${className} ${open ? '' : `${lines} sm:line-clamp-none`}`}>{children}</Tag>
+      {(overflows || open) && (
+        <button type="button" onClick={() => setOpen((o) => !o)} className={`sm:hidden mt-1 text-xs font-semibold underline ${buttonClass}`}>
+          {open ? lessLabel : moreLabel}
+        </button>
+      )}
+    </>
+  );
+}
+
+const PARTY_FADE = {
+  R: 'from-red-50',
+  D: 'from-blue-50',
+  L: 'from-yellow-50',
+};
+
 function CandidatePhoto({ candidate, showPhotos, size = 'w-12 h-12' }) {
   if (showPhotos) {
     // Same circular crop for all three; portraits are framed head-and-shoulders, so bias toward the face.
@@ -137,13 +170,17 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
   // Size the carousel to the slide on screen, so a short slide doesn't sit in the
   // empty space left by the tallest one.
   useEffect(() => {
-    const measure = () => {
-      const el = slideRefs.current[current];
-      if (el) setHeight(el.offsetHeight);
-    };
+    const el = slideRefs.current[current];
+    if (!el) return undefined;
+    const measure = () => setHeight(el.offsetHeight);
     measure();
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(measure) : null;
+    if (observer) observer.observe(el);
     window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('resize', measure);
+    };
   }, [current, slides]);
 
   const goTo = (index) => {
@@ -213,9 +250,15 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
                       </div>
                     </div>
                     {slide.quotes ? (
-                      <blockquote className="mt-2 text-sm sm:text-base leading-relaxed text-slate-100">
+                      <ClampedText
+                        as="blockquote"
+                        className="mt-2 text-sm sm:text-base leading-relaxed text-slate-100"
+                        moreLabel={ui.readFullAnswer}
+                        lessLabel={ui.showLess}
+                        buttonClass="text-orange-200 hover:text-white"
+                      >
                         “{slide.candidates[j]}”
-                      </blockquote>
+                      </ClampedText>
                     ) : (
                       <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-100">{slide.candidates[j]}</p>
                     )}
@@ -306,6 +349,7 @@ export default function TexasRailroadCommission2026() {
   const [articles, setArticles] = useState([]);
   const [topStoryIds, setTopStoryIds] = useState([]); // dashboard slot picks; null = auto
   const [loading, setLoading] = useState(true);
+  const [openProfiles, setOpenProfiles] = useState({}); // phone profile cards: expanded by candidate id
   const [visibleCoverage, setVisibleCoverage] = useState(6);
   const [showManualPopup, setShowManualPopup] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -870,74 +914,99 @@ export default function TexasRailroadCommission2026() {
               </table>
             </div>
 
-            {/* Per-candidate cards below 640px (same order, same fields) */}
-            <div className="sm:hidden mt-6 space-y-4">
-              {candidates.map((c) => (
-                <div key={c.id} className={`border rounded-lg p-4 ${PARTY_PROFILE[c.partyKey] || 'bg-white border-gray-200'}`}>
-                  <div className="flex items-center gap-3">
-                    <CandidatePhoto candidate={c} showPhotos={showPhotos} />
-                    <div>
-                      <p className="text-base font-bold text-gray-900">{splitName(c.name).primary}</p>
-                          {splitName(c.name).english && <p className="text-xs font-normal text-gray-500">({splitName(c.name).english})</p>}
-                      <p className="text-sm text-gray-600">{c.party}</p>
+            {/* Phones: compare by topic. All three candidates appear together under every
+                heading (ballot order), so no one candidate fills the screen first. */}
+            <div className="sm:hidden mt-6">
+              <div className="grid grid-cols-3 gap-2">
+                {candidates.map((c) => (
+                  <div key={c.id} className={`rounded-lg border p-2 text-center ${PARTY_PROFILE[c.partyKey] || 'bg-white border-gray-200'}`}>
+                    <div className="flex justify-center">
+                      <CandidatePhoto candidate={c} showPhotos={showPhotos} />
+                    </div>
+                    <p className="mt-1 text-xs font-bold text-gray-900 leading-tight">{splitName(c.name).primary}</p>
+                    {splitName(c.name).english && <p className="text-[10px] text-gray-500 leading-tight">({splitName(c.name).english})</p>}
+                    <p className="text-[11px] text-gray-600">{c.party}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-gray-500">{ui.compareByTopic}</p>
+              <div className="mt-2 space-y-5">
+                {content.candidatesSection.rows.map((row) => row.group ? (
+                  <p key={row.group} className="pt-3 border-t border-gray-200 text-xs font-bold uppercase tracking-wide text-slate-600">{row.group}</p>
+                ) : (
+                  <div key={row.key}>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{row.label}</h4>
+                    <div className="space-y-2">
+                      {candidates.map((c) => (
+                        <div key={c.id} className={`rounded-lg border px-3 py-2 text-sm ${PARTY_PROFILE[c.partyKey] || 'bg-white border-gray-200'}`}>
+                          <p className="text-xs font-semibold text-gray-700">{splitName(c.name).primary} · {c.party}</p>
+                          <div className="mt-0.5 text-gray-700 leading-relaxed">
+                            {row.key === 'website' ? (
+                              <a href={c.website} target="_blank" rel="noopener noreferrer" className="underline text-orange-700">{c.websiteLabel}</a>
+                            ) : (
+                              <RichText text={c.table[row.key]} />
+                            )}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <dl className="mt-3 space-y-3 text-sm">
-                    {content.candidatesSection.rows.map((row) => row.group ? (
-                      <div key={row.group} className="pt-2 border-t border-gray-200">
-                        <p className="text-xs font-bold uppercase tracking-wide text-slate-600">{row.group}</p>
-                      </div>
-                    ) : (
-                      <div key={row.key}>
-                        <dt className="font-semibold text-gray-900">{row.label}</dt>
-                        <dd className="text-gray-700 leading-relaxed">
-                          {row.key === 'website' ? (
-                            <a href={c.website} target="_blank" rel="noopener noreferrer" className="underline text-orange-700">{c.websiteLabel}</a>
-                          ) : (
-                            <RichText text={c.table[row.key]} />
-                          )}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Profiles */}
-            <div className="mt-10 space-y-6">
-              {candidates.map((c) => (
-                <article key={c.id} className={`rounded-xl border p-5 sm:p-6 ${PARTY_PROFILE[c.partyKey] || 'bg-gray-50 border-gray-200'}`}>
-                  <div className="flex items-center gap-4">
-                    <CandidatePhoto candidate={c} showPhotos={showPhotos} size="w-16 h-16" />
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                      {splitName(c.name).primary}, {c.party}
-                      {splitName(c.name).english && (
-                        <span className="block text-base font-medium text-gray-500">({splitName(c.name).english})</span>
+            {/* Profiles: three equal columns on desktop; on phones, equal collapsed
+                cards (photo, name, party, preview) that expand on tap. */}
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {candidates.map((c) => {
+                const open = !!openProfiles[c.id];
+                return (
+                  <article key={c.id} className={`rounded-xl border p-5 sm:p-6 ${PARTY_PROFILE[c.partyKey] || 'bg-gray-50 border-gray-200'}`}>
+                    <div className="flex items-center gap-4 lg:flex-col lg:text-center">
+                      <CandidatePhoto candidate={c} showPhotos={showPhotos} size="w-16 h-16 lg:w-20 lg:h-20" />
+                      <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                        {splitName(c.name).primary}
+                        {splitName(c.name).english && (
+                          <span className="block text-sm font-medium text-gray-500">({splitName(c.name).english})</span>
+                        )}
+                        <span className="block text-sm font-medium text-gray-600">{c.party}</span>
+                      </h3>
+                    </div>
+                    <div className={`relative mt-4 ${open ? '' : 'max-h-44 overflow-hidden lg:max-h-none lg:overflow-visible'}`}>
+                      <p className="text-base text-gray-700 leading-relaxed">
+                        <strong className="text-gray-900">{content.candidatesSection.backgroundLabel}</strong>{' '}
+                        <RichText text={c.background} />
+                      </p>
+                      <p className="mt-3 text-base text-gray-700 leading-relaxed">
+                        <strong className="text-gray-900">{content.candidatesSection.inWordsLabel}</strong>{' '}
+                        <RichText text={c.inWords} />
+                      </p>
+                      <p className="mt-3 text-base text-gray-700 leading-relaxed">
+                        <strong className="text-gray-900">{content.candidatesSection.endorsementsLabel}</strong>{' '}
+                        <RichText text={c.table.endorsements} />
+                      </p>
+                      {/* Same "In the news" standard for every candidate (stated in the note above) */}
+                      {c.inTheNews && (
+                        <p className="mt-3 text-base text-gray-700 leading-relaxed">
+                          <strong className="text-gray-900">{content.candidatesSection.inTheNewsLabel}</strong>{' '}
+                          <RichText text={c.inTheNews} />
+                        </p>
                       )}
-                    </h3>
-                  </div>
-                  <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-                    <strong className="text-gray-900">{content.candidatesSection.backgroundLabel}</strong>{' '}
-                    <RichText text={c.background} />
-                  </p>
-                  <p className="mt-3 text-lg text-gray-700 leading-relaxed">
-                    <strong className="text-gray-900">{content.candidatesSection.inWordsLabel}</strong>{' '}
-                    <RichText text={c.inWords} />
-                  </p>
-                  <p className="mt-3 text-lg text-gray-700 leading-relaxed">
-                    <strong className="text-gray-900">{content.candidatesSection.endorsementsLabel}</strong>{' '}
-                    <RichText text={c.table.endorsements} />
-                  </p>
-                  {/* Only for matters with statewide coverage that were widely criticized; same bar for all three */}
-                  {c.inTheNews && (
-                    <p className="mt-3 text-lg text-gray-700 leading-relaxed">
-                      <strong className="text-gray-900">{content.candidatesSection.inTheNewsLabel}</strong>{' '}
-                      <RichText text={c.inTheNews} />
-                    </p>
-                  )}
-                </article>
-              ))}
+                      {!open && (
+                        <div className={`lg:hidden pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t ${PARTY_FADE[c.partyKey] || 'from-gray-50'} to-transparent`} />
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setOpenProfiles((p) => ({ ...p, [c.id]: !p[c.id] }))}
+                      className="lg:hidden mt-3 text-sm font-semibold text-gray-800 underline"
+                      aria-expanded={open}
+                    >
+                      {open ? ui.showLess : ui.readFullProfile}
+                    </button>
+                  </article>
+                );
+              })}
             </div>
           </section>
         </div>

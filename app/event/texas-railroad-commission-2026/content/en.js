@@ -60,6 +60,10 @@ const en = {
     lastUpdatedLabel: 'Last updated',
     loading: 'Loading…',
     noStories: 'No stories yet.',
+    readFullAnswer: 'Read full answer',
+    readFullProfile: 'Read full profile',
+    showLess: 'Show less',
+    compareByTopic: 'Compare by topic',
   },
 
   header: {
