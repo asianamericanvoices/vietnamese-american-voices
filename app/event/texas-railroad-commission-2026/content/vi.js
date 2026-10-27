@@ -211,7 +211,7 @@ const vi = {
       table: {
         work: 'Kỹ sư với khoảng 25 năm làm việc trong và xung quanh ngành dầu khí [12a]',
         office: 'Dân biểu tiểu bang đại diện cho Tây Bắc Houston tại Hạ viện Texas [12a]',
-        endorsements: 'Ban biên tập của Houston Chronicle, Dallas Morning News và Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]; Thị trưởng Fort Worth Mattie Parker (Cộng hòa) [28]; Hawk Dunlap, một ứng cử viên trong vòng sơ bộ của Đảng Cộng hòa cho ghế này [29]',
+        endorsements: 'Ban biên tập của Houston Chronicle, Dallas Morning News, Austin American-Statesman và San Antonio Express-News [20][21][22][30]; Texas AFL-CIO [23]; Sierra Club [18]; Thị trưởng Fort Worth Mattie Parker (Cộng hòa) [28]; Hawk Dunlap, một ứng cử viên trong vòng sơ bộ của Đảng Cộng hòa cho ghế này [29]',
         bills: 'Giữ giá khí đốt công bằng và giảm hóa đơn [9]; chống chịu thời tiết cho các cơ sở khí đốt trước thời tiết khắc nghiệt [6]',
         wells: 'Phí mới đối với việc xử lý nước muối (nước thải từ mỏ dầu); nâng mức tiền bảo lãnh và tiền ký quỹ của các nhà khai thác [6]',
         drilling: 'Khoảng cách an toàn (setback) chặt chẽ hơn; đáp ứng tốt hơn nhu cầu của cộng đồng [5]',

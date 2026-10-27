@@ -52,4 +52,5 @@ export const sources = [
   { id: '27', text: 'Texas Oil and Gas Association PAC, 2026 general election slate of candidates', url: 'https://docs.txoga.org/files/5202-txoga-pac-slate-of-candidates-2026-general_10-13-26.pdf' },
   { id: '28', text: 'WFAA, Republican Fort Worth Mayor Mattie Parker endorses Jon Rosenthal, Oct. 25, 2026', url: 'https://www.yahoo.com/news/politics/articles/republican-fort-worth-mayor-mattie-002127447.html' },
   { id: '29', text: 'Dallas Morning News, Former GOP Railroad Commission candidate Hawk Dunlap supports Jon Rosenthal, June 30, 2026', url: 'https://www.dallasnews.com/news/politics/article/ex-gop-candidate-railroad-commission-supports-22325471.php' },
+  { id: '30', text: 'San Antonio Express-News editorial board endorsement, Sept. 25, 2026', url: 'https://www.expressnews.com/opinion/editorial/article/rosenthal-railroad-commission-22444771.php' },
 ];

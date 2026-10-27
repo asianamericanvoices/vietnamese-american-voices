@@ -214,7 +214,7 @@ const en = {
       table: {
         work: 'Engineer with about 25 years in and around the oil and gas industry [12a]',
         office: 'State representative for Northwest Houston in the Texas House [12a]',
-        endorsements: 'Editorial boards of the Houston Chronicle, Dallas Morning News and Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]; Fort Worth Mayor Mattie Parker (Republican) [28]; Hawk Dunlap, a Republican primary candidate for this seat [29]',
+        endorsements: 'Editorial boards of the Houston Chronicle, Dallas Morning News, Austin American-Statesman and San Antonio Express-News [20][21][22][30]; Texas AFL-CIO [23]; Sierra Club [18]; Fort Worth Mayor Mattie Parker (Republican) [28]; Hawk Dunlap, a Republican primary candidate for this seat [29]',
         bills: 'Keep gas rates fair and bills down [9]; weatherize gas facilities for extreme weather [6]',
         wells: 'New fee on saltwater (oilfield wastewater) disposal; higher operator bonds and cash deposits [6]',
         drilling: 'Stronger setbacks; more responsive to communities [5]',
