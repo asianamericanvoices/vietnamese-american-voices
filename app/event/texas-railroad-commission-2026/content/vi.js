@@ -196,7 +196,7 @@ const vi = {
       table: {
         work: 'Nhà giao dịch năng lượng từ năm 1994; chủ trang trại và chủ sở hữu quyền khoáng sản; từng sở hữu các doanh nghiệp an ninh ở Trung Đông [8]. Gia đình điều hành một doanh nghiệp dầu mỏ ở Midland [6]',
         office: 'Cựu chủ tịch Đảng Cộng hòa Quận Tarrant [6]',
-        endorsements: 'Thống đốc Greg Abbott; Phó Thống đốc Dan Patrick; các Ủy viên Ủy ban Đường sắt Christi Craddick và Wayne Christian [17][8]; Texas Alliance of Energy Producers [18]; Texas Oil and Gas Association PAC, tổ chức đã lên án bài đăng ngày 13 tháng 9 của Bo French nhưng tính đến ngày 15 tháng 9 vẫn chưa rút lại sự ủng hộ [7c][19]',
+        endorsements: 'Thống đốc Greg Abbott; Phó Thống đốc Dan Patrick; các Ủy viên Ủy ban Đường sắt Christi Craddick và Wayne Christian [17][8]; Texas Alliance of Energy Producers; Panhandle Producers and Royalty Owners Association [18]; Texas Oil and Gas Association PAC đã ủng hộ Bo French, sau đó lên án bài đăng ngày 13 tháng 9 của ông; danh sách ủng hộ cho cuộc tổng tuyển cử của tổ chức này không có tên ông [7c][27]',
         bills: 'Cắt giảm sự kém hiệu quả về hành chính và các quy định quá rộng để giảm chi phí năng lượng [5]',
         wells: 'Bịt kín thêm nhiều giếng bị bỏ hoang [5]',
         drilling: 'Làm việc với ngành và các chủ đất để bảo vệ đất đai và môi trường [5]',
@@ -211,7 +211,7 @@ const vi = {
       table: {
         work: 'Kỹ sư với khoảng 25 năm làm việc trong và xung quanh ngành dầu khí [12a]',
         office: 'Dân biểu tiểu bang đại diện cho Tây Bắc Houston tại Hạ viện Texas [12a]',
-        endorsements: 'Ban biên tập của Houston Chronicle, Dallas Morning News và Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]',
+        endorsements: 'Ban biên tập của Houston Chronicle, Dallas Morning News và Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]; Thị trưởng Fort Worth Mattie Parker (Cộng hòa) [28]; Hawk Dunlap, một ứng cử viên trong vòng sơ bộ của Đảng Cộng hòa cho ghế này [29]',
         bills: 'Giữ giá khí đốt công bằng và giảm hóa đơn [9]; chống chịu thời tiết cho các cơ sở khí đốt trước thời tiết khắc nghiệt [6]',
         wells: 'Phí mới đối với việc xử lý nước muối (nước thải từ mỏ dầu); nâng mức tiền bảo lãnh và tiền ký quỹ của các nhà khai thác [6]',
         drilling: 'Khoảng cách an toàn (setback) chặt chẽ hơn; đáp ứng tốt hơn nhu cầu của cộng đồng [5]',

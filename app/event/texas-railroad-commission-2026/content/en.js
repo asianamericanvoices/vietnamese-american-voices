@@ -198,7 +198,7 @@ const en = {
       table: {
         work: 'Energy trader beginning in 1994; rancher and mineral owner; has owned security businesses in the Middle East [8]. Family runs an oil business in Midland [6]',
         office: 'Former chair of the Tarrant County Republican Party [6]',
-        endorsements: 'Gov. Greg Abbott; Lt. Gov. Dan Patrick; Railroad Commissioners Christi Craddick and Wayne Christian [17][8]; Texas Alliance of Energy Producers [18]; Texas Oil and Gas Association PAC, which condemned French\'s Sept. 13 post but had not withdrawn its endorsement as of Sept. 15 [7c][19]',
+        endorsements: 'Gov. Greg Abbott; Lt. Gov. Dan Patrick; Railroad Commissioners Christi Craddick and Wayne Christian [17][8]; Texas Alliance of Energy Producers; Panhandle Producers and Royalty Owners Association [18]; Texas Oil and Gas Association PAC endorsed French, then condemned his Sept. 13 post; its general-election slate does not include him [7c][27]',
         bills: 'Cut administrative inefficiency and overly broad regulation to lower energy costs [5]',
         wells: 'Plug more abandoned wells [5]',
         drilling: 'Work with industry and landowners to protect land and the environment [5]',
@@ -214,7 +214,7 @@ const en = {
       table: {
         work: 'Engineer with about 25 years in and around the oil and gas industry [12a]',
         office: 'State representative for Northwest Houston in the Texas House [12a]',
-        endorsements: 'Editorial boards of the Houston Chronicle, Dallas Morning News and Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]',
+        endorsements: 'Editorial boards of the Houston Chronicle, Dallas Morning News and Austin American-Statesman [20][21][22]; Texas AFL-CIO [23]; Sierra Club [18]; Fort Worth Mayor Mattie Parker (Republican) [28]; Hawk Dunlap, a Republican primary candidate for this seat [29]',
         bills: 'Keep gas rates fair and bills down [9]; weatherize gas facilities for extreme weather [6]',
         wells: 'New fee on saltwater (oilfield wastewater) disposal; higher operator bonds and cash deposits [6]',
         drilling: 'Stronger setbacks; more responsive to communities [5]',
