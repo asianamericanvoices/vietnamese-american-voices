@@ -71,6 +71,7 @@ const en = {
   slides: [
     {
       title: "Who's running for Texas Railroad Commissioner",
+      question: 'Listed in the order they appear on the Texas ballot, as set by state law, not by AAVM.',
       // Candidate descriptions adapted from the Community Impact Q&A [5]; Rosenthal's district from [12a]
       candidates: [
         'Bo is an entrepreneur and 3rd-generation oilman with three decades of experience in the industry.',

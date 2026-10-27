@@ -70,6 +70,7 @@ const vi = {
   slides: [
     {
       title: 'Ai đang tranh cử vào Ủy ban Đường sắt Texas',
+      question: 'Các ứng cử viên được liệt kê theo thứ tự trên lá phiếu Texas, do luật tiểu bang quy định, không phải do AAVM.',
       // Mô tả ứng cử viên phỏng theo phần Hỏi & Đáp của Community Impact [5]; khu vực của Rosenthal theo [12a]
       candidates: [
         'Bo là một doanh nhân và là thế hệ thứ ba trong gia đình làm nghề dầu mỏ, với ba thập kỷ kinh nghiệm trong ngành.',
