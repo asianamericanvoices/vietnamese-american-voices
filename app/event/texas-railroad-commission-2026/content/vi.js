@@ -176,6 +176,7 @@ const vi = {
       { key: 'work', label: 'Kinh nghiệm làm việc' },
       { key: 'office', label: 'Chức vụ công hoặc chức vụ trong đảng' },
       { key: 'endorsements', label: 'Sự ủng hộ đáng chú ý' },
+      { key: 'inTheNews', label: 'Trên tin tức' },
       { group: 'Lập trường của họ về…' },
       { key: 'bills', label: 'Hóa đơn năng lượng của bạn' },
       { key: 'wells', label: 'Các giếng dầu khí cũ' },

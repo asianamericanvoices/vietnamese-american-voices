@@ -177,6 +177,7 @@ const en = {
       { key: 'work', label: 'Work background' },
       { key: 'office', label: 'Public or party office' },
       { key: 'endorsements', label: 'Notable endorsements' },
+      { key: 'inTheNews', label: 'In the news' },
       { group: 'Their position on…' },
       { key: 'bills', label: 'Your energy bills' },
       { key: 'wells', label: 'Old oil and gas wells' },

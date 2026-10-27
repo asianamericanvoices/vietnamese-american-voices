@@ -904,7 +904,7 @@ export default function TexasRailroadCommission2026() {
                           {row.key === 'website' ? (
                             <a href={c.website} target="_blank" rel="noopener noreferrer" className="underline text-orange-700">{c.websiteLabel}</a>
                           ) : (
-                            <RichText text={c.table[row.key]} />
+                            <RichText text={(row.key === 'inTheNews' ? c.inTheNews : c.table[row.key]) || ''} />
                           )}
                         </td>
                       ))}
@@ -944,7 +944,7 @@ export default function TexasRailroadCommission2026() {
                             {row.key === 'website' ? (
                               <a href={c.website} target="_blank" rel="noopener noreferrer" className="underline text-orange-700">{c.websiteLabel}</a>
                             ) : (
-                              <RichText text={c.table[row.key]} />
+                              <RichText text={(row.key === 'inTheNews' ? c.inTheNews : c.table[row.key]) || ''} />
                             )}
                           </div>
                         </div>
@@ -977,6 +977,13 @@ export default function TexasRailroadCommission2026() {
                         <strong className="text-gray-900">{content.candidatesSection.backgroundLabel}</strong>{' '}
                         <RichText text={c.background} />
                       </p>
+                      {/* Same "In the news" standard for every candidate (stated in the note above) */}
+                      {c.inTheNews && (
+                        <p className="mt-3 text-base text-gray-700 leading-relaxed">
+                          <strong className="text-gray-900">{content.candidatesSection.inTheNewsLabel}</strong>{' '}
+                          <RichText text={c.inTheNews} />
+                        </p>
+                      )}
                       <p className="mt-3 text-base text-gray-700 leading-relaxed">
                         <strong className="text-gray-900">{content.candidatesSection.inWordsLabel}</strong>{' '}
                         <RichText text={c.inWords} />
@@ -985,13 +992,6 @@ export default function TexasRailroadCommission2026() {
                         <strong className="text-gray-900">{content.candidatesSection.endorsementsLabel}</strong>{' '}
                         <RichText text={c.table.endorsements} />
                       </p>
-                      {/* Same "In the news" standard for every candidate (stated in the note above) */}
-                      {c.inTheNews && (
-                        <p className="mt-3 text-base text-gray-700 leading-relaxed">
-                          <strong className="text-gray-900">{content.candidatesSection.inTheNewsLabel}</strong>{' '}
-                          <RichText text={c.inTheNews} />
-                        </p>
-                      )}
                       {!open && (
                         <div className={`lg:hidden pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t ${PARTY_FADE[c.partyKey] || 'from-gray-50'} to-transparent`} />
                       )}
