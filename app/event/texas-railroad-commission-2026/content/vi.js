@@ -70,14 +70,14 @@ const vi = {
   slides: [
     {
       title: 'Ai đang tranh cử vào Ủy ban Đường sắt Texas',
-      question: 'Các ứng cử viên được liệt kê theo thứ tự trên lá phiếu Texas, do luật tiểu bang quy định, không phải do AAVM.',
+      question: 'Các ứng cử viên được liệt kê theo thứ tự trên lá phiếu Texas, do luật tiểu bang quy định, không phải do Tiếng Nói Người Mỹ Gốc Việt.',
       // Mô tả ứng cử viên phỏng theo phần Hỏi & Đáp của Community Impact [5]; khu vực của Rosenthal theo [12a]
       candidates: [
         'Bo là một doanh nhân và là thế hệ thứ ba trong gia đình làm nghề dầu mỏ, với ba thập kỷ kinh nghiệm trong ngành.',
         'Jon Rosenthal là một kỹ sư và là dân biểu tiểu bang đại diện cho Tây Bắc Houston.',
         'Cựu lập trình viên máy tính, hiện đã nghỉ hưu.',
       ],
-      note: 'Mô tả ứng cử viên phỏng theo phần Hỏi & Đáp của Community Impact, ngày 25 tháng 8 năm 2026 [5][12a] · AAVM dịch',
+      note: 'Mô tả ứng cử viên phỏng theo phần Hỏi & Đáp của Community Impact, ngày 25 tháng 8 năm 2026 [5][12a] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
     // Slides 2-5: câu trả lời đầy đủ của từng ứng cử viên cho cùng một câu hỏi của Community Impact [5],
     // do AAVM dịch. Theo thứ tự trên lá phiếu.
@@ -91,7 +91,7 @@ const vi = {
         'Ủy ban Đường sắt nên đặt người dân Texas lên trên các nhóm lợi ích tài chính lớn, nhưng lại thiếu nguồn lực để làm điều đó một cách thỏa đáng. Tôi sẽ vận động tăng ngân sách để thực thi các quy định hiện hành và đáp ứng tốt hơn nhu cầu của cộng đồng. Chúng ta nên đơn giản hóa thủ tục cấp phép cho những bên hoạt động đúng đắn và áp dụng mức phạt nghiêm khắc đối với những bên vi phạm nghiêm trọng.',
         'Tôi muốn tôn trọng đầy đủ quyền sở hữu tài sản của chủ đất, và bảo đảm rằng quyền sở hữu tài sản luôn được ưu tiên hơn lợi ích của ngành. Minh bạch hơn. Đơn giản hóa và dọn dẹp 100 năm quy định.',
       ],
-      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · AAVM dịch',
+      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
     {
       eyebrow: 'Lập trường chính · Theo lời của chính họ',
@@ -103,7 +103,7 @@ const vi = {
         'Chúng ta nên đơn giản hóa quy trình, giảm thời gian và chi phí cấp phép cho những bên hoạt động đúng đắn, để khuyến khích và thúc đẩy các nhà khai thác có trách nhiệm. Và chúng ta nên áp dụng mức phạt nặng cùng các yêu cầu nghiêm ngặt đối với những bên vi phạm nghiêm trọng. Vi phạm pháp luật phải chịu hậu quả, và chúng ta không được khen thưởng những công ty hoạt động ngoài giới hạn pháp luật.',
         'Chúng ta cần minh bạch hơn rất nhiều, và tránh tình trạng ‘cơ quan quản lý bị chi phối bởi ngành mình quản lý’ (regulatory capture). Nhiệm vụ của RRC không phải là quảng bá cho ngành dầu khí, mà là đưa ra những lựa chọn bảo đảm quyền sở hữu tài sản của mọi người dân Texas. Chúng ta cần cân bằng tốt hơn giữa quyền sử dụng bề mặt đất và quyền khoáng sản.',
       ],
-      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · AAVM dịch',
+      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
     {
       eyebrow: 'Lập trường chính · Theo lời của chính họ',
@@ -115,7 +115,7 @@ const vi = {
         'Tôi sẽ vận động ngân sách để đẩy mạnh tối đa việc bịt kín giếng và làm sạch môi trường. Và tôi sẽ làm việc với các cộng đồng và các bên liên quan trong ngành để chấm dứt việc đốt bỏ khí thường xuyên (flaring), chống chịu thời tiết cho các cơ sở khí đốt tự nhiên, áp dụng các tiêu chuẩn khoảng cách an toàn (setback) chặt chẽ hơn, cùng nhiều biện pháp hợp lý khác nhằm giảm rủi ro môi trường, đồng thời bảo đảm ngành công nghiệp then chốt này tiếp tục phát triển mạnh.',
         'Việc bồi hoàn cần phải sẵn có trong các trường hợp tài sản bị thiệt hại do động đất, rò rỉ nước thải, v.v. Bảo hiểm, tiền ký quỹ bảo đảm (bonding) và các quỹ làm sạch do ngành hỗ trợ đều là những cách để hỗ trợ điều đó.',
       ],
-      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · AAVM dịch',
+      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
     {
       eyebrow: 'Lập trường chính · Theo lời của chính họ',
@@ -127,7 +127,7 @@ const vi = {
         'Tôi ủng hộ cách tiếp cận sử dụng mọi nguồn năng lượng (all-of-the-above) trong sản xuất năng lượng ở Texas. Nói thẳng ra – chúng ta cần tất cả nguồn điện mà chúng ta có thể có. Ngay cả trước khi tính đến các trung tâm dữ liệu, sự tăng trưởng bùng nổ của tất cả các ngành khác và sự gia tăng dân số đòi hỏi cách tiếp cận này. Chúng ta nên thúc đẩy mọi hình thức sản xuất năng lượng, bao gồm khí đốt tự nhiên, địa nhiệt và các nguồn tái tạo.',
         'Năng lượng tái tạo có thể rất tốt, nhưng nó phải cạnh tranh trên thị trường tự do với nhiên liệu hóa thạch. Chính phủ và các cơ quan quản lý của chúng ta không nên ưu ái hình thức này hơn hình thức khác.',
       ],
-      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · AAVM dịch',
+      note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
     {
       title: 'Cách bỏ phiếu',
@@ -167,7 +167,7 @@ const vi = {
 
   candidatesSection: {
     heading: 'So sánh song song các ứng cử viên',
-    intro: 'Về phần này: Cả ba ứng cử viên được giới thiệu theo cùng một định dạng, dựa trên các bản tin, trang web vận động tranh cử và một bảng câu hỏi của Community Impact mà tất cả họ đều đã trả lời [5], và được liệt kê theo thứ tự trên lá phiếu Texas [3]. Mục “Trên tin tức” xuất hiện khi các phát biểu hoặc hành vi trong chiến dịch của một ứng cử viên được ít nhất hai tổ chức tin tức uy tín đưa tin và bị chỉ trích bởi những người ngoài các đối thủ chính trị của ứng cử viên đó; mục này có kèm phản hồi của ứng cử viên. AAVM không ủng hộ ứng cử viên nào.',
+    intro: 'Về phần này: Cả ba ứng cử viên được giới thiệu theo cùng một định dạng, dựa trên các bản tin, trang web vận động tranh cử và một bảng câu hỏi của Community Impact mà tất cả họ đều đã trả lời [5], và được liệt kê theo thứ tự trên lá phiếu Texas [3]. Mục “Trên tin tức” xuất hiện khi các phát biểu hoặc hành vi trong chiến dịch của một ứng cử viên được ít nhất hai tổ chức tin tức uy tín đưa tin và bị chỉ trích bởi những người ngoài các đối thủ chính trị của ứng cử viên đó; mục này có kèm phản hồi của ứng cử viên. Tiếng Nói Người Mỹ Gốc Việt không ủng hộ ứng cử viên nào.',
     rows: [
       { key: 'work', label: 'Kinh nghiệm làm việc' },
       { key: 'office', label: 'Chức vụ công hoặc chức vụ trong đảng' },
@@ -235,11 +235,11 @@ const vi = {
 
   coverage: {
     heading: 'Tin tức về cuộc bầu cử',
-    intro: 'Các bài tường thuật về cuộc bầu cử này từ những tòa soạn uy tín ở Texas, do AAVM dịch và ghi nguồn cơ quan báo chí gốc.',
+    intro: 'Các bài tường thuật về cuộc bầu cử này từ những tòa soạn uy tín ở Texas, do Tiếng Nói Người Mỹ Gốc Việt dịch và ghi nguồn cơ quan báo chí gốc.',
   },
 
   footer: {
-    disclaimer: 'AAVM không ủng hộ ứng cử viên nào.',
+    disclaimer: 'Tiếng Nói Người Mỹ Gốc Việt không ủng hộ ứng cử viên nào.',
     photoCredit: 'Ảnh do các chiến dịch tranh cử của ứng cử viên cung cấp cho Community Impact.',
     corrections: 'Đính chính: nếu bạn thấy có sai sót, vui lòng gửi email đến',
     correctionsEmail: 'contact@tiengnoinguoimygocviet.us', // site's public contact address; never a personal email

@@ -71,7 +71,7 @@ const en = {
   slides: [
     {
       title: "Who's running for Texas Railroad Commissioner",
-      question: 'Listed in the order they appear on the Texas ballot, as set by state law, not by AAVM.',
+      question: 'Listed in the order they appear on the Texas ballot, as set by state law, not by {outlet}.',
       // Candidate descriptions adapted from the Community Impact Q&A [5]; Rosenthal's district from [12a]
       candidates: [
         'Bo is an entrepreneur and 3rd-generation oilman with three decades of experience in the industry.',
@@ -168,7 +168,7 @@ const en = {
 
   candidatesSection: {
     heading: 'The candidates side by side',
-    intro: "About this section: All three candidates are profiled in the same format, drawing on news reports, campaign websites and a Community Impact questionnaire they all answered [5], and are listed in Texas ballot order [3]. An “In the news” note appears when a candidate's campaign statements or conduct were reported by at least two established news organizations and drew criticism beyond the candidate's political opponents; it includes the candidate's response. AAVM does not endorse candidates.",
+    intro: "About this section: All three candidates are profiled in the same format, drawing on news reports, campaign websites and a Community Impact questionnaire they all answered [5], and are listed in Texas ballot order [3]. An “In the news” note appears when a candidate's campaign statements or conduct were reported by at least two established news organizations and drew criticism beyond the candidate's political opponents; it includes the candidate's response. {outlet} does not endorse candidates.",
     rows: [
       { key: 'work', label: 'Work background' },
       { key: 'office', label: 'Public or party office' },
@@ -238,11 +238,11 @@ const en = {
 
   coverage: {
     heading: 'Coverage of the race',
-    intro: 'Reporting on this race from established Texas newsrooms, translated by AAVM and credited to the original outlet.',
+    intro: 'Reporting on this race from established Texas newsrooms, translated by {outlet} and credited to the original outlet.',
   },
 
   footer: {
-    disclaimer: 'AAVM does not endorse candidates.',
+    disclaimer: '{outlet} does not endorse candidates.',
     photoCredit: 'Photos courtesy of the candidate campaigns, as provided to Community Impact.', // shown only once candidate photos are in place
     corrections: 'Corrections: if you see an error, email',
     correctionsEmail: 'contact@tinigngfilipinoamerikano.us', // site's public contact address; never a personal email
