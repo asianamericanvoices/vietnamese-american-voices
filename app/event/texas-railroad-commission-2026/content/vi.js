@@ -84,6 +84,14 @@ const vi = {
       ],
       note: 'Mô tả ứng cử viên phỏng theo phần Hỏi & Đáp của Community Impact, ngày 25 tháng 8 năm 2026 [5][12a] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
+    // "In the news" slide: each candidate's In the news entry, same standard for all.
+    {
+      eyebrow: "Trên tin tức · Cùng một tiêu chuẩn cho mọi ứng cử viên",
+      title: "Trên tin tức",
+      question: "Hiển thị khi tin tức về một ứng cử viên đáp ứng tiêu chuẩn của hướng dẫn này, được giải thích trong phần so sánh các ứng cử viên bên dưới. Cả ba ứng cử viên áp dụng cùng một tiêu chuẩn.",
+      candidateField: 'inTheNews',
+      note: "Toàn bộ nguồn được liệt kê ở cuối trang này.",
+    },
     // Slides 2-5: câu trả lời đầy đủ của từng ứng cử viên cho cùng một câu hỏi của Community Impact [5],
     // do AAVM dịch. Theo thứ tự trên lá phiếu.
     {
@@ -133,14 +141,6 @@ const vi = {
         'Năng lượng tái tạo có thể rất tốt, nhưng nó phải cạnh tranh trên thị trường tự do với nhiên liệu hóa thạch. Chính phủ và các cơ quan quản lý của chúng ta không nên ưu ái hình thức này hơn hình thức khác.',
       ],
       note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
-    },
-    // "In the news" slide: each candidate's In the news entry, same standard for all.
-    {
-      eyebrow: "Trên tin tức · Cùng một tiêu chuẩn cho mọi ứng cử viên",
-      title: "Trên tin tức",
-      question: "Hiển thị khi tin tức về một ứng cử viên đáp ứng tiêu chuẩn của hướng dẫn này, được giải thích trong phần so sánh các ứng cử viên bên dưới. Cả ba ứng cử viên áp dụng cùng một tiêu chuẩn.",
-      candidateField: 'inTheNews',
-      note: "Toàn bộ nguồn được liệt kê ở cuối trang này.",
     },
     {
       title: 'Cách bỏ phiếu',

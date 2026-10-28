@@ -85,6 +85,14 @@ const en = {
       ],
       note: 'Candidate descriptions adapted from the Community Impact Q&A, Aug. 25, 2026 [5][12a]',
     },
+    // "In the news" slide: each candidate's In the news entry, same standard for all.
+    {
+      eyebrow: "In the news · Same standard for every candidate",
+      title: "In the news",
+      question: "Shown when news reports about a candidate meet this guide’s standard, explained under “The candidates side by side” below. The same standard applies to all three.",
+      candidateField: 'inTheNews',
+      note: "Full sources are listed at the bottom of this page.",
+    },
     // Slides 2-5: each candidate's full answer to the same Community Impact question [5],
     // quoted verbatim (answers capped at 50 words by Community Impact). Ballot order.
     {
@@ -134,14 +142,6 @@ const en = {
         'Renewable energy can be great, but it has to compete in a free market with fossil fuels. Our government and regulators should not favor one form over another.',
       ],
       note: "Candidates' answers to the same Community Impact questionnaire, Aug. 25, 2026 [5]",
-    },
-    // "In the news" slide: each candidate's In the news entry, same standard for all.
-    {
-      eyebrow: "In the news · Same standard for every candidate",
-      title: "In the news",
-      question: "Shown when news reports about a candidate meet this guide’s standard, explained under “The candidates side by side” below. The same standard applies to all three.",
-      candidateField: 'inTheNews',
-      note: "Full sources are listed at the bottom of this page.",
     },
     {
       title: 'How to vote',
