@@ -235,7 +235,7 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
             {slide.question && (
               <p className="mt-2 text-sm sm:text-base italic text-slate-300">{slide.question}</p>
             )}
-            {slide.candidates && (
+            {(slide.candidates || slide.candidateField) && (
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
                 {candidates.map((c, j) => (
                   <div key={c.id} className={`rounded-lg p-4 ring-1 ${PARTY_CARD[c.partyKey] || 'bg-slate-700 ring-slate-600'}`}>
@@ -249,7 +249,17 @@ function Carousel({ slides, candidates, ui, showPhotos, onSlideView }) {
                         <p className="text-sm text-slate-300">{c.party}</p>
                       </div>
                     </div>
-                    {slide.quotes ? (
+                    {slide.candidateField ? (
+                      // Field-driven slide (e.g. "In the news"): the candidate's own entry, with footnotes
+                      <ClampedText
+                        className="mt-2 text-sm sm:text-base leading-relaxed text-slate-100 [&_sup_a]:text-slate-300"
+                        moreLabel={ui.readMore}
+                        lessLabel={ui.showLess}
+                        buttonClass="text-orange-200 hover:text-white"
+                      >
+                        <RichText text={c[slide.candidateField] || ''} />
+                      </ClampedText>
+                    ) : slide.quotes ? (
                       <ClampedText
                         as="blockquote"
                         className="mt-2 text-sm sm:text-base leading-relaxed text-slate-100"

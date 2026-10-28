@@ -61,6 +61,7 @@ const vi = {
     loading: 'Đang tải…',
     noStories: 'Chưa có bài viết nào.',
     readFullAnswer: 'Đọc toàn bộ câu trả lời',
+    readMore: "Xem thêm",
     readFullProfile: 'Xem toàn bộ hồ sơ',
     showLess: 'Thu gọn',
     compareByTopic: 'So sánh theo chủ đề',
@@ -133,6 +134,14 @@ const vi = {
       ],
       note: 'Câu trả lời của các ứng cử viên cho cùng một bảng câu hỏi của Community Impact, ngày 25 tháng 8 năm 2026 [5] · Tiếng Nói Người Mỹ Gốc Việt dịch',
     },
+    // "In the news" slide: each candidate's In the news entry, same standard for all.
+    {
+      eyebrow: "Trên tin tức · Cùng một tiêu chuẩn cho mọi ứng cử viên",
+      title: "Trên tin tức",
+      question: "Hiển thị khi tin tức về một ứng cử viên đáp ứng tiêu chuẩn của hướng dẫn này, được giải thích trong phần so sánh các ứng cử viên bên dưới. Cả ba ứng cử viên áp dụng cùng một tiêu chuẩn.",
+      candidateField: 'inTheNews',
+      note: "Toàn bộ nguồn được liệt kê ở cuối trang này.",
+    },
     {
       title: 'Cách bỏ phiếu',
       bullets: [
@@ -171,7 +180,7 @@ const vi = {
 
   candidatesSection: {
     heading: 'So sánh song song các ứng cử viên',
-    intro: 'Về phần này: Cả ba ứng cử viên được giới thiệu theo cùng một định dạng, dựa trên các bản tin, trang web vận động tranh cử và một bảng câu hỏi của Community Impact mà tất cả họ đều đã trả lời [5], và được liệt kê theo thứ tự trên lá phiếu Texas [3]. Mục “Trên tin tức” xuất hiện khi các phát biểu hoặc hành vi trong chiến dịch của một ứng cử viên được ít nhất hai tổ chức tin tức uy tín đưa tin và bị chỉ trích bởi những người ngoài các đối thủ chính trị của ứng cử viên đó; mục này có kèm phản hồi của ứng cử viên. Tiếng Nói Người Mỹ Gốc Việt không ủng hộ ứng cử viên nào.',
+    intro: 'Về phần này: Cả ba ứng cử viên được giới thiệu theo cùng một định dạng, dựa trên các bản tin, trang web vận động tranh cử và một bảng câu hỏi của Community Impact mà tất cả họ đều đã trả lời [5], và được liệt kê theo thứ tự trên lá phiếu Texas [3]. Mục “Trên tin tức” xuất hiện khi các phát biểu hoặc hành vi trong chiến dịch của một ứng cử viên được ít nhất hai tổ chức tin tức uy tín đưa tin và bị chỉ trích bởi những người ngoài các đối thủ chính trị của ứng cử viên đó, hoặc khi chính ứng cử viên phát biểu về những người khác dựa trên chủng tộc, sắc tộc, tôn giáo hay quốc gia xuất xứ và phát biểu đó được ít nhất hai tổ chức tin tức uy tín đưa tin. Các phát biểu được trích nguyên văn, kèm phản hồi của ứng cử viên hoặc ghi chú rằng không có phản hồi nào được đưa tin. Tiêu chuẩn này được điều chỉnh vào ngày 27 tháng 10. Tiếng Nói Người Mỹ Gốc Việt không ủng hộ ứng cử viên nào.',
     rows: [
       { key: 'work', label: 'Kinh nghiệm làm việc' },
       { key: 'office', label: 'Chức vụ công hoặc chức vụ trong đảng' },
@@ -203,7 +212,7 @@ const vi = {
         renewables: 'Ủng hộ năng lượng tái tạo nếu có hiệu quả kinh tế mà không cần ưu đãi từ tiền thuế [5]',
       },
       background: 'Bo French lớn lên ở Midland [8], nơi gia đình ông điều hành một doanh nghiệp dầu mỏ [6]. Ông gia nhập ngành năng lượng năm 1994 và làm nhà giao dịch năng lượng trong một thập kỷ, và cho biết ông từng sở hữu và điều hành các doanh nghiệp an ninh ở Trung Đông [8]. Ông là cựu chủ tịch Đảng Cộng hòa Quận Tarrant [6]. Ông giành được đề cử của Đảng Cộng hòa sau khi đánh bại Ủy viên đương nhiệm Jim Wright trong vòng bầu cử quyết định (runoff) hồi tháng 5 [6].',
-      inTheNews: 'Ngày 13 tháng 9, Bo French đăng một bức ảnh chụp các sinh viên Đại học Texas (University of Texas) trên khán đài tại một trận bóng bầu dục, sau đó viết rằng trường đại học này ưu tiên “người nước ngoài hơn người Texas”; các lãnh đạo Đảng Cộng hòa, trong đó có Thượng nghị sĩ John Cornyn và Chủ tịch Hạ viện Texas Dustin Burrows, đã chỉ trích bài đăng là phân biệt chủng tộc [7a][25]. Sau đó, hai sinh viên trong ảnh cho tờ The Dallas Morning News biết họ là công dân Hoa Kỳ [26]. Bo French bảo vệ bài đăng, nói rằng: “vấn đề lớn hơn là, chúng ta sẽ có những chính sách ưu tiên người Mỹ – hay chúng ta sẽ có những chính sách ưu tiên người nước ngoài?” [7a]',
+      inTheNews: "Ngày 13 tháng 9, Bo French đăng một bức ảnh các sinh viên Đại học Texas (University of Texas) đang cổ vũ trên khán đài một trận bóng bầu dục, những sinh viên mà Texas Tribune và NBC News mô tả là người gốc Nam Á, và viết rằng “vấn đề rõ ràng tồi tệ hơn nhiều so với những gì bất kỳ ai có thể tưởng tượng”, rồi sau đó viết rằng trường đại học này ưu tiên “người nước ngoài hơn người Texas”. Các lãnh đạo Đảng Cộng hòa, trong đó có Thượng nghị sĩ John Cornyn và Chủ tịch Hạ viện Texas Dustin Burrows, đã chỉ trích bài đăng là phân biệt chủng tộc [7a][25], và Dân biểu tiểu bang Angie Chen Button (Cộng hòa, Garland), một người nhập cư từ Đài Loan, cho biết bà sẽ không bỏ phiếu cho ông [26]. Các sinh viên trong ảnh nói với phóng viên rằng họ là công dân Hoa Kỳ; một người nói với Texas Tribune: “Khi nhìn bức ảnh đó, tôi không thấy có vấn đề gì” [26][31]. Bo French đáp lại: “Đây không phải chuyện chủng tộc, mà là chuyện chính sách” [32]. Trước đó, vào tháng 7 năm 2026, Bo French đăng rằng đã đến “lúc đi gom hết người Trung Quốc lại và tống khứ họ đi!” [33][34] Tại CPAC vào tháng 3 năm 2026, ông nói “vấn đề thực ra là Hồi giáo” và kêu gọi người Hồi giáo “về nhà” [35][36]. Vào tháng 8 năm 2025, ông kêu gọi các quan chức liên bang “tước quốc tịch và trục xuất” Dân biểu tiểu bang Salman Bhojani, người sinh ra ở Pakistan [33][37], và vào tháng 6 năm 2025, ông đăng một cuộc thăm dò hỏi “Ai là mối đe dọa lớn hơn đối với nước Mỹ?” với hai lựa chọn “Người Do Thái” và “Người Hồi giáo” [37][38]. Bo French đã xóa cuộc thăm dò và nói: “Tôi hối tiếc vì đã đăng nó” [38]; không có phản hồi nào của ông về các bài đăng khác được đưa tin [33][34].",
       inWords: 'Bo French cho biết các ưu tiên của ông là giảm sự kém hiệu quả về hành chính và các quy định quá rộng để giảm chi phí năng lượng, bảo vệ chủ đất, và bịt kín thêm nhiều giếng bị bỏ hoang [5]. Chiến dịch của ông cho biết ông đã cam kết “chấm dứt DEI, các quy định hà khắc, và ảnh hưởng của Hồi giáo cực đoan và ĐCSTQ (CCP) trong ngành dầu mỏ Texas” [8], và thực thi lệnh cấm của Cơ quan Lập pháp Texas đối với việc sở hữu đất của các thế lực nước ngoài thù địch [8]. Ông cho rằng Ủy ban trao hơn 1 triệu đô la mỗi năm cho các hợp đồng dựa trên tiêu chí đa dạng, công bằng và hòa nhập, và muốn chấm dứt việc này [6]. Ông gọi việc sử dụng nước là thách thức lớn nhất mà Texas phải đối mặt trong năm năm tới [5].',
     },
     rosenthal: {

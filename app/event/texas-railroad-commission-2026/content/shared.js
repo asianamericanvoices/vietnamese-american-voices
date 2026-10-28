@@ -53,4 +53,12 @@ export const sources = [
   { id: '28', text: 'WFAA, Republican Fort Worth Mayor Mattie Parker endorses Jon Rosenthal, Oct. 25, 2026', url: 'https://www.yahoo.com/news/politics/articles/republican-fort-worth-mayor-mattie-002127447.html' },
   { id: '29', text: 'Dallas Morning News, Former GOP Railroad Commission candidate Hawk Dunlap supports Jon Rosenthal, June 30, 2026', url: 'https://www.dallasnews.com/news/politics/article/ex-gop-candidate-railroad-commission-supports-22325471.php' },
   { id: '30', text: 'San Antonio Express-News editorial board endorsement, Sept. 25, 2026', url: 'https://www.expressnews.com/opinion/editorial/article/rosenthal-railroad-commission-22444771.php' },
+  { id: '31', text: "Texas Tribune, UT students respond to Bo French's post, Sept. 15, 2026", url: 'https://www.kbtx.com/2026/09/15/ut-students-attacked-by-bo-french-call-his-comments-disgusting-too-familiar/' },
+  { id: '32', text: "Texas Public Radio, What Bo French's posts mean for him and for Republicans, Oct. 8, 2026", url: 'https://www.tpr.org/government-politics/2026-10-08/hes-trying-to-divide-what-bo-frenchs-racist-posts-mean-for-him-republicans-and-american-politics' },
+  { id: '33', text: "Texas Tribune, Top Texas Republicans knew of Bo French's past comments, Sept. 18, 2026", url: 'https://www.texastribune.org/2026/09/18/bo-french-texas-republicans-silence/' },
+  { id: '34', text: "Dallas Morning News, Bo French's social media posts, Sept. 18, 2026", url: 'https://www.dallasnews.com/news/politics/article/republican-bo-french-s-social-media-posts-full-22434821.php' },
+  { id: '35', text: "Texas Tribune, Bo French remarks at Texas CPAC, March 27, 2026", url: 'https://www.texastribune.org/2026/03/27/texas-cpac-bo-french-islamophobia-muslim-railroad-commissioner-deport/' },
+  { id: '36', text: "Spectrum News, Railroad Commission candidate calls for deportations, March 31, 2026", url: 'https://spectrumlocalnews.com/tx/austin/news/2026/03/31/railroad-commission-candidate-calls-for-deportation-of-100m' },
+  { id: '37', text: "KERA News / Fort Worth Report, Bo French posts about Rep. Salman Bhojani, Aug. 13, 2025", url: 'https://fortworthreport.org/2025/08/13/tarrant-county-gop-leader-posts-anti-muslim-remarks-about-texas-house-member-2/' },
+  { id: '38', text: "FOX 4, Bo French poll and Dan Patrick's response, June 27, 2025", url: 'https://www.fox4news.com/news/tarrant-county-bo-french-poll-dan-patrick' },
 ];

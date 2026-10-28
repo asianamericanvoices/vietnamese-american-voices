@@ -61,6 +61,7 @@ const en = {
     loading: 'Loading…',
     noStories: 'No stories yet.',
     readFullAnswer: 'Read full answer',
+    readMore: "Read more",
     readFullProfile: 'Read full profile',
     showLess: 'Show less',
     compareByTopic: 'Compare by topic',
@@ -134,6 +135,14 @@ const en = {
       ],
       note: "Candidates' answers to the same Community Impact questionnaire, Aug. 25, 2026 [5]",
     },
+    // "In the news" slide: each candidate's In the news entry, same standard for all.
+    {
+      eyebrow: "In the news · Same standard for every candidate",
+      title: "In the news",
+      question: "Shown when news reports about a candidate meet this guide’s standard, explained under “The candidates side by side” below. The same standard applies to all three.",
+      candidateField: 'inTheNews',
+      note: "Full sources are listed at the bottom of this page.",
+    },
     {
       title: 'How to vote',
       bullets: [
@@ -172,7 +181,7 @@ const en = {
 
   candidatesSection: {
     heading: 'The candidates side by side',
-    intro: "About this section: All three candidates are profiled in the same format, drawing on news reports, campaign websites and a Community Impact questionnaire they all answered [5], and are listed in Texas ballot order [3]. An “In the news” note appears when a candidate's campaign statements or conduct were reported by at least two established news organizations and drew criticism beyond the candidate's political opponents; it includes the candidate's response. {outlet} does not endorse candidates.",
+    intro: "About this section: All three candidates are profiled in the same format, drawing on news reports, campaign websites and a Community Impact questionnaire they all answered [5], and are listed in Texas ballot order [3]. An “In the news” note appears when a candidate's campaign statements or conduct were reported by at least two established news organizations and drew criticism beyond the candidate's political opponents, or when a candidate's own statements about people based on race, ethnicity, religion or national origin were reported by at least two established news organizations. Statements are quoted verbatim, with the candidate's response or a note that none was reported. This standard was revised on Oct. 27. {outlet} does not endorse candidates.",
     rows: [
       { key: 'work', label: 'Work background' },
       { key: 'office', label: 'Public or party office' },
@@ -206,7 +215,7 @@ const en = {
       },
       background: 'French was raised in Midland [8], where his family runs an oil business [6]. He entered the energy industry in 1994 and worked as an energy trader for a decade, and says he has owned and operated security businesses in the Middle East [8]. He is a former chair of the Tarrant County Republican Party [6]. He won the Republican nomination by defeating incumbent Commissioner Jim Wright in the May runoff [6].',
       // Same rule for all three: statewide coverage + widely criticized = one factual passage.
-      inTheNews: 'On Sept. 13, French posted a photo of University of Texas students in the stands at a football game, later writing that the university prioritizes "foreigners over Texans"; Republican leaders including Sen. John Cornyn and Texas House Speaker Dustin Burrows criticized the post as racist [7a][25]. Two students in the photo later told The Dallas Morning News they are U.S. citizens [26]. French defended the post, saying, "the bigger conversation is, are we going to have policies to prioritize Americans – or are we going to have policies that prioritize foreigners?" [7a]',
+      inTheNews: "On Sept. 13, French posted a photo of University of Texas students cheering at a football game, students the Texas Tribune and NBC News described as of South Asian descent, writing that “the problem is now obviously far worse than anyone imagined,” and later that the university prioritizes “foreigners over Texans.” Republican leaders including Sen. John Cornyn and Texas House Speaker Dustin Burrows criticized the post as racist [7a][25], and state Rep. Angie Chen Button (R-Garland), an immigrant from Taiwan, said she would not vote for him [26]. Students in the photo told reporters they are U.S. citizens; one told the Texas Tribune, “When I look at that picture, I don't see a problem” [26][31]. French responded, “It's not about race, it's about policy” [32]. Earlier, in July 2026, French posted that it's “time to go round up all the Chinese and send them packing!” [33][34] At CPAC in March 2026 he said “the problem is actually Islam” and called for Muslims to “go home” [35][36]. In August 2025 he called on federal officials to “denaturalize and deport” state Rep. Salman Bhojani, who was born in Pakistan [33][37], and in June 2025 he posted a poll asking “Who is a bigger threat to America?” with the options “Jews” and “Muslims” [37][38]. French deleted the poll and said, “I regret posting it” [38]; no response from him to the other posts was reported [33][34].",
       inWords: 'French says his priorities are to reduce administrative inefficiency and overly broad regulation to lower energy costs, protect landowners, and plug more abandoned wells [5]. His campaign says he has committed to "ending DEI, overbearing regulation, and the influence of radical Islam and the CCP in Texas oil" [8], and to enforcing the Texas Legislature\'s ban on hostile foreign land ownership [8]. He says the Commission awards more than $1 million a year in contracts based on diversity, equity and inclusion criteria, and wants to end the practice [6]. He calls water use the greatest challenge facing Texas over the next five years [5].',
     },
     rosenthal: {
