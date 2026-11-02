@@ -61,4 +61,7 @@ export const sources = [
   { id: '36', text: "Spectrum News, Railroad Commission candidate calls for deportations, March 31, 2026", url: 'https://spectrumlocalnews.com/tx/austin/news/2026/03/31/railroad-commission-candidate-calls-for-deportation-of-100m' },
   { id: '37', text: "KERA News / Fort Worth Report, Bo French posts about Rep. Salman Bhojani, Aug. 13, 2025", url: 'https://fortworthreport.org/2025/08/13/tarrant-county-gop-leader-posts-anti-muslim-remarks-about-texas-house-member-2/' },
   { id: '38', text: "FOX 4, Bo French poll and Dan Patrick's response, June 27, 2025", url: 'https://www.fox4news.com/news/tarrant-county-bo-french-poll-dan-patrick' },
+  { id: '39', text: "Dallas Morning News, Karl Rove says he will vote for a Democrat over Bo French, Sept. 17, 2026", url: 'https://www.dallasnews.com/news/politics/article/karl-rove-voting-for-democrat-over-bo-french-22436528.php' },
+  { id: '40', text: "Austin American-Statesman, Karl Rove and Republicans respond to Bo French's UT posts, Sept. 18, 2026", url: 'https://www.statesman.com/news/article/karl-rove-bo-french-ut-posts-22438035.php' },
+  { id: '41', text: "Dallas Morning News (via Marshall News Messenger), The final stretch of the Railroad Commission race, Oct. 29, 2026", url: 'https://marshallnewsmessenger.com/2026/10/29/as-jon-rosenthal-crisscrosses-the-state-bo-french-has-gone-underground-in-final-stretch/' },
 ];
